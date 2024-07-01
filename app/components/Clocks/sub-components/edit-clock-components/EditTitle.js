@@ -1,38 +1,26 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { themes } from "../../../../helper-functions";
+import React from "react";
 import { useSelector } from "react-redux";
-
-const StyledTitle = styled.input`
-  display: flex;
-  background-color: transparent;
-  border: none;
-  padding: 4px;
-  box-shadow: 0 2px;
-  outline: none;
-  font-size: 1.5rem;
-  margin: 1rem;
-  @media (max-width: 420px) {
-    width: 75%;
-  }
-`;
+import { themes } from "../../../../util/cssUtils";
 
 export default function EditTitle({ currentClock, oldClock, setCurrentClock }) {
   const currentTheme = useSelector((state) => state.theme.theme);
 
-  console.log(currentClock)
-  let changeHandler = (e) => {
+  const changeHandler = (e) => {
     const { value } = e.target;
-    setCurrentClock({...currentClock, name: value});
+    setCurrentClock({ ...currentClock, name: value });
   };
 
-
   return (
-    <StyledTitle
-      style={{ color: themes[currentTheme].textColor }}
+    <input
+      className={`flex bg-transparent border-none p-4 shadow-sm outline-none text-xl my-4 ${
+        currentTheme === "dark"
+          ? `text-${themes[currentTheme].textColor}`
+          : ``
+      }`}
       placeholder={oldClock.name}
+      style={{ color: themes[currentTheme].textColor }}
       onChange={changeHandler}
       value={currentClock.name}
-    ></StyledTitle>
+    />
   );
 }

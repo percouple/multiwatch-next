@@ -1,17 +1,8 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 import ClockContainer from "./sub-components/ClockContainer";
 import EditClockContainer from "./sub-components/EditClockContainer";
-import { useDispatch, useSelector } from "react-redux";
 import { setClocksMessage } from "../../state/slices/errorMessagesSlice";
-
-const StyledClocksContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-`;
 
 export default function ClocksContainer(props) {
   const dispatch = useDispatch();
@@ -31,12 +22,11 @@ export default function ClocksContainer(props) {
   }, [clockData]);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <StyledClocksContainer>
-        {clockData.map((clock, idx) => {
-          return clock.editing ? (
-            <EditClockContainer key={clock.clockId}
-            clock={clock}/>
+    <div className="flex justify-center">
+      <div className="flex justify-center items-center flex-wrap w-full">
+        {clockData.map((clock, idx) => (
+          clock.editing ? (
+            <EditClockContainer key={clock.clockId} clock={clock} />
           ) : (
             <ClockContainer
               id={clock.clockId}
@@ -46,9 +36,9 @@ export default function ClocksContainer(props) {
               onPunchIn={props.handlePunchIn}
               onPunchOut={props.handlePunchOut}
             />
-          );
-        })}
-      </StyledClocksContainer>
+          )
+        ))}
+      </div>
     </div>
   );
 }

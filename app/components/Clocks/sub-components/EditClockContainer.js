@@ -11,7 +11,7 @@ import {
   editClock,
   flagForDBUpdate,
 } from "../../../state/slices/clockDataSlice";
-import { themes, darken, shadow } from "../../../helper-functions";
+import { themes, darken, shadow } from "../../../util/cssUtils";
 
 const StyledClockContainer = styled.div`
   padding: 10px;

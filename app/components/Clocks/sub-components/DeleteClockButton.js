@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteClock, flagForDBUpdate } from "../../../state/slices/clockDataSlice";
-import { themes } from "../../../helper-functions";
-import closeClockIconBlue from "../../../../stock-data-assets/close-clock-icon-blue.svg";
-import closeClockIconOrange from "../../../../stock-data-assets/close-clock-icon-orange.svg";
+import { themes } from "../../../util/cssUtils";
+import closeClockIconBlue from "../../../stock-data-assets/close-clock-icon-blue.svg";
+import closeClockIconOrange from "../../../stock-data-assets/close-clock-icon-orange.svg";
 import styled from "styled-components";
 
 const StyledDeleteButton = styled.div`

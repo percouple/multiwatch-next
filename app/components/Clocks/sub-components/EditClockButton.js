@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { setEditingClock } from "../../../state/slices/clockDataSlice";
-import blueEditClockIcon from "../../../../stock-data-assets/edit-clock-icon-blue.svg";
-import orangeEditClockIcon from "../../../../stock-data-assets/edit-clock-icon-orange.svg";
+import blueEditClockIcon from "../../../stock-data-assets/edit-clock-icon-blue.svg";
+import orangeEditClockIcon from "../../../stock-data-assets/edit-clock-icon-orange.svg";
 
 const StyledEditClockButton = styled.div`
   width: 30px;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import cancelEditIcon from "../../../../../stock-data-assets/cancel-edit-icon.svg";
+import cancelEditIcon from "../../../../stock-data-assets/cancel-edit-icon.svg";
 import { useDispatch } from "react-redux";
 import { setEditingClock } from "../../../../state/slices/clockDataSlice";
 

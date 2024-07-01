@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import ButtonContainer from "./ButtonContainer";
 import Stats from "./Stats";
 // import ResponseMessage from "./ResponseMessage";
@@ -12,22 +11,7 @@ import {
   flagForDBUpdate,
   updateClock,
 } from "../../../state/slices/clockDataSlice";
-import { themes, darken, shadow } from "../../../helper-functions";
-
-const StyledClockContainer = styled.div`
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  margin: 30px;
-  width: 340px;
-
-  @media screen and (max-width: 420px) {
-    width: 80vw;
-  }
-`;
+import { themes, darken, shadow } from "../../../util/cssUtils";
 
 export default function ClockContainer(props) {
   let [punchedIn, setPunchedIn] = useState(false);
@@ -81,38 +65,19 @@ export default function ClockContainer(props) {
     return () => clearInterval(intervalId);
   }, [punchedIn]);
 
-  // TODO - add support for editing clocks (on server error or otherwise)
   return (
-    <StyledClockContainer
-      style={
+    <div
+      className={`p-4 flex flex-col justify-center items-center rounded-lg m-8 ${
         currentTheme === "dark"
-          ? {
-              border: `3px solid ${themes[currentTheme].highlightColor[clockOn]}`,
-              backgroundColor: darken(themes[currentTheme].backgroundColor, 8),
-            }
-          : {
-              boxShadow: `0px 0px 26px 10px ${shadow(
-                themes[currentTheme].textColor,
-                "0.3"
-              )}`,
-            }
-      }
+          ? `border-4 border-${
+              themes[currentTheme].highlightColor[clockOn]
+            } bg-${darken(themes[currentTheme].backgroundColor, 8)}`
+          : `shadow-lg shadow-${themes[currentTheme].textColor}-30`
+      }`}
     >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems:"center",
-          maxWidth: "100%",
-        }}
-      >
+      <div className="flex justify-between items-center w-full mb-4">
         <Title clock={props.clockInfo} />
-        <div style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          maxWidth: "100%",
-        }}>
+        <div className="flex">
           <EditClockButton clock={props.clockInfo} clockOn={clockOn} />
           <DeleteClockButton clock={props.clockInfo} clockOn={clockOn} />
         </div>
@@ -129,6 +94,6 @@ export default function ClockContainer(props) {
         clock={props.clockInfo}
       />
       {/* <ResponseMessage /> */}
-    </StyledClockContainer>
+    </div>
   );
 }

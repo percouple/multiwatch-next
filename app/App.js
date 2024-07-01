@@ -2,7 +2,7 @@
 
 import React from "react";
 import Header from "./components/header/Header";
-// import ClocksContainer from "./clocks/ClocksContainer";
+import ClocksContainer from "./components/clocks/ClocksContainer";
 // import Loading from "./overlays/Loading";
 // import AuthBackgroundOverlay from "./overlays/common-elements/AuthBackgroundOverlay";
 import { useSelector } from "react-redux";
@@ -19,8 +19,8 @@ export default function App() {
       {/* {loading && <Loading />}
       {authenticating && <AuthBackgroundOverlay />} */}
       <Header />
-      {/*{errorMessage && <ClockDisplayResponseMessage message={errorMessage}/>}
-      <ClocksContainer /> */}
+      {/*{errorMessage && <ClockDisplayResponseMessage message={errorMessage}/>}*/}
+      <ClocksContainer /> 
     </div>
   );
 }
