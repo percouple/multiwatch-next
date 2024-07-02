@@ -24,7 +24,7 @@ export default function DBUpdateFlag() {
       onClick={clickHandler}
       className="flex justify-around items-center cursor-pointer text-base py-2 px-4 border-3 rounded-md min-w-[4rem]"
     >
-      Save to DB
+      DB Save
     </div>
   );
 }

@@ -6,13 +6,11 @@ import Title from "./Title";
 import CurrentSessionClock from "./CurrentSessionClock";
 import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   flagForDBUpdate,
   updateClock,
 } from "../../../state/slices/clockDataSlice";
-import { darken, shadow } from "../../../util/cssUtils";
-import { themes } from '../../../../tailwind.config';
 
 export default function ClockContainer(props) {
   let [punchedIn, setPunchedIn] = useState(false);
@@ -20,7 +18,7 @@ export default function ClockContainer(props) {
   let [secondsPassed, setSecondsPassed] = useState(0);
 
   const dispatch = useDispatch();
-  const currentTheme = useSelector((state) => state.theme.theme);
+  const borderColor = punchedIn ? 2 : 1;
   const clockOn = punchedIn ? "clockOn" : "clockOff";
 
   const handlePunchIn = (e) => {
@@ -68,7 +66,7 @@ export default function ClockContainer(props) {
 
   return (
     <div
-      className={`p-4 flex flex-col justify-center items-center rounded-lg m-8`}
+      className={`p-4 w-[300px] flex flex-col justify-center items-center border-accent-${borderColor} border-solid border-4 rounded-lg m-8`}
     >
       <div className="flex justify-between items-center w-full mb-4">
         <Title clock={props.clockInfo} />

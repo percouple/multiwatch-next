@@ -9,7 +9,6 @@ import { setLoading, clearLoading } from "../../state/slices/loadingSlice";
 import { setCurrentClocks } from "../../state/slices/clockDataSlice";
 import ErrorMessage from "./common-elements/AuthErrorMessage";
 import SubmitButton from "./common-elements/SubmitButton";
-import { themes } from "../../../tailwind.config";
 import {
   setCurrentUser,
   setCreatingUser,
@@ -23,7 +22,6 @@ export default function AuthOverlay() {
   let [disabledSubmit, setDisabledSubmit] = useState(true);
 
   const dispatch = useDispatch();
-  const currentTheme = useSelector((state) => state.theme.theme);
   const errorMessage = useSelector(
     (state) => state.errorMessages.cardMessage
   );
@@ -81,11 +79,10 @@ export default function AuthOverlay() {
 
   return (
     <div
-      className={`absolute inset-0 flex flex-col items-center justify-center p-4 bg-black bg-opacity-30`}
+      className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-bkg"
       id="authForm"
-      style={{ backgroundColor: `${themes[currentTheme].backgroundColor}` }}
     >
-      <h1 className={`text-${themes[currentTheme].highlightColor.clockOff}`}>
+      <h1 className="text-txt">
         Log in
       </h1>
       or

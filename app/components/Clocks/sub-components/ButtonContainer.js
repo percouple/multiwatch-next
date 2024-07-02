@@ -6,21 +6,18 @@ export default function ButtonContainer({ punchedIn, onPunchIn, onPunchOut }) {
   const currentTheme = useSelector((state) => state.theme.theme);
   const clockOn = punchedIn ? "clockOn" : "clockOff";
 
-  // const punchedInStyle = `${themes[currentTheme].highlightColor[clockOn]}`;
-  // const punchedOutStyle = `${themes[currentTheme].highlightColor[clockOn]}`;
-
   return (
     <div className="flex justify-center my-2">
       {punchedIn ? (
         <button
-          className={`flex justify-center rounded-lg p-2 w-28 cursor-pointer`}
+          className={`flex justify-center rounded-lg p-2 w-28 cursor-pointer bg-accent-2`}
           onClick={onPunchOut}
         >
           Stop
         </button>
       ) : (
         <button
-          className={`flex justify-center rounded-lg p-2 w-28 cursor-pointer`}
+          className={`flex justify-center rounded-lg p-2 w-5/6 cursor-pointer bg-accent-1 border-solid border-txt text-bkg border-2`}
           onClick={onPunchIn}
         >
           Start

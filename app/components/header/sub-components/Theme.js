@@ -3,8 +3,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../../../state/slices/themeSlice";
-import moonIcon from "../../../stock-data-assets/moon-icon.svg";
-import sunIcon from "../../../stock-data-assets/sun-icon.svg";
 
 export default function Theme() {
   const dispatch = useDispatch();
@@ -16,8 +14,10 @@ export default function Theme() {
 
   return (
     <div
-      className={`cursor-pointer w-10 h-10 bg-cover bg-center bg-${moonIcon.src}}`}
+      className="flex justify-around items-center cursor-pointer text-base mx-2 border-2 border-solid border-accent-1 rounded-md min-w-[4rem]"
       onClick={toggleTheme}
-    ></div>
+    >
+      Theme
+    </div>
   );
 }

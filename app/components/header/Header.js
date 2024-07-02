@@ -12,14 +12,14 @@ export default function Header() {
   const needDBUpdate = useSelector((state) => state.clocks.needToUpdateDatabase)
 
   return (
-    <div className="flex justify-between items-center px-12 flex-wrap sm:flex-col sm:justify-center">
+    <div className="flex justify-between items-center px-12 flex-wrap xs:justify-center">
       <CurrentTimeDisplay />
-      <nav className="flex justify-center items-center">
-        {needDBUpdate && <DBUpdateFlag />  }
+      <div className="flex justify-center items-center ">
+        {needDBUpdate && <DBUpdateFlag />}
         <CreateNewTimerButton />
         <Theme /> 
         {loggedIn ? <LogoutButton /> : <LoginButton />}
-      </nav>
+      </div>
     </div>
   );
 }

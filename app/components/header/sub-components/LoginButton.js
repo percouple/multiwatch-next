@@ -1,6 +1,4 @@
-"use client";
 
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setAuthenticating,
@@ -9,7 +7,6 @@ import {
 
 export default function LoginButton() {
   const dispatch = useDispatch();
-  const currentTheme = useSelector((state) => state.theme.theme);
   const authenticating = useSelector((state) => state.auth.authenticating);
 
   const clickHandler = (e) => {
@@ -24,7 +21,7 @@ export default function LoginButton() {
     <div
       id="dropdownButton"
       onClick={clickHandler}
-      className={`flex justify-around items-center cursor-pointer text-base py-2 px-4 border-3 rounded-md min-w-[4rem]`}
+      className="text-center cursor-pointer border-2 border-solid border-accent-1 rounded-md min-w-[4rem]"
     >
       Login
     </div>
