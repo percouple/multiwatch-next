@@ -1,5 +1,6 @@
 import React from "react";
-import { themes, darken } from "../../../util/cssUtils";
+import { darken } from "../../../util/cssUtils";
+import { themes } from '../../../../tailwind.config';
 import { useSelector } from "react-redux";
 
 export default function SubmitButton({ disabledSubmit, textContent }) {

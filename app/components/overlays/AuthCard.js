@@ -9,7 +9,7 @@ import { setLoading, clearLoading } from "../../state/slices/loadingSlice";
 import { setCurrentClocks } from "../../state/slices/clockDataSlice";
 import ErrorMessage from "./common-elements/AuthErrorMessage";
 import SubmitButton from "./common-elements/SubmitButton";
-import { themes } from "@/app/util/cssUtils";
+import { themes } from "../../../tailwind.config";
 import {
   setCurrentUser,
   setCreatingUser,

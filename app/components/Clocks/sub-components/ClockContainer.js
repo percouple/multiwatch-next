@@ -11,7 +11,8 @@ import {
   flagForDBUpdate,
   updateClock,
 } from "../../../state/slices/clockDataSlice";
-import { themes, darken, shadow } from "../../../util/cssUtils";
+import { darken, shadow } from "../../../util/cssUtils";
+import { themes } from '../../../../tailwind.config';
 
 export default function ClockContainer(props) {
   let [punchedIn, setPunchedIn] = useState(false);
@@ -67,13 +68,7 @@ export default function ClockContainer(props) {
 
   return (
     <div
-      className={`p-4 flex flex-col justify-center items-center rounded-lg m-8 ${
-        currentTheme === "dark"
-          ? `border-4 border-${
-              themes[currentTheme].highlightColor[clockOn]
-            } bg-${darken(themes[currentTheme].backgroundColor, 8)}`
-          : `shadow-lg shadow-${themes[currentTheme].textColor}-30`
-      }`}
+      className={`p-4 flex flex-col justify-center items-center rounded-lg m-8`}
     >
       <div className="flex justify-between items-center w-full mb-4">
         <Title clock={props.clockInfo} />

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../../../state/slices/themeSlice";
 import moonIcon from "../../../stock-data-assets/moon-icon.svg";
@@ -14,10 +16,7 @@ export default function Theme() {
 
   return (
     <div
-      className="cursor-pointer w-10 h-10 bg-cover"
-      style={{
-        backgroundImage: `url(${currentTheme === "dark" ? sunIcon.src : moonIcon.src})`,
-      }}
+      className={`cursor-pointer w-10 h-10 bg-cover bg-center bg-${moonIcon.src}}`}
       onClick={toggleTheme}
     ></div>
   );

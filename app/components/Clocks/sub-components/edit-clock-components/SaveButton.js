@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { themes } from "../../../../util/cssUtils";
+import { themes } from "../../../../../tailwind.config";
 
 export default function ButtonContainer({ clock }) {
   const currentTheme = useSelector((state) => state.theme.theme);

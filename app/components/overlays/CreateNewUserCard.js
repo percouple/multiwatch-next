@@ -9,7 +9,7 @@ import { setLoading, clearLoading } from "../../state/slices/loadingSlice";
 import ErrorMessage from "./common-elements/AuthErrorMessage";
 import SubmitButton from "./common-elements/SubmitButton";
 import { setCurrentUser, toggleLoggedIn, setAuthenticating } from "../../state/slices/authSlice";
-import { themes } from "@/app/util/cssUtils";
+import { themes } from "../../../tailwind.config";
 import * as yup from "yup";
 
 export default function CreateNewUserCard() {
