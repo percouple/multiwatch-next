@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getUserThemePreference } from '../../util/stateUtils';
 
 const initialState = {
-  theme: getUserThemePreference(), // Default theme
+  theme: 'light', // Default theme
 };
 
 const themeSlice = createSlice({

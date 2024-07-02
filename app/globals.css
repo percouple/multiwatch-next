@@ -20,10 +20,5 @@
     --color-accent1: 0deg 100% 50%;
     --color-accent2: 300deg 100% 50%;
   }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  
 }

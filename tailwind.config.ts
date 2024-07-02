@@ -1,4 +1,7 @@
-import type { Config } from "tailwindcss";
+import darkOffIcon from "./app/stock-data-assets/edit-clock-icon-dark-off.svg";
+import darkOnIcon from "./app/stock-data-assets/edit-clock-icon-dark-on.svg";
+import lightOffIcon from "./app/stock-data-assets/edit-clock-icon-light-off.svg";
+import lightOnIcon from "./app/stock-data-assets/edit-clock-icon-light-on.svg";
 
 module.exports = {
   content: [
@@ -8,11 +11,11 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'xs': "300px",
-      'sm': "480px",
-      'md': "768px",
-      'lg': "976px",
-      'xl': "1440px",
+      xs: "300px",
+      sm: "480px",
+      md: "768px",
+      lg: "976px",
+      xl: "1440px",
     },
     extend: {
       colors: {
@@ -24,12 +27,13 @@ module.exports = {
         },
       },
       backgroundImage: {
-        // Define radial gradient
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        // // Define background images for dark theme
+        // "editClockIcon-dark-on": `url(${darkOnIcon})`,
+        // "editClockIcon-dark-off": `url(${darkOffIcon})`,
 
-        // Define conic gradient
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        // // Define background images for light theme
+        // "editClockIcon-light-on": `url(${lightOnIcon})`,
+        // "editClockIcon-light-off": `url(${lightOffIcon})`,
       },
     },
   },
