@@ -62,9 +62,7 @@ const clocksSlice = createSlice({
         clockId: action.payload.clockId,
         lastSessionTime: 0,
         todaySessionTime: 0,
-        lastTodaySessionTime: 0,
         thisWeekTime: 0,
-        lastThisWeekTime: 0,
         allTime: 0,
       };
       return { ...state, currentClocks: [...state.currentClocks, clock] };
@@ -79,10 +77,16 @@ const clocksSlice = createSlice({
       };
     },
     editClock(state, action) {
-      console.log(action);
-      // const { todaySessionTime, thisWeekTime, allTime } = action.payload.stats;
       const { clockId, name } = action.payload;
-      const {lastSessionTime, allTime, thisWeekTime, todaySessionTime} = action.payload;
+      let { allTime, thisWeekTime, todaySessionTime} = action.payload;
+
+      // Handle for inputs greater than parameters
+      if (todaySessionTime > 86400) {
+        todaySessionTime = 86400 - 1;
+      }
+      if (thisWeekTime > 604800) {
+        thisWeekTime = 604800 - 1;
+      }
 
       const newClocksArray = state.currentClocks.map((clock) => {
         if (clock.clockId === clockId) {
