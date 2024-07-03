@@ -34,7 +34,6 @@ const clocksSlice = createSlice({
       return { ...state, currentClocks: action.payload };
     },
     setEditingClock(state, action) {
-      console.log("clearing");
       const newClocksArray = state.currentClocks.map((clock) => {
         if (clock.clockId === action.payload) {
           return { ...clock, editing: !clock.editing };

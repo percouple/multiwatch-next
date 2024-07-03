@@ -9,13 +9,15 @@ import {
   editClock,
   flagForDBUpdate,
 } from "../../../state/slices/clockDataSlice";
-import { darken, shadow } from "../../../util/cssUtils";
+import { nonTailwindColors } from "@/app/helper-functions";
 
 export default function EditClockContainer({ clock }) {
   const [currentClock, setCurrentClock] = useState(clock);
   const [errMessage, setErrMessage] = useState("");
-  const currentTheme = useSelector((state) => state.theme.theme);
+
   const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.theme);
+  const color = nonTailwindColors[theme].editing;
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -28,19 +30,21 @@ export default function EditClockContainer({ clock }) {
   return (
     <div
       className={
-        "p-4 flex flex-col justify-center items-center rounded-lg m-8 w-80 md:w-full border-2 border-gray-200  bg-white shadow-lg"
+        "p-4 w-[300px] flex flex-col justify-center items-center shadow-xl border-solid border-4 rounded-lg m-8 border-editClockColor "
       }
     >
       <form
         onSubmit={submitHandler}
         className="flex flex-col justify-center items-center"
       >
-        <div className="flex justify-center items-center max-w-full">
+        <div className="flex justify-between items-center w-full mb-4">
           <EditTitle
             currentClock={currentClock}
             oldClock={clock}
             setCurrentClock={setCurrentClock}
+            color={color}
           />
+          <div className="w-[40px]"></div>
           <CancelEditClockButton clock={currentClock} />
         </div>
         <div className="flex justify-center items-center w-full">

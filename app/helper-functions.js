@@ -82,9 +82,11 @@ export const nonTailwindColors = {
     // accent2: 
     clockOn: 'hsl(34, 100%, 49.8%)',
     clockOff: 'hsl(179, 41.1%, 46.7%)',
+    editing: 'hsl(270deg 41.1% 46.7%)',
   },
   dark: {
     clockOn: 'hsl(34, 100%, 49.8%)',
     clockOff: 'hsl(179, 41.1%, 46.7%)',
+    editing: 'hsl(270deg 41.1% 46.7%)',
   }
 }

@@ -1,8 +1,3 @@
-import darkOffIcon from "./app/stock-data-assets/edit-clock-icon-dark-off.svg";
-import darkOnIcon from "./app/stock-data-assets/edit-clock-icon-dark-on.svg";
-import lightOffIcon from "./app/stock-data-assets/edit-clock-icon-light-off.svg";
-import lightOnIcon from "./app/stock-data-assets/edit-clock-icon-light-on.svg";
-
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -25,6 +20,7 @@ module.exports = {
           1: "hsl(var(--color-accent1) / <alpha-value>)",
           2: "hsl(var(--color-accent2) / <alpha-value>)",
         },
+        editClockColor : "hsl(var(--color-edit-clock) / <alpha-value>)",
       },
       backgroundImage: {
         // // Define background images for dark theme

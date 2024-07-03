@@ -1,8 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { themes } from "../../../../../tailwind.config";
 
-export default function EditTitle({ currentClock, oldClock, setCurrentClock }) {
+export default function EditTitle({ currentClock, oldClock, setCurrentClock, color }) {
   const currentTheme = useSelector((state) => state.theme.theme);
 
   const changeHandler = (e) => {
@@ -12,9 +11,10 @@ export default function EditTitle({ currentClock, oldClock, setCurrentClock }) {
 
   return (
     <input
-      className={`flex bg-transparent border-none p-4 shadow-sm outline-none text-xl my-4`}
+      className="flex bg-transparent border-none pt-2 pb-1 w-2/3 outline-none text-2xl"
+      style={{ boxShadow: `0px 3px 0 0 ${color}` }}
       placeholder={oldClock.name}
-      style={{ color: themes[currentTheme].textColor }}
+      // style={{ color: themes[currentTheme].textColor }}
       onChange={changeHandler}
       value={currentClock.name}
     />

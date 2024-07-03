@@ -9,11 +9,13 @@
     --color-txt: 223deg 7.4% 19.8%;
     --color-accent1: 179deg 41.1% 46.7%;
     --color-accent2: 34deg 100% 49.8%;
+    --color-edit-clock: 270deg 41.1% 46.7%;
   }
   div[theme="dark"] {
     --color-bkg: 223deg 7.4% 19.8%;
     --color-txt: 0deg 0% 96.1%;
     --color-accent1: 179deg 41.1% 46.7%;
     --color-accent2: 34deg 100% 49.8%;
+    --color-edit-clock: 270deg 31.1% 46.7%;
   }
 }
