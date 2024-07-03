@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate-up": "knex migrate:up",
+    "migrate-down": "knex migrate:down",
+    "seed" : "knex seed:run"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",

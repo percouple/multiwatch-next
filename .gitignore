@@ -35,6 +35,16 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+#environment variables
 .env
 .env.local
 .env.development
+
+# Knex.js
+knexfile.js
+
+#sqlite3
+*.sqlite3
+*.sqlite
+*.db
+*.db-journal
