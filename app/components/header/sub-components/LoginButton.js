@@ -1,5 +1,4 @@
-
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   setAuthenticating,
   setSigningIn,
@@ -7,12 +6,11 @@ import {
 
 export default function LoginButton() {
   const dispatch = useDispatch();
-  const authenticating = useSelector((state) => state.auth.authenticating);
 
   const clickHandler = (e) => {
     if (e.target.id === "dropdownButton") {
       e.stopPropagation();
-      dispatch(setAuthenticating(!authenticating));
+      dispatch(setAuthenticating(true));
       dispatch(setSigningIn(true));
     }
   };

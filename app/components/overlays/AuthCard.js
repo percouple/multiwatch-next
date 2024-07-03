@@ -79,15 +79,15 @@ export default function AuthOverlay() {
 
   return (
     <div
-      className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-bkg"
+      className="flex flex-col justify-around items-center p-2 pt-6 w-72 h-auto absolute rounded-lg border-4 border-accent-1 top-30% z-30 bg-bkg"
       id="authForm"
     >
-      <h1 className="text-txt">
+      <h1 className="text-accent-1 text-4xl font-bold mb-4">
         Log in
       </h1>
       or
       <div
-        className="underline cursor-pointer mb-4"
+        className="underline cursor-pointer mb-8"
         onClick={createAccountHandler}
       >
         create an account
@@ -102,7 +102,7 @@ export default function AuthOverlay() {
           placeholder="username"
           name="username"
           onChange={changeHandler}
-          className="h-10 w-48 px-2 mb-2 rounded border"
+          className="h-10 w-48 px-2 mb-2 rounded border-accent-2 border-2 outline-none bg-transparent"
         />
         <input
           value={userValues.password}
@@ -110,7 +110,7 @@ export default function AuthOverlay() {
           name="password"
           placeholder="password"
           onChange={changeHandler}
-          className="h-10 w-48 px-2 mb-2 rounded border"
+          className="h-10 w-48 px-2 mb-2 rounded border-accent-2 border-2 outline-none bg-transparent"
         />
         <SubmitButton disabled={disabledSubmit} textContent="Sign In" />
         {errorMessage && <ErrorMessage message={errorMessage} />}
