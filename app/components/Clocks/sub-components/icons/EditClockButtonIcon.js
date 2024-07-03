@@ -1,21 +1,13 @@
 import React from "react";
-import { onColors } from "@/app/helper-functions";
-import { useSelector } from "react-redux";
 
-export default function EditClockIcon({ clockOn }) {
-  const theme = useSelector((state) => {
-    return state.theme.theme;
-  });
-  let liveColor = clockOn === "clockOn" && onColors[theme];
-  console.log(liveColor);
-
+export default function EditClockIcon() {
   return (
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        height="40px"
+        height="35px"
         viewBox="0 -960 960 960"
-        width="40px"
+        width="35px"
         stroke="currentColor"
         fill="currentColor"
       >

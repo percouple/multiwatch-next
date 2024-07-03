@@ -11,14 +11,9 @@
     --color-accent2: 34deg 100% 49.8%;
   }
   div[theme="dark"] {
-    /* --color-bkg: 223deg 7.4% 19.8%;
+    --color-bkg: 223deg 7.4% 19.8%;
     --color-txt: 0deg 0% 96.1%;
-    --color-accent1: 179deg 41.1% 46.7%;
-    --color-accent2: 34deg 100% 49.8%; */
-    --color-bkg: 223deg 100% 50%;
-    --color-txt: 100deg 100% 50%;
     --color-accent1: 0deg 100% 50%;
-    --color-accent2: 300deg 100% 50%;
+    --color-accent2: 34deg 100% 49.8%;
   }
-  
 }

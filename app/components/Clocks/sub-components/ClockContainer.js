@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ButtonContainer from "./ButtonContainer";
 import Stats from "./Stats";
-// import ResponseMessage from "./ResponseMessage";
 import Title from "./Title";
 import CurrentSessionClock from "./CurrentSessionClock";
 import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   flagForDBUpdate,
   updateClock,
 } from "../../../state/slices/clockDataSlice";
+import { nonTailwindColors } from "@/app/helper-functions";
 
 export default function ClockContainer(props) {
   let [punchedIn, setPunchedIn] = useState(false);
@@ -18,8 +18,9 @@ export default function ClockContainer(props) {
   let [secondsPassed, setSecondsPassed] = useState(0);
 
   const dispatch = useDispatch();
-  const borderColor = punchedIn ? 2 : 1;
+  const theme = useSelector(state => state.theme.theme);
   const clockOn = punchedIn ? "clockOn" : "clockOff";
+  const clockColor = nonTailwindColors[theme][clockOn];
 
   const handlePunchIn = (e) => {
     if (!punchedIn) {
@@ -66,13 +67,13 @@ export default function ClockContainer(props) {
 
   return (
     <div
-      className={`p-4 w-[300px] flex flex-col justify-center items-center border-accent-${borderColor} border-solid border-4 rounded-lg m-8`}
+      className={`p-4 w-[300px] flex flex-col justify-center items-center shadow-xl border-solid border-4 rounded-lg m-8`} style={{borderColor: `${clockColor}`}}
     >
       <div className="flex justify-between items-center w-full mb-4">
-        <Title clock={props.clockInfo} />
+        <Title clock={props.clockInfo} clockColor={clockColor}/>
         <div className="flex">
-          <EditClockButton clock={props.clockInfo} clockOn={clockOn} />
-          <DeleteClockButton clock={props.clockInfo} clockOn={clockOn} />
+          <EditClockButton clock={props.clockInfo} clockColor={clockColor} />
+          <DeleteClockButton clock={props.clockInfo} clockColor={clockColor} />
         </div>
       </div>
       <CurrentSessionClock secondsPassed={secondsPassed || 0} />

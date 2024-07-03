@@ -74,6 +74,17 @@ export const secondsToTime = (secs) => {
   return `${years} ${weeks} ${days} ${hours}:${minutes}:${secs} `;
 };
 
-export const onColors = {
-  light: "hsl(34, 100, 49.8)"
+export const nonTailwindColors = {
+  light: {
+    // background:
+    // text:
+    // accent1: 
+    // accent2: 
+    clockOn: 'hsl(34, 100%, 49.8%)',
+    clockOff: 'hsl(179, 41.1%, 46.7%)',
+  },
+  dark: {
+    clockOn: 'hsl(34, 100%, 49.8%)',
+    clockOff: 'hsl(179, 41.1%, 46.7%)',
+  }
 }
