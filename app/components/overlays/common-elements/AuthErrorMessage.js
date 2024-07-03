@@ -1,10 +1,9 @@
 import React from "react";
-import { themes } from "../../../../tailwind.config";
 
 export default function ErrorMessage({ message }) {
   return (
     <div
-      className={`text-${themes.dark.highlightColor.clockOn} text-sm flex justify-center`}
+      className="text-sm flex justify-center text-center text-red-500"
     >
       {message}
     </div>

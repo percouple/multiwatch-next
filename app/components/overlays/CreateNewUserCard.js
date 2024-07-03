@@ -9,7 +9,6 @@ import { setLoading, clearLoading } from "../../state/slices/loadingSlice";
 import ErrorMessage from "./common-elements/AuthErrorMessage";
 import SubmitButton from "./common-elements/SubmitButton";
 import { setCurrentUser, toggleLoggedIn, setAuthenticating } from "../../state/slices/authSlice";
-import { themes } from "../../../tailwind.config";
 import * as yup from "yup";
 
 export default function CreateNewUserCard() {
@@ -93,11 +92,10 @@ export default function CreateNewUserCard() {
 
   return (
     <div
-      className={`absolute inset-0 flex flex-col items-center justify-center p-4 bg-black bg-opacity-30`}
+      className="flex flex-col justify-around items-center p-2 pt-6 w-72 h-auto absolute rounded-lg border-4 border-accent-1 top-30% z-30 bg-bkg"
       id="authForm"
-      style={{ backgroundColor: `${themes[currentTheme].backgroundColor}` }}
     >
-      <h1 className={`text-${themes[currentTheme].highlightColor.clockOff}`}>
+      <h1 className="text-accent-1 text-2xl font-bold mb-10 mt-4">
         Create new user
       </h1>
       <form
@@ -110,7 +108,7 @@ export default function CreateNewUserCard() {
           placeholder="username"
           name="username"
           onChange={changeHandler}
-          className="h-10 w-48 px-2 mb-2 rounded border"
+          className="h-10 w-48 px-2 mb-2 rounded border-accent-2 border-2 outline-none bg-transparent"
         />
         <input
           value={userValues.password}
@@ -118,12 +116,11 @@ export default function CreateNewUserCard() {
           name="password"
           placeholder="password"
           onChange={changeHandler}
-          className="h-10 w-48 px-2 mb-2 rounded border"
+          className="h-10 w-48 px-2 mb-2 rounded border-accent-2 border-2 outline-none bg-transparent"
         />
         <SubmitButton
           disabled={disabledSubmit}
-          textContent="Create new user"
-          className="h-10 w-48 px-2 mb-2 rounded border"
+          textContent="Create User"
         />
         {errorMessage && <ErrorMessage message={errorMessage} />}
       </form>
