@@ -15,9 +15,6 @@ const initialClock = {
 
 const initialState = {
   currentClocks: [initialClock],
-  // We'll use "editing" to simultaneously signify that we are
-  // editing a clock, and to store the clock id that we're editing
-  // editingClock: null,
   needToUpdateDatabase: false,
 };
 
