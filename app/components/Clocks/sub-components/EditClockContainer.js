@@ -58,7 +58,7 @@ export default function EditClockContainer({ clock }) {
           setErrMessage={setErrMessage}
         />
       </form>
-      {errMessage && <div>{errMessage}</div>}
+      {errMessage && <div className="flex justify-center text-center mt-4">{errMessage}</div>}
     </div>
   );
 }

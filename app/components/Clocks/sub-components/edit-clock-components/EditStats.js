@@ -1,97 +1,60 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import React, { useEffect } from "react";
 import { secondsToTime } from "../../../../helper-functions";
-
-const StyledStatContainer = styled.div`
-  font-weight: normal;
-  display: grid;
-  grid-template-rows: repeat(3, minmax(0, 1fr));
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  text-align: center;
-  max-width: 18rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-`;
-
-const StyledRight = styled.input`
-  padding: 0.25rem;
-  padding-left: 0.5rem;
-  border-left: 1px solid;
-  background-color: transparent;
-  color: white;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  transition: border-color 0.2s ease-in-out;
-
-  &:focus::after {
-    content: "jkfjfjfjfj";
-    position: absolute;
-    left: 0;
-    top: 24px;
-    min-width: 200px;
-    border: 1px #aaaaaa solid;
-    border-radius: 10px;
-    background-color: #ffffcc;
-    padding: 12px;
-    color: #000000;
-    font-size: 14px;
-    z-index: 1;
-  }
-`;
-
-const StyledLeft = styled.div`
-  border-right: 1px solid;
-  padding: 0.25rem;
-  padding-right: 0.5rem;
-`;
 
 export default function EditStats({ currentClock, oldClock, setCurrentClock, setErrMessage }) {
 
-  let changeHandler = (e) => {
+  const changeHandler = (e) => {
     const { value, name } = e.target;
     if (isNaN(value)) {
-      setErrMessage(() => "Only digits accepted as input")
+      setErrMessage("Only digits accepted as input");
     } else {
-      setCurrentClock(oldStats => ({...oldStats, [name]: Number(value)}));
+      setCurrentClock(oldStats => ({ ...oldStats, [name]: Number(value) }));
+      setErrMessage('');
     }
   };
 
+  useEffect(() => {
+    setErrMessage('Input total seconds desired. For example, 1 yr = 31,536,000s')
+  }, [])
+
   return (
-    <StyledStatContainer>
-      <StyledLeft>Last Session</StyledLeft>
-      <StyledRight
+    <div className="font-normal grid grid-rows-3 grid-cols-2 text-center max-w-18rem mx-auto mt-6">
+      <div className="border-r border-gray-300 py-1 px-2">Last Session</div>
+      <input
+        type="text"
         name="lastSessionTime"
+        className="border-l border-gray-300 py-1 px-2 bg-transparent stats-input"
         onChange={changeHandler}
         value={currentClock.lastSessionTime}
         placeholder={secondsToTime(oldClock.lastSessionTime)}
-      ></StyledRight>
-      <StyledLeft>Today </StyledLeft>
-      <StyledRight
+      />
+      <div className="border-r border-gray-300 py-1 px-2">Today</div>
+      <input
+        type="text"
         name="todaySessionTime"
+        className="border-l border-gray-300 py-1 px-2 bg-transparent stats-input"
         onChange={changeHandler}
         value={currentClock.todaySessionTime}
         placeholder={secondsToTime(oldClock.todaySessionTime)}
-      ></StyledRight>
-      <StyledLeft>This Week </StyledLeft>
-      <StyledRight
+      />
+      <div className="border-r border-gray-300 py-1 px-2">This Week</div>
+      <input
+        type="text"
         name="thisWeekTime"
+        className="border-l border-gray-300 py-1 px-2 bg-transparent stats-input"
         onChange={changeHandler}
         value={currentClock.thisWeekTime}
         placeholder={secondsToTime(oldClock.thisWeekTime)}
-      ></StyledRight>
-      <StyledLeft>All Time </StyledLeft>
-      <StyledRight
+      />
+      <div className="border-r border-gray-300 py-1 px-2">All Time</div>
+      <input
+        type="text"
         name="allTime"
+        className="border-l border-gray-300 py-1 px-2 bg-transparent stats-input"
         onChange={changeHandler}
         value={currentClock.allTime}
         placeholder={secondsToTime(oldClock.allTime)}
-      ></StyledRight>
-    </StyledStatContainer>
+      />
+    </div>
   );
 }
