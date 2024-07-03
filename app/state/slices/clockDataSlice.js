@@ -50,6 +50,13 @@ const clocksSlice = createSlice({
           clock.todaySessionTime += action.payload.secondsPassed;
           clock.thisWeekTime += action.payload.secondsPassed;
           clock.allTime += action.payload.secondsPassed;
+
+          if (clock.todaySessionTime >= 86400){
+            clock.todaySessionTime = 0;
+          }
+          if (clock.thisWeekTime >= 604800) {
+            clock.thisWeekTime = 0;
+          }
           return clock;
         }
         return clock;
