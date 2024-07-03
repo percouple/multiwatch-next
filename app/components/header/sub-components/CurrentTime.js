@@ -1,10 +1,12 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
+import { nonTailwindColors } from "@/app/helper-functions";
+import { useSelector } from "react-redux";
 
 export default function CurrentTimeCounter() {
   let [currentTime, setCurrentTime] = useState("");
   let [amPm, setAmPm] = useState("");
+
+  const theme = useSelector((state) => state.theme.theme);
 
   useEffect(() => {
     const updateTime = () => {
@@ -20,9 +22,20 @@ export default function CurrentTimeCounter() {
   }, []);
 
   return (
-    <div className="flex justify-between max-w-[300px]">
-      <h1 className="font-thin text-6xl">{currentTime}</h1>
-      <div className="text-2xl align-sub ml-4 text-accent-1">{amPm}</div>
+    <div className="relative flex mt-4 justify-between max-w-[300px]">
+      <div className="min-w-56 text-left">
+        <h1
+          className="font-thin text-6xl mb-8"
+          style={{
+            boxShadow: `0 4px 0 0 ${nonTailwindColors[theme].clockOn} `,
+          }}
+        >
+          {currentTime}
+        </h1>
+      </div>
+      <div className="absolute top-16 text-2xl align-sub text-accent-1">
+        {amPm}
+      </div>
     </div>
   );
 }
