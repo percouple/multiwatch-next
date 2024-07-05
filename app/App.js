@@ -1,13 +1,11 @@
 "use client";
 
 import React from "react";
-import Header from "./components/header/Header";
-import ClocksContainer from "./components/clocks/ClocksContainer";
+import Header from "./header/Header";
+import ClocksContainer from "./clocks/ClocksContainer";
 // import Loading from "./overlays/Loading";
-import AuthBackgroundOverlay from "./components/overlays/common-elements/AuthBackgroundOverlay";
+import AuthBackgroundOverlay from "./auth/common-elements/AuthBackgroundOverlay";
 import { useSelector } from "react-redux";
-import { theme } from "../tailwind.config";
-import { current } from "@reduxjs/toolkit";
 // import ClockDisplayResponseMessage from "./clocks/ClockDisplayResponseMessage";
 
 export default function App() {
