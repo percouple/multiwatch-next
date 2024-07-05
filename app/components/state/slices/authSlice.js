@@ -18,7 +18,7 @@ const authSlice = createSlice({
   },
   reducers: {
     setAuthenticating(state, action) {
-      console.log("AUTHENTICATING");
+      console.log("AUTHENNG");
       return { ...state, authenticating: action.payload };
     },
     setSigningIn(state, action) {

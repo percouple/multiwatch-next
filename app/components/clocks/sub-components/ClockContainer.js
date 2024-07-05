@@ -10,7 +10,7 @@ import {
   flagForDBUpdate,
   updateClock,
 } from "../../state/slices/clockDataSlice";
-import { nonTailwindColors } from "@/app/helper-functions";
+import { nonTailwindColors } from "../../../helper-functions";
 
 export default function ClockContainer(props) {
   let [punchedIn, setPunchedIn] = useState(false);
@@ -18,7 +18,7 @@ export default function ClockContainer(props) {
   let [secondsPassed, setSecondsPassed] = useState(0);
 
   const dispatch = useDispatch();
-  const theme = useSelector(state => state.theme.theme);
+  const theme = useSelector((state) => state.theme.theme);
   const clockOn = punchedIn ? "clockOn" : "clockOff";
   const clockColor = nonTailwindColors[theme][clockOn];
 
@@ -67,10 +67,11 @@ export default function ClockContainer(props) {
 
   return (
     <div
-      className={`p-4 w-[300px] flex flex-col justify-center items-center shadow-xl border-solid border-4 rounded-lg m-8`} style={{borderColor: `${clockColor}`}}
+      className={`p-4 w-[300px] flex flex-col justify-center items-center shadow-xl border-solid border-4 rounded-lg m-8`}
+      style={{ borderColor: `${clockColor}` }}
     >
       <div className="flex justify-between items-center w-full mb-4">
-        <Title clock={props.clockInfo} clockColor={clockColor}/>
+        <Title clock={props.clockInfo} clockColor={clockColor} />
         <div className="flex">
           <EditClockButton clock={props.clockInfo} clockColor={clockColor} />
           <DeleteClockButton clock={props.clockInfo} clockColor={clockColor} />

@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import Header from "./header/Header";
-import ClocksContainer from "./clocks/ClocksContainer";
+import Header from "./components/header/Header";
+import ClocksContainer from "./components/clocks/ClocksContainer";
 // import Loading from "./overlays/Loading";
-import AuthBackgroundOverlay from "./auth/common-elements/AuthBackgroundOverlay";
+import AuthBackgroundOverlay from "./components/auth/common-elements/AuthBackgroundOverlay";
 import { useSelector } from "react-redux";
 // import ClockDisplayResponseMessage from "./clocks/ClockDisplayResponseMessage";
 

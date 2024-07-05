@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { nonTailwindColors } from "@/app/helper-functions";
+import { nonTailwindColors } from "../../../helper-functions";
 import { useSelector } from "react-redux";
 
 export default function CurrentTimeCounter() {

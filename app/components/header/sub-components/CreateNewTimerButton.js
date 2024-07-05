@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewClock, flagForDBUpdate } from "../../state/slices/clockDataSlice";
 import { nanoid } from "nanoid";
-import { nonTailwindColors } from "@/app/helper-functions";
+import { nonTailwindColors } from "../../../helper-functions";
 import CreateNewTimerButtonIcon from '../icons/CreateNewTimerButtonIcon';
 
 export default function Header() {

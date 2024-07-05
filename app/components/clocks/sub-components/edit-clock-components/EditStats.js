@@ -1,21 +1,27 @@
 import React, { useEffect } from "react";
-import { secondsToTime } from "../../../helper-functions";
+import { secondsToTime } from "../../../../helper-functions";
 
-export default function EditStats({ currentClock, oldClock, setCurrentClock, setErrMessage }) {
-
+export default function EditStats({
+  currentClock,
+  oldClock,
+  setCurrentClock,
+  setErrMessage,
+}) {
   const changeHandler = (e) => {
     const { value, name } = e.target;
     if (isNaN(value)) {
       setErrMessage("Only digits accepted as input");
     } else {
-      setCurrentClock(oldStats => ({ ...oldStats, [name]: Number(value) }));
-      setErrMessage('');
+      setCurrentClock((oldStats) => ({ ...oldStats, [name]: Number(value) }));
+      setErrMessage("");
     }
   };
 
   useEffect(() => {
-    setErrMessage('Input total seconds desired. For example, 1 yr = 31,536,000s')
-  }, [])
+    setErrMessage(
+      "Input total seconds desired. For example, 1 yr = 31,536,000s"
+    );
+  }, []);
 
   return (
     <div className="font-normal grid grid-rows-3 grid-cols-2 text-center max-w-18rem mx-auto mt-6">

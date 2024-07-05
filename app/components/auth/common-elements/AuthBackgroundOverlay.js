@@ -5,9 +5,7 @@ import {
   setCreatingUser,
   setSigningIn,
 } from "../../state/slices/authSlice";
-import {
-  clearLoading,
-} from "../../state/slices/loadingSlice";
+import { clearLoading } from "../../state/slices/loadingSlice";
 import AuthCard from "../AuthCard";
 import CreateNewUserCard from "../CreateNewUserCard";
 

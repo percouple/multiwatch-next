@@ -1,10 +1,7 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setCardMessage,
-  clearCardMessage,
-} from "../state/slices/errorMessagesSlice";
+import { setCardMessage } from "../state/slices/errorMessagesSlice";
 import { setLoading, clearLoading } from "../state/slices/loadingSlice";
 import { setCurrentClocks } from "../state/slices/clockDataSlice";
 import ErrorMessage from "./common-elements/AuthErrorMessage";
@@ -22,9 +19,7 @@ export default function AuthOverlay() {
   let [disabledSubmit, setDisabledSubmit] = useState(true);
 
   const dispatch = useDispatch();
-  const errorMessage = useSelector(
-    (state) => state.errorMessages.cardMessage
-  );
+  const errorMessage = useSelector((state) => state.errorMessages.cardMessage);
 
   const createAccountHandler = () => {
     dispatch(clearLoading());
@@ -37,7 +32,7 @@ export default function AuthOverlay() {
     setUserValues({ ...userValues, [name]: value });
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     dispatch(setLoading());
 
@@ -74,7 +69,7 @@ export default function AuthOverlay() {
   }, [userValues]);
 
   useEffect(() => {
-    dispatch(setCardMessage(''));
+    dispatch(setCardMessage(""));
   }, []);
 
   return (
@@ -82,9 +77,7 @@ export default function AuthOverlay() {
       className="flex flex-col justify-around items-center p-2 pt-6 w-72 h-auto absolute rounded-lg border-4 border-accent-1 top-30% z-30 bg-bkg"
       id="authForm"
     >
-      <h1 className="text-accent-1 text-4xl font-bold mb-4">
-        Log in
-      </h1>
+      <h1 className="text-accent-1 text-4xl font-bold mb-4">Log in</h1>
       or
       <div
         className="underline cursor-pointer mb-8"
@@ -92,10 +85,7 @@ export default function AuthOverlay() {
       >
         create an account
       </div>
-      <form
-        className="flex flex-col items-center"
-        onSubmit={submitHandler}
-      >
+      <form className="flex flex-col items-center" onSubmit={submitHandler}>
         <input
           value={userValues.username}
           type="text"

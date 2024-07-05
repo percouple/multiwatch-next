@@ -16,10 +16,12 @@ model Users {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  Clocks    Clocks[]
 }
 
 model Clocks {
   id               String   @id @default(cuid())
+  user             Users   @relation(fields: [userId], references: [id])
   userId           String
   name             String
   lastSessionTime  Int

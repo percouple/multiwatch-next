@@ -9,7 +9,7 @@ import {
   editClock,
   flagForDBUpdate,
 } from "../../state/slices/clockDataSlice";
-import { nonTailwindColors } from "@/app/helper-functions";
+import { nonTailwindColors } from "../../../helper-functions";
 
 export default function EditClockContainer({ clock }) {
   const [currentClock, setCurrentClock] = useState(clock);
@@ -58,7 +58,9 @@ export default function EditClockContainer({ clock }) {
           setErrMessage={setErrMessage}
         />
       </form>
-      {errMessage && <div className="flex justify-center text-center mt-4">{errMessage}</div>}
+      {errMessage && (
+        <div className="flex justify-center text-center mt-4">{errMessage}</div>
+      )}
     </div>
-  );
+  )
 }

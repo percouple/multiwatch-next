@@ -8,7 +8,11 @@ import {
 import { setLoading, clearLoading } from "../state/slices/loadingSlice";
 import ErrorMessage from "./common-elements/AuthErrorMessage";
 import SubmitButton from "./common-elements/SubmitButton";
-import { setCurrentUser, toggleLoggedIn, setAuthenticating } from "../state/slices/authSlice";
+import {
+  setCurrentUser,
+  toggleLoggedIn,
+  setAuthenticating,
+} from "../state/slices/authSlice";
 import * as yup from "yup";
 
 export default function CreateNewUserCard() {
@@ -98,10 +102,7 @@ export default function CreateNewUserCard() {
       <h1 className="text-accent-1 text-2xl font-bold mb-10 mt-4">
         Create new user
       </h1>
-      <form
-        className="flex flex-col items-center"
-        onSubmit={submitHandler}
-      >
+      <form className="flex flex-col items-center" onSubmit={submitHandler}>
         <input
           value={userValues.username}
           type="text"
@@ -118,10 +119,7 @@ export default function CreateNewUserCard() {
           onChange={changeHandler}
           className="h-10 w-48 px-2 mb-2 rounded border-accent-2 border-2 outline-none bg-transparent"
         />
-        <SubmitButton
-          disabled={disabledSubmit}
-          textContent="Create User"
-        />
+        <SubmitButton disabled={disabledSubmit} textContent="Create User" />
         {errorMessage && <ErrorMessage message={errorMessage} />}
       </form>
     </div>

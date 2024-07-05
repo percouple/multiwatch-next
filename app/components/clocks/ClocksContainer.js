@@ -24,7 +24,7 @@ export default function ClocksContainer(props) {
   return (
     <div className="flex justify-center">
       <div className="flex justify-center items-center flex-wrap w-full">
-        {clockData.map((clock, idx) => (
+        {clockData.map((clock, idx) =>
           clock.editing ? (
             <EditClockContainer key={clock.clockId} clock={clock} />
           ) : (
@@ -37,7 +37,7 @@ export default function ClocksContainer(props) {
               onPunchOut={props.handlePunchOut}
             />
           )
-        ))}
+        )}
       </div>
     </div>
   );
