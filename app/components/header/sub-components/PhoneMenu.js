@@ -29,7 +29,7 @@ export default function PhoneMenu() {
       e.stopPropagation();
       dispatch(setAuthenticating(true));
       dispatch(setDisplayPhoneMenu(false));
-      dispatch(setThemeChanging(true));
+    //   dispatch(setThemeChanging(true));
     }
   };
 
@@ -54,12 +54,13 @@ export default function PhoneMenu() {
       className="flex flex-col justify-around items-center p-2 pt-6 w-72 h-auto absolute rounded-lg border-4 border-accent-1 top-30% z-30 bg-bkg"
       id="phoneMenu"
     >
-      <div id="menu-login" className="text-accent-2 text-2xl font-bold mb-4 cursor-pointer m-2 underline">
+      <div id="menu-login" className="text-accent-2 text-2xl font-bold mb-4 cursor-pointer m-2 underline" onClick={loginHandler}>
         Log in
       </div>
       <div
         id="menu-changeTheme"
         className="text-accent-2 text-2xl font-bold mb-4 cursor-pointer m-2 underline"
+        onClick={themeHandler}
       >
         Themes
       </div>
