@@ -15,10 +15,13 @@ const authSlice = createSlice({
     creatingUser: false,
     signingIn: true,
     loggedIn: false,
+    displayPhoneMenu: false,
   },
   reducers: {
+    setDisplayPhoneMenu(state, action) {
+      return {...state, displayPhoneMenu: action.payload}
+    },
     setAuthenticating(state, action) {
-      console.log("AUTHENNG");
       return { ...state, authenticating: action.payload };
     },
     setSigningIn(state, action) {

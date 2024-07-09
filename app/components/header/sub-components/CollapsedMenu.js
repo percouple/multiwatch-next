@@ -6,7 +6,6 @@ import { setLoading } from "../../state/slices/loadingSlice";
 export default function CollapsedMenu() {
   let [expanded, setExpanded] = useState(false);
   const clickHandler = () => {
-    console.log(expanded);
     setExpanded(!expanded);
     setLoading();
   };

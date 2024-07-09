@@ -17,8 +17,8 @@ export default function PhoneMenu() {
   }
 
   return (
-    <div className="absolute top-20 left-1/2">
-      <div id="login" onClick={loginHandler} className="cursor-pointer border-2">
+    <div className="">
+      <div id="login" onClick={loginHandler} className="cursor-pointer text-center border-4 border-accent-2 rounded-md">
         Login
       </div>
       <div>Theme</div>
