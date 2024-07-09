@@ -67,10 +67,10 @@ export default function ClockContainer(props) {
 
   return (
     <div
-      className={`p-4 w-[300px] flex flex-col justify-center items-center shadow-xl border-solid border-4 rounded-lg m-8`}
+      className={`p-4 w-[300px] flex flex-col justify-between items-center shadow-xl border-solid border-4 rounded-lg m-8`}
       style={{ borderColor: `${clockColor}` }}
     >
-      <div className="flex justify-between items-center w-full mb-4">
+      <div className="flex justify-between w-full mb-4">
         <Title clock={props.clockInfo} clockColor={clockColor} />
         <div className="flex">
           <EditClockButton clock={props.clockInfo} clockColor={clockColor} />
