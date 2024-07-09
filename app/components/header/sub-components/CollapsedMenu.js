@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import CollapsedMenuIcon from "../icons/CollapsedMenuIcon";
-import PhoneMenu from "./PhoneMenu";
 import { setLoading } from "../../state/slices/loadingSlice";
+import { setAuthenticating, setDisplayPhoneMenu } from "../../state/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 export default function CollapsedMenu() {
-  let [expanded, setExpanded] = useState(false);
+
+  const dispatch = useDispatch();
+
   const clickHandler = () => {
-    setExpanded(!expanded);
-    setLoading();
+    dispatch(setDisplayPhoneMenu(true));
+    dispatch(setAuthenticating(true));
   };
 
   return (
-    <>
-      <div onClick={clickHandler}>
-        <CollapsedMenuIcon />
-      </div>
-      {expanded && <PhoneMenu />}
-    </>
+    <div onClick={clickHandler}>
+      <CollapsedMenuIcon />
+    </div>
   );
 }

@@ -19,6 +19,7 @@ const authSlice = createSlice({
   },
   reducers: {
     setDisplayPhoneMenu(state, action) {
+      console.log("SETTING DISPLAY PHONE MENU")
       return {...state, displayPhoneMenu: action.payload}
     },
     setAuthenticating(state, action) {
@@ -46,5 +47,6 @@ export const {
   setAuthenticating,
   setCreatingUser,
   setSigningIn,
-  toggleLoggedIn
+  toggleLoggedIn,
+  setDisplayPhoneMenu
 } = authSlice.actions; // components will use these functions
