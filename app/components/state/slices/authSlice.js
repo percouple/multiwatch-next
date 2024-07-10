@@ -16,8 +16,12 @@ const authSlice = createSlice({
     signingIn: true,
     loggedIn: false,
     displayPhoneMenu: false,
+    displayThemesSelection: false,
   },
   reducers: {
+    setDisplayThemesSelection(state, action) {
+      return {...state, displayThemesSelection: action.payload}
+    },
     setDisplayPhoneMenu(state, action) {
       console.log("SETTING DISPLAY PHONE MENU")
       return {...state, displayPhoneMenu: action.payload}
@@ -48,5 +52,6 @@ export const {
   setCreatingUser,
   setSigningIn,
   toggleLoggedIn,
-  setDisplayPhoneMenu
+  setDisplayPhoneMenu,
+  setDisplayThemesSelection
 } = authSlice.actions; // components will use these functions

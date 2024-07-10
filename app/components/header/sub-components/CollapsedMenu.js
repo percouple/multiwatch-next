@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CollapsedMenuIcon from "../icons/CollapsedMenuIcon";
 import { setLoading } from "../../state/slices/loadingSlice";
-import { setAuthenticating, setDisplayPhoneMenu } from "../../state/slices/authSlice";
+import { setAuthenticating, setDisplayPhoneMenu, setDisplayThemesSelection } from "../../state/slices/authSlice";
 import { useDispatch } from "react-redux";
 
 export default function CollapsedMenu() {
@@ -11,6 +11,7 @@ export default function CollapsedMenu() {
   const clickHandler = () => {
     dispatch(setDisplayPhoneMenu(true));
     dispatch(setAuthenticating(true));
+    dispatch(setDisplayThemesSelection(false));
   };
 
   return (

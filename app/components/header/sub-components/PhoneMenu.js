@@ -3,6 +3,7 @@ import {
   setAuthenticating,
   setDisplayPhoneMenu,
   setSigningIn,
+  setDisplayThemesSelection,
 } from "../../state/slices/authSlice";
 import { nanoid } from "nanoid";
 import {
@@ -29,7 +30,7 @@ export default function PhoneMenu() {
       e.stopPropagation();
       dispatch(setAuthenticating(true));
       dispatch(setDisplayPhoneMenu(false));
-    //   dispatch(setThemeChanging(true));
+      dispatch(setDisplayThemesSelection(true));
     }
   };
 

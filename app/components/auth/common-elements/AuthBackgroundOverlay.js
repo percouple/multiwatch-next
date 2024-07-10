@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setAuthenticating,
@@ -9,6 +8,7 @@ import { clearLoading } from "../../state/slices/loadingSlice";
 import AuthCard from "../AuthCard";
 import CreateNewUserCard from "../CreateNewUserCard";
 import PhoneMenu from '../../header/sub-components/PhoneMenu';
+import ThemesDisplay from '../ThemesDisplay';
 
 export default function AuthBackgroundOverlay() {
   const dispatch = useDispatch();
@@ -16,6 +16,7 @@ export default function AuthBackgroundOverlay() {
   const creatingUser = useSelector((state) => state.auth.creatingUser);
   const signingIn = useSelector((state) => state.auth.signingIn);
   const displayPhoneMenu = useSelector(state => state.auth.displayPhoneMenu);
+  const displayThemesSelection = useSelector(state => state.auth.displayThemesSelection);
 
   // Clears state when user clicks off card on screen
   const clickOffChanger = (e) => {
@@ -37,6 +38,7 @@ export default function AuthBackgroundOverlay() {
       {authenticating && signingIn && <AuthCard />}
       {authenticating && creatingUser && <CreateNewUserCard />}
       {authenticating && displayPhoneMenu && <PhoneMenu />}
+      {authenticating && displayThemesSelection && <ThemesDisplay/>}
     </div>
   );
 }
