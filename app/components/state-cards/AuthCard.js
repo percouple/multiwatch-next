@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setCardMessage } from "../state/slices/errorMessagesSlice";
-import { setLoading, clearLoading } from "../state/slices/loadingSlice";
 import { setCurrentClocks } from "../state/slices/clockDataSlice";
 import ErrorMessage from "./common-elements/AuthErrorMessage";
 import SubmitButton from "./common-elements/SubmitButton";
@@ -22,7 +21,6 @@ export default function AuthOverlay() {
   const errorMessage = useSelector((state) => state.errorMessages.cardMessage);
 
   const createAccountHandler = () => {
-    dispatch(clearLoading());
     dispatch(setDisplayLogin(false));
     dispatch(setDisplayCreateUser(true));
   };
@@ -34,7 +32,6 @@ export default function AuthOverlay() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    dispatch(setLoading());
 
     axios
       .get(`http://localhost:9000/`, { params: userValues })
@@ -47,16 +44,13 @@ export default function AuthOverlay() {
           .then((clockRes) => {
             dispatch(setCurrentClocks(clockRes.data));
             dispatch(setBackgroundOverlay(false));
-            dispatch(clearLoading());
           })
           .catch((err) => {
             dispatch(setCardMessage(err.message));
-            dispatch(clearLoading());
           });
       })
       .catch((err) => {
         dispatch(setCardMessage(err.response.data.message));
-        dispatch(clearLoading());
       });
   };
 

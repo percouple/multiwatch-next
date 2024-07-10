@@ -1,4 +1,3 @@
-// frontend/state/loadingSlice.js
 import { nanoid } from "nanoid";
 import { createSlice } from "@reduxjs/toolkit";
 

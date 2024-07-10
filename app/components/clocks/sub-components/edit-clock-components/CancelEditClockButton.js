@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setEditingClock } from "../../../state/slices/clockDataSlice";
-import CancelEditClockButtonIcon from "../icons/CancelEditClockButtonIcon";
+import CancelEditClockButtonIcon from "../../../icons/CancelEditClockButtonIcon";
 
 export default function CancelEditClockButton({ clock }) {
   const dispatch = useDispatch();

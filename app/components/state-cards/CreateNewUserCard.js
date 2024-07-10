@@ -5,7 +5,6 @@ import {
   setCardMessage,
   setClocksMessage,
 } from "../state/slices/errorMessagesSlice";
-import { setLoading, clearLoading } from "../state/slices/loadingSlice";
 import ErrorMessage from "./common-elements/AuthErrorMessage";
 import SubmitButton from "./common-elements/SubmitButton";
 import {
@@ -52,7 +51,6 @@ export default function CreateNewUserCard() {
   // Handle form submission
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(setLoading());
 
     axios
       .post(`http://localhost:9000/create`, {
@@ -64,14 +62,12 @@ export default function CreateNewUserCard() {
         dispatch(setClocksMessage(userRes.data.message));
         dispatch(setBackgroundOverlay(false));
         dispatch(toggleLoggedIn());
-        dispatch(clearLoading());
         setTimeout(() => {
           dispatch(setClocksMessage(""));
         }, 3000);
       })
       .catch((err) => {
         dispatch(setCardMessage(err.response.data.message));
-        dispatch(clearLoading());
       });
   };
 

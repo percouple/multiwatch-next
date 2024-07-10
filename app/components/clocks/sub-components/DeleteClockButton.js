@@ -4,7 +4,7 @@ import {
   deleteClock,
   flagForDBUpdate,
 } from "../../state/slices/clockDataSlice";
-import DeleteClockButtonIcon from "./icons/DeleteClockButtonIcon";
+import DeleteClockButtonIcon from "../../icons/DeleteClockButtonIcon";
 
 export default function DeleteClockButton({ clock, clockColor }) {
   const dispatch = useDispatch();

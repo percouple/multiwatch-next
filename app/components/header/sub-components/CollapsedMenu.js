@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CollapsedMenuIcon from "../icons/CollapsedMenuIcon";
+import CollapsedMenuIcon from "../../icons/CollapsedMenuIcon";
 import {
   setBackgroundOverlay,
   setDisplayPhoneMenu,
@@ -11,7 +11,7 @@ export default function CollapsedMenu() {
   const dispatch = useDispatch();
 
   const clickHandler = () => {
-    console.log("CLICKING")
+    console.log("CLICKING");
     dispatch(setDisplayPhoneMenu(true));
     dispatch(setBackgroundOverlay(true));
     dispatch(setDisplayThemesSelection(false));

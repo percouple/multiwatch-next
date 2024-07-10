@@ -5,7 +5,6 @@ import {
   setDisplayLogin,
   setDisplayPhoneMenu,
 } from "../../state/slices/authSlice";
-import { clearLoading } from "../../state/slices/loadingSlice";
 import AuthCard from "../AuthCard";
 import CreateNewUserCard from "../CreateNewUserCard";
 import PhoneMenu from "../../header/sub-components/PhoneMenu";
@@ -32,7 +31,6 @@ export default function AuthBackgroundOverlay() {
       dispatch(setDisplayCreateUser(false));
       dispatch(setDisplayLogin(false));
       dispatch(setDisplayPhoneMenu(false));
-      dispatch(clearLoading());
       dispatch(setBackgroundOverlay(false));
     }
   };
