@@ -67,7 +67,7 @@ export default function ClockContainer(props) {
 
   return (
     <div
-      className={`p-4 w-[300px] flex flex-col justify-between items-center shadow-xl border-solid border-4 rounded-lg m-8`}
+      className={`p-4 w-[300px] flex flex-col justify-between items-center shadow-md shadow-neutral-900 border-solid border-4 rounded-lg m-8`}
       style={{ borderColor: `${clockColor}` }}
     >
       <div className="flex justify-between w-full mb-4">

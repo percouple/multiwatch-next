@@ -18,7 +18,7 @@ export default function CollapsedMenu() {
   };
 
   return (
-    <div onClick={clickHandler}>
+    <div onClick={clickHandler} className="border-4 p-1 rounded-md border-accent-1">
       <CollapsedMenuIcon />
     </div>
   );

@@ -86,7 +86,7 @@ export default function AuthOverlay() {
           placeholder="username"
           name="username"
           onChange={changeHandler}
-          className="h-10 w-48 px-2 mb-2 rounded border-accent-2 border-2 outline-none bg-transparent"
+          className="h-10 w-48 px-2 mb-2 rounded border-accent-2 border-2 outline-none bg-transparent placeholder:text-accent-2"
         />
         <input
           value={userValues.password}
@@ -94,7 +94,7 @@ export default function AuthOverlay() {
           name="password"
           placeholder="password"
           onChange={changeHandler}
-          className="h-10 w-48 px-2 mb-2 rounded border-accent-2 border-2 outline-none bg-transparent"
+          className="h-10 w-48 px-2 mb-2 rounded border-accent-2 border-2 outline-none bg-transparent placeholder:text-accent-2"
         />
         <SubmitButton disabled={disabledSubmit} textContent="Sign In" />
         {errorMessage && <ErrorMessage message={errorMessage} />}
