@@ -11,9 +11,9 @@ const authSlice = createSlice({
   name: "authentication",
   initialState: {
     currentUser: initialUser,
-    authenticating: false,
+    backgroundOverlay: false,
     creatingUser: false,
-    signingIn: true,
+    signingIn: false,
     loggedIn: false,
     displayPhoneMenu: false,
     displayThemesSelection: false,
@@ -23,11 +23,10 @@ const authSlice = createSlice({
       return {...state, displayThemesSelection: action.payload}
     },
     setDisplayPhoneMenu(state, action) {
-      console.log("SETTING DISPLAY PHONE MENU")
       return {...state, displayPhoneMenu: action.payload}
     },
-    setAuthenticating(state, action) {
-      return { ...state, authenticating: action.payload };
+    setBackgroundOverlay(state, action) {
+      return { ...state, backgroundOverlay: action.payload };
     },
     setSigningIn(state, action) {
       return { ...state, signingIn: action.payload };
@@ -48,7 +47,7 @@ export default authSlice.reducer;
 
 export const {
   setCurrentUser,
-  setAuthenticating,
+  setBackgroundOverlay,
   setCreatingUser,
   setSigningIn,
   toggleLoggedIn,

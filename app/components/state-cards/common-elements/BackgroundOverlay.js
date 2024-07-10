@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setAuthenticating,
+  setBackgroundOverlay,
   setCreatingUser,
   setSigningIn,
 } from "../../state/slices/authSlice";
@@ -12,7 +12,7 @@ import ThemesDisplay from '../ThemesDisplay';
 
 export default function AuthBackgroundOverlay() {
   const dispatch = useDispatch();
-  const authenticating = useSelector((state) => state.auth.authenticating);
+  const backgroundOverlay = useSelector((state) => state.auth.backgroundOverlay);
   const creatingUser = useSelector((state) => state.auth.creatingUser);
   const signingIn = useSelector((state) => state.auth.signingIn);
   const displayPhoneMenu = useSelector(state => state.auth.displayPhoneMenu);
@@ -25,7 +25,7 @@ export default function AuthBackgroundOverlay() {
       dispatch(setCreatingUser(false));
       dispatch(setSigningIn(false));
       dispatch(clearLoading());
-      dispatch(setAuthenticating(false));
+      dispatch(setBackgroundOverlay(false));
     }
   };
 
@@ -35,10 +35,10 @@ export default function AuthBackgroundOverlay() {
       onClick={clickOffChanger}
       id="AuthBackgroundOverlay"
     >
-      {authenticating && signingIn && <AuthCard />}
-      {authenticating && creatingUser && <CreateNewUserCard />}
-      {authenticating && displayPhoneMenu && <PhoneMenu />}
-      {authenticating && displayThemesSelection && <ThemesDisplay/>}
+      {backgroundOverlay && signingIn && <AuthCard />}
+      {backgroundOverlay && creatingUser && <CreateNewUserCard />}
+      {backgroundOverlay && displayPhoneMenu && <PhoneMenu />}
+      {backgroundOverlay && displayThemesSelection && <ThemesDisplay/>}
     </div>
   );
 }

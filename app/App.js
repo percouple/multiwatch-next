@@ -4,14 +4,14 @@ import React from "react";
 import Header from "./components/header/Header";
 import ClocksContainer from "./components/clocks/ClocksContainer";
 // import Loading from "./overlays/Loading";
-import AuthBackgroundOverlay from "./components/auth/common-elements/AuthBackgroundOverlay";
+import BackgroundOverlay from "./components/state-cards/common-elements/BackgroundOverlay";
 import { useSelector } from "react-redux";
 // import ClockDisplayResponseMessage from "./clocks/ClockDisplayResponseMessage";
 
 export default function App() {
   const currentTheme = useSelector((state) => state.theme.theme);
   const loading = useSelector((state) => state.loading.loading);
-  const authenticating = useSelector((state) => state.auth.authenticating);
+  const displayingBackgroundOverlay = useSelector((state) => state.auth.displayingBackgroundOverlay);
   const errorMessage = useSelector(
     (state) => state.errorMessages.clocksMessage
   );
@@ -22,7 +22,7 @@ export default function App() {
       theme={currentTheme}
     >
       {/* {loading && <Loading />} */}
-      {authenticating && <AuthBackgroundOverlay />}
+      {displayingBackgroundOverlay && <BackgroundOverlay />}
       <Header />
       {/*{errorMessage && <ClockDisplayResponseMessage message={errorMessage}/>}*/}
       <ClocksContainer />
