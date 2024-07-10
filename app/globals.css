@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-  div[theme='light'] {
+  div[theme="light"] {
     --color-bkg: 0deg 0% 96.1%;
     --color-txt: 223deg 7.4% 19.8%;
     --color-accent1: 179deg 41.1% 46.7%;
@@ -24,5 +23,19 @@
     --color-accent1: 173deg 58% 39%;
     --color-accent2: 12deg 76% 61%;
     --color-edit-clock: 43deg 74% 66%;
+  }
+  div[theme="olive"] {
+    --color-bkg: 128deg 21% 57%;
+    --color-txt: 83deg 71% 89%;
+    --color-accent1: 162deg 27% 19%;
+    --color-accent2: 15deg 62% 40%;
+    --color-edit-clock: 4deg 80% 65%;
+  }
+  div[theme="grape"] {
+    --color-bkg: 233deg 51% 20%;
+    --color-txt: 286deg 74% 91%;
+    --color-accent1: 245deg 72% 59%;
+    --color-accent2: 273deg 43% 65%;
+    --color-edit-clock: 249deg 93% 75%;
   }
 }

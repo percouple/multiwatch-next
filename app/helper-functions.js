@@ -89,4 +89,14 @@ export const nonTailwindColors = {
     clockOff: 'hsl(173, 58%, 39%)',
     editing: 'hsl(43, 74%, 66%)',
   },
+  olive: {
+    clockOn: 'hsl(15, 62%, 40%)',
+    clockOff: 'hsl(162, 27%, 19%)',
+    editing: 'hsl(4, 80%, 65%)',
+  },
+  grape: {
+    clockOn: "hsl(273, 43%, 65%)",
+    clockOff: "hsl(245, 72%, 59%)",
+    editing: "hsl(249, 93%, 83%)",
+  },
 }
