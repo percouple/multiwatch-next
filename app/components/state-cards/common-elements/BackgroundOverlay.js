@@ -1,29 +1,37 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   setBackgroundOverlay,
-  setCreatingUser,
-  setSigningIn,
+  setDisplayCreateUser,
+  setDisplayLogin,
+  setDisplayPhoneMenu,
 } from "../../state/slices/authSlice";
 import { clearLoading } from "../../state/slices/loadingSlice";
 import AuthCard from "../AuthCard";
 import CreateNewUserCard from "../CreateNewUserCard";
-import PhoneMenu from '../../header/sub-components/PhoneMenu';
-import ThemesDisplay from '../ThemesDisplay';
+import PhoneMenu from "../../header/sub-components/PhoneMenu";
+import ThemesDisplay from "../ThemesDisplay";
 
 export default function AuthBackgroundOverlay() {
   const dispatch = useDispatch();
-  const backgroundOverlay = useSelector((state) => state.auth.backgroundOverlay);
-  const creatingUser = useSelector((state) => state.auth.creatingUser);
-  const signingIn = useSelector((state) => state.auth.signingIn);
-  const displayPhoneMenu = useSelector(state => state.auth.displayPhoneMenu);
-  const displayThemesSelection = useSelector(state => state.auth.displayThemesSelection);
+  const backgroundOverlay = useSelector(
+    (state) => state.auth.backgroundOverlay
+  );
+  const displayCreateUser = useSelector(
+    (state) => state.auth.displayCreateUser
+  );
+  const displayLogin = useSelector((state) => state.auth.displayLogin);
+  const displayPhoneMenu = useSelector((state) => state.auth.displayPhoneMenu);
+  const displayThemesSelection = useSelector(
+    (state) => state.auth.displayThemesSelection
+  );
 
   // Clears state when user clicks off card on screen
   const clickOffChanger = (e) => {
     e.stopPropagation();
     if (e.target.id === "AuthBackgroundOverlay") {
-      dispatch(setCreatingUser(false));
-      dispatch(setSigningIn(false));
+      dispatch(setDisplayCreateUser(false));
+      dispatch(setDisplayLogin(false));
+      dispatch(setDisplayPhoneMenu(false));
       dispatch(clearLoading());
       dispatch(setBackgroundOverlay(false));
     }
@@ -35,10 +43,10 @@ export default function AuthBackgroundOverlay() {
       onClick={clickOffChanger}
       id="AuthBackgroundOverlay"
     >
-      {backgroundOverlay && signingIn && <AuthCard />}
-      {backgroundOverlay && creatingUser && <CreateNewUserCard />}
+      {backgroundOverlay && displayLogin && <AuthCard />}
+      {backgroundOverlay && displayCreateUser && <CreateNewUserCard />}
       {backgroundOverlay && displayPhoneMenu && <PhoneMenu />}
-      {backgroundOverlay && displayThemesSelection && <ThemesDisplay/>}
+      {backgroundOverlay && displayThemesSelection && <ThemesDisplay />}
     </div>
   );
 }

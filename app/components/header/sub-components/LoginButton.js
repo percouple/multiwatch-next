@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import {
-  setAuthenticating,
-  setSigningIn,
+  setBackgroundOverlay,
+  setDisplayLogin,
 } from "../../state/slices/authSlice";
 
 export default function LoginButton() {
@@ -10,8 +10,8 @@ export default function LoginButton() {
   const clickHandler = (e) => {
     if (e.target.id === "dropdownButton") {
       e.stopPropagation();
-      dispatch(setAuthenticating(true));
-      dispatch(setSigningIn(true));
+      dispatch(setBackgroundOverlay(true));
+      dispatch(setDisplayLogin(true));
     }
   };
 

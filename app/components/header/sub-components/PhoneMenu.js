@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import {
-  setAuthenticating,
+  setBackgroundOverlay,
   setDisplayPhoneMenu,
-  setSigningIn,
+  setDisplayLogin,
   setDisplayThemesSelection,
 } from "../../state/slices/authSlice";
 import { nanoid } from "nanoid";
@@ -18,9 +18,9 @@ export default function PhoneMenu() {
     if (e.target.id === "menu-login") {
       console.log("CLICKING LOGIN");
       e.stopPropagation();
-      dispatch(setAuthenticating(true));
+      dispatch(setBackgroundOverlay(true));
       dispatch(setDisplayPhoneMenu(false));
-      dispatch(setSigningIn(true));
+      dispatch(setDisplayLogin(true));
     }
   };
 
@@ -28,7 +28,7 @@ export default function PhoneMenu() {
     if (e.target.id === "menu-changeTheme") {
       console.log("CLICKING THEME CHANGE");
       e.stopPropagation();
-      dispatch(setAuthenticating(true));
+      dispatch(setBackgroundOverlay(true));
       dispatch(setDisplayPhoneMenu(false));
       dispatch(setDisplayThemesSelection(true));
     }
@@ -46,7 +46,7 @@ export default function PhoneMenu() {
       };
       dispatch(addNewClock(clockNeeds));
       dispatch(flagForDBUpdate());
-      dispatch(setAuthenticating(false));
+      dispatch(setBackgroundOverlay(false));
     }
   };
 
@@ -55,19 +55,23 @@ export default function PhoneMenu() {
       className="flex flex-col justify-around items-center p-2 pt-6 w-72 h-auto absolute rounded-lg border-4 border-accent-1 top-30% z-30 bg-bkg"
       id="phoneMenu"
     >
-      <div id="menu-login" className="text-accent-2 text-2xl font-bold mb-4 cursor-pointer m-2 underline" onClick={loginHandler}>
+      <div
+        id="menu-login"
+        className="hover:bg-neutral-600 transition duration-300 text-accent-2 text-2xl font-bold mb-4 cursor-pointer border-accent-2 border-2 min-w-60 rounded-md text-center m-2 p-2"
+        onClick={loginHandler}
+      >
         Log in
       </div>
       <div
         id="menu-changeTheme"
-        className="text-accent-2 text-2xl font-bold mb-4 cursor-pointer m-2 underline"
+        className="hover:bg-neutral-600 transition duration-300 text-accent-2 text-2xl font-bold mb-4 cursor-pointer border-accent-2 border-2 min-w-60 rounded-md text-center m-2 p-2"
         onClick={themeHandler}
       >
         Themes
       </div>
       <div
         id="menu-addNewClock"
-        className="text-accent-2 text-2xl font-bold mb-4 cursor-pointer m-2 underline"
+        className="hover:bg-neutral-600 transition duration-300 text-accent-2 text-2xl font-bold mb-4 cursor-pointer border-accent-2 border-2 min-w-60 rounded-md text-center m-2 p-2"
         onClick={addNewClockHandler}
       >
         Create New Clock

@@ -11,7 +11,7 @@ import SubmitButton from "./common-elements/SubmitButton";
 import {
   setCurrentUser,
   toggleLoggedIn,
-  setAuthenticating,
+  setBackgroundOverlay,
 } from "../state/slices/authSlice";
 import * as yup from "yup";
 
@@ -62,7 +62,7 @@ export default function CreateNewUserCard() {
       .then((userRes) => {
         dispatch(setCurrentUser(userValues));
         dispatch(setClocksMessage(userRes.data.message));
-        dispatch(setAuthenticating(false));
+        dispatch(setBackgroundOverlay(false));
         dispatch(toggleLoggedIn());
         dispatch(clearLoading());
         setTimeout(() => {

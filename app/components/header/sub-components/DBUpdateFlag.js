@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setAuthenticating,
-  setSigningIn,
+  setBackgroundOverlay,
+  setDisplayLogin,
 } from "../../state/slices/authSlice";
 
 export default function DBUpdateFlag() {
@@ -14,8 +14,8 @@ export default function DBUpdateFlag() {
       console.log(currentUser);
       // Axios backend request
     } else {
-      dispatch(setAuthenticating(true));
-      dispatch(setSigningIn(true));
+      dispatch(setBackgroundOverlay(true));
+      dispatch(setDisplayLogin(true));
     }
   };
 

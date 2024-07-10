@@ -8,9 +8,9 @@ import ErrorMessage from "./common-elements/AuthErrorMessage";
 import SubmitButton from "./common-elements/SubmitButton";
 import {
   setCurrentUser,
-  setCreatingUser,
-  setSigningIn,
-  setAuthenticating,
+  setDisplayCreateUser,
+  setDisplayLogin,
+  setBackgroundOverlay,
   toggleLoggedIn,
 } from "../state/slices/authSlice";
 
@@ -23,8 +23,8 @@ export default function AuthOverlay() {
 
   const createAccountHandler = () => {
     dispatch(clearLoading());
-    dispatch(setSigningIn(false));
-    dispatch(setCreatingUser(true));
+    dispatch(setDisplayLogin(false));
+    dispatch(setDisplayCreateUser(true));
   };
 
   const changeHandler = (e) => {
@@ -46,7 +46,7 @@ export default function AuthOverlay() {
           .get(`http://localhost:9000/user/clocks/${userRes.data.userId}`)
           .then((clockRes) => {
             dispatch(setCurrentClocks(clockRes.data));
-            dispatch(setAuthenticating(false));
+            dispatch(setBackgroundOverlay(false));
             dispatch(clearLoading());
           })
           .catch((err) => {

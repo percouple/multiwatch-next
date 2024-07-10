@@ -12,34 +12,34 @@ const authSlice = createSlice({
   initialState: {
     currentUser: initialUser,
     backgroundOverlay: false,
-    creatingUser: false,
-    signingIn: false,
+    displayCreateUser: false,
+    displayLogin: false,
     loggedIn: false,
     displayPhoneMenu: false,
     displayThemesSelection: false,
   },
   reducers: {
     setDisplayThemesSelection(state, action) {
-      return {...state, displayThemesSelection: action.payload}
+      return { ...state, displayThemesSelection: action.payload };
     },
     setDisplayPhoneMenu(state, action) {
-      return {...state, displayPhoneMenu: action.payload}
+      return { ...state, displayPhoneMenu: action.payload };
     },
     setBackgroundOverlay(state, action) {
       return { ...state, backgroundOverlay: action.payload };
     },
-    setSigningIn(state, action) {
-      return { ...state, signingIn: action.payload };
+    setDisplayLogin(state, action) {
+      return { ...state, displayLogin: action.payload };
     },
-    setCreatingUser(state, action) {
-      return { ...state, creatingUser: action.payload };
+    setDisplayCreateUser(state, action) {
+      return { ...state, displayCreateUser: action.payload };
     },
     setCurrentUser(state, action) {
       return { ...state, currentUser: action.payload };
     },
     toggleLoggedIn(state) {
-      return {...state, loggedIn: !state.loggedIn}
-    }
+      return { ...state, loggedIn: !state.loggedIn };
+    },
   },
 });
 
@@ -48,9 +48,9 @@ export default authSlice.reducer;
 export const {
   setCurrentUser,
   setBackgroundOverlay,
-  setCreatingUser,
-  setSigningIn,
+  setDisplayCreateUser,
+  setDisplayLogin,
   toggleLoggedIn,
   setDisplayPhoneMenu,
-  setDisplayThemesSelection
+  setDisplayThemesSelection,
 } = authSlice.actions; // components will use these functions

@@ -2,13 +2,16 @@
 
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setAuthenticating, setDisplayThemesSelection } from "../../state/slices/authSlice";
+import {
+  setBackgroundOverlay,
+  setDisplayThemesSelection,
+} from "../../state/slices/authSlice";
 
 export default function Theme() {
   const dispatch = useDispatch();
 
   const clickHandler = () => {
-    dispatch(setAuthenticating(true));
+    dispatch(setBackgroundOverlay(true));
     dispatch(setDisplayThemesSelection(true));
   };
 

@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 export default function App() {
   const currentTheme = useSelector((state) => state.theme.theme);
   const loading = useSelector((state) => state.loading.loading);
-  const displayingBackgroundOverlay = useSelector((state) => state.auth.displayingBackgroundOverlay);
+  const displayingBackgroundOverlay = useSelector((state) => state.auth.backgroundOverlay);
   const errorMessage = useSelector(
     (state) => state.errorMessages.clocksMessage
   );
