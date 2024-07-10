@@ -1,6 +1,5 @@
 // frontend/state/themeSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-import { getUserThemePreference } from '../../../util/stateUtils';
 
 const initialState = {
   theme: 'light', // Default theme

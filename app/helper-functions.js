@@ -1,4 +1,3 @@
-
 // Converts seconds to formatted time
 export const secondsToTime = (secs) => {
   let years = "",
@@ -84,5 +83,10 @@ export const nonTailwindColors = {
     clockOn: 'hsl(34, 100%, 49.8%)',
     clockOff: 'hsl(179, 41.1%, 46.7%)',
     editing: 'hsl(270deg 41.1% 46.7%)',
-  }
+  },
+  retro: {
+    clockOn: 'hsl(12, 76%, 61%)',
+    clockOff: 'hsl(173, 58%, 39%)',
+    editing: 'hsl(43, 74%, 66%)',
+  },
 }

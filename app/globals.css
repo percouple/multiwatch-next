@@ -18,4 +18,11 @@
     --color-accent2: 34deg 100% 49.8%;
     --color-edit-clock: 270deg 31.1% 46.7%;
   }
+  div[theme="retro"] {
+    --color-bkg: 197deg 37% 24%;
+    --color-txt: 0deg 0% 96.1%;
+    --color-accent1: 173deg 58% 39%;
+    --color-accent2: 12deg 76% 61%;
+    --color-edit-clock: 43deg 74% 66%;
+  }
 }
