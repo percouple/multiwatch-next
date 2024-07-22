@@ -1,4 +1,5 @@
 // frontend/state/errorMessagesSlice.js
+"use client"
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {

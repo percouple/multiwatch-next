@@ -1,5 +1,6 @@
+"use client"
+
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setCardMessage } from "../state/slices/errorMessagesSlice";
 import { setCurrentClocks } from "../state/slices/clockDataSlice";
@@ -12,6 +13,9 @@ import {
   setBackgroundOverlay,
   toggleLoggedIn,
 } from "../state/slices/authSlice";
+
+// const url = process.env.local;
+// console.log(url)
 
 export default function AuthOverlay() {
   let [userValues, setUserValues] = useState({ username: "", password: "" });
@@ -33,21 +37,21 @@ export default function AuthOverlay() {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    axios
-      .get(`http://localhost:9000/`, { params: userValues })
+    fetch(`http://localhost:3000/login`, { params: userValues })
       .then((userRes) => {
+        console.log(userRes.data)
         dispatch(toggleLoggedIn());
         dispatch(setCurrentUser(userRes.data));
 
-        axios
-          .get(`http://localhost:9000/user/clocks/${userRes.data.userId}`)
-          .then((clockRes) => {
-            dispatch(setCurrentClocks(clockRes.data));
-            dispatch(setBackgroundOverlay(false));
-          })
-          .catch((err) => {
-            dispatch(setCardMessage(err.message));
-          });
+        // axios
+        //   .get(`http://localhost:3000/user/clocks/${userRes.data.userId}`)
+        //   .then((clockRes) => {
+        //     dispatch(setCurrentClocks(clockRes.data));
+        //     dispatch(setBackgroundOverlay(false));
+        //   })
+        //   .catch((err) => {
+        //     dispatch(setCardMessage(err.message));
+        //   });
       })
       .catch((err) => {
         dispatch(setCardMessage(err.response.data.message));

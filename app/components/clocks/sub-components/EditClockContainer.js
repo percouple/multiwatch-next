@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 import SaveButton from "./edit-clock-components/SaveButton";
 import EditStats from "./edit-clock-components/EditStats";

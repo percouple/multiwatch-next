@@ -1,3 +1,4 @@
+"use client"
 import { nanoid } from "nanoid";
 import { createSlice } from "@reduxjs/toolkit";
 

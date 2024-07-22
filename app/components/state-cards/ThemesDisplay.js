@@ -1,3 +1,5 @@
+"use client"
+
 import { useDispatch } from "react-redux";
 import { setTheme } from "../state/slices/themeSlice";
 import { displayThemes } from "./themesData";

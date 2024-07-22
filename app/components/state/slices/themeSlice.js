@@ -1,4 +1,5 @@
 // frontend/state/themeSlice.js
+"use client"
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {

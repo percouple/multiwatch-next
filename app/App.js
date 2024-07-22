@@ -1,4 +1,3 @@
-"use client";
 
 import React from "react";
 import Header from "./components/header/Header";
@@ -9,7 +8,9 @@ import { useSelector } from "react-redux";
 
 export default function App() {
   const currentTheme = useSelector((state) => state.theme.theme);
-  const displayingBackgroundOverlay = useSelector((state) => state.auth.backgroundOverlay);
+  const displayingBackgroundOverlay = useSelector(
+    (state) => state.auth.backgroundOverlay
+  );
   const errorMessage = useSelector(
     (state) => state.errorMessages.clocksMessage
   );
