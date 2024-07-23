@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,29 +33,49 @@ export default function AuthOverlay() {
     const { name, value } = e.target;
     setUserValues({ ...userValues, [name]: value });
   };
-
+  
+  // axios
+  //   .get(`http://localhost:3000/user/clocks/${userRes.data.userId}`)
+  //   .then((clockRes) => {
+  //     dispatch(setCurrentClocks(clockRes.data));
+  //     dispatch(setBackgroundOverlay(false));
+  //   })
+  //   .catch((err) => {
+  //     dispatch(setCardMessage(err.message));
+  //   });
   const submitHandler = async (e) => {
     e.preventDefault();
+  
+    try {
+      const response = await fetch(
+        `http://localhost:3000/login?username=${userValues.username}&password=${userValues.password}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response)
+  
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
 
-    fetch(`http://localhost:3000/login`, { params: userValues })
-      .then((userRes) => {
-        console.log(userRes.data)
-        dispatch(toggleLoggedIn());
-        dispatch(setCurrentUser(userRes.data));
-
-        // axios
-        //   .get(`http://localhost:3000/user/clocks/${userRes.data.userId}`)
-        //   .then((clockRes) => {
-        //     dispatch(setCurrentClocks(clockRes.data));
-        //     dispatch(setBackgroundOverlay(false));
-        //   })
-        //   .catch((err) => {
-        //     dispatch(setCardMessage(err.message));
-        //   });
-      })
-      .catch((err) => {
-        dispatch(setCardMessage(err.response.data.message));
-      });
+  
+      const userData = await response.json(); // Parse JSON response
+  
+      console.log("User data:", userData);
+  
+      // Dispatch Redux actions based on response
+      dispatch(toggleLoggedIn());
+      dispatch(setCurrentUser(userData)); // Assuming userData is the user object from response
+  
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      // Handle error (e.g., display error message)
+      dispatch(setCardMessage(error.message)); // Dispatch error message to Redux
+    }
   };
 
   useEffect(() => {

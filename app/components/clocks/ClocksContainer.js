@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ClockContainer from "./sub-components/ClockContainer";
@@ -6,9 +5,8 @@ import EditClockContainer from "./sub-components/EditClockContainer";
 import { setClocksMessage } from "../state/slices/errorMessagesSlice";
 
 export default function ClocksContainer(props) {
-  const dispatch = useDispatch();
-  const clockData = useSelector((state) => state.clocks.currentClocks);
 
+  const clockData = [];
   return (
     <div className="flex justify-center">
       <div className="flex justify-center items-center flex-wrap w-full">

@@ -8,20 +8,11 @@ import { nanoid } from "nanoid";
 import { nonTailwindColors } from "../../../helper-functions";
 import CreateNewTimerButtonIcon from "../../icons/CreateNewTimerButtonIcon";
 
-export default function Header() {
-  const dispatch = useDispatch();
-  let user = useSelector((state) => state.currentUser);
-  let theme = useSelector((state) => state.theme.theme);
-
-  if (!user) {
-    user = "new user";
-  }
+export default function CreateNewTimerButton({ theme }) {
 
   const clickHandler = (e) => {
     const clockId = nanoid();
     const clockNeeds = { userId: user, name: "New Clock", clockId: clockId };
-    dispatch(addNewClock(clockNeeds));
-    dispatch(flagForDBUpdate());
   };
 
   return (

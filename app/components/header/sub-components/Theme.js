@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setBackgroundOverlay,
@@ -8,7 +8,6 @@ import {
 } from "../../state/slices/authSlice";
 
 export default function Theme() {
-  const dispatch = useDispatch();
 
   const clickHandler = () => {
     dispatch(setBackgroundOverlay(true));

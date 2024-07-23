@@ -1,17 +1,17 @@
-import { useDispatch } from "react-redux";
-import {
-  setBackgroundOverlay,
-  setDisplayLogin,
-} from "../../state/slices/authSlice";
+"use client"
+
+import { redirect, usePathname, useSelectedLayoutSegment } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function LoginButton() {
-  const dispatch = useDispatch();
+
+  const router = useRouter();
 
   const clickHandler = (e) => {
     if (e.target.id === "dropdownButton") {
       e.stopPropagation();
-      dispatch(setBackgroundOverlay(true));
-      dispatch(setDisplayLogin(true));
+      console.log("yep")
+      router.push('/login')
     }
   };
 
