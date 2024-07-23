@@ -5,11 +5,10 @@ import {
   flagForDBUpdate,
 } from "../../state/slices/clockDataSlice";
 import { nanoid } from "nanoid";
-import { nonTailwindColors } from "../../../helper-functions";
+import { nonTailwindColors } from "../../../../../helper-functions";
 import CreateNewTimerButtonIcon from "../../icons/CreateNewTimerButtonIcon";
 
 export default function CreateNewTimerButton({ theme }) {
-
   const clickHandler = (e) => {
     const clockId = nanoid();
     const clockNeeds = { userId: user, name: "New Clock", clockId: clockId };

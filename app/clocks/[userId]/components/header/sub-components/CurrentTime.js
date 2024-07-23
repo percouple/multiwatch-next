@@ -1,10 +1,9 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
-import { nonTailwindColors } from "../../../helper-functions";
+import { nonTailwindColors } from "../../../../../helper-functions";
 
 export default function CurrentTimeCounter({ theme }) {
-
   let [currentTime, setCurrentTime] = useState("");
   let [amPm, setAmPm] = useState("");
 

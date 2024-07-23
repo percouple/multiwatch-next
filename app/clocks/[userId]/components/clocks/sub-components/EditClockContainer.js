@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import SaveButton from "./edit-clock-components/SaveButton";
@@ -7,11 +7,8 @@ import EditTitle from "./edit-clock-components/EditTitle";
 import CurrentSessionClock from "./CurrentSessionClock";
 import CancelEditClockButton from "./edit-clock-components/CancelEditClockButton";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  editClock,
-  flagForDBUpdate,
-} from "../../state/slices/clockDataSlice";
-import { nonTailwindColors } from "../../../helper-functions";
+import { editClock, flagForDBUpdate } from "../../state/slices/clockDataSlice";
+import { nonTailwindColors } from "../../../../../helper-functions";
 
 export default function EditClockContainer({ clock }) {
   const [currentClock, setCurrentClock] = useState(clock);
@@ -64,5 +61,5 @@ export default function EditClockContainer({ clock }) {
         <div className="flex justify-center text-center mt-4">{errMessage}</div>
       )}
     </div>
-  )
+  );
 }

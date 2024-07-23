@@ -1,20 +1,17 @@
-'use client'
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ButtonContainer from "./ButtonContainer";
 import Stats from "./Stats";
 import Title from "./Title";
 import CurrentSessionClock from "./CurrentSessionClock";
 import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
-import { useDispatch, useSelector } from "react-redux";
 import {
   flagForDBUpdate,
   updateClock,
 } from "../../state/slices/clockDataSlice";
-import { nonTailwindColors } from "../../../helper-functions";
+import { nonTailwindColors } from "../../../../../helper-functions";
 
-export default function ClockContainer(props) {
+export default function ClockContainer({ theme, clock }) {
   // let [punchedIn, setPunchedIn] = useState(false);
   // let [punchInTime, setPunchInTime] = useState(null);
   // let [secondsPassed, setSecondsPassed] = useState(0);
@@ -22,7 +19,7 @@ export default function ClockContainer(props) {
   // const dispatch = useDispatch();
   // const theme = useSelector((state) => state.theme.theme);
   // const clockOn = punchedIn ? "clockOn" : "clockOff";
-  // const clockColor = nonTailwindColors[theme][clockOn];
+  const clockColor = nonTailwindColors[theme].clockOn;
 
   // const handlePunchIn = (e) => {
   //   if (!punchedIn) {
@@ -72,15 +69,15 @@ export default function ClockContainer(props) {
       className={`p-4 w-[300px] flex flex-col justify-between items-center shadow-md shadow-neutral-900 border-solid border-4 rounded-lg m-8`}
       // style={{ borderColor: `${clockColor}` }}
     >
-      {/* <div className="flex justify-between w-full mb-4">
-        <Title clock={props.clockInfo} clockColor={clockColor} />
+      <div className="flex justify-between w-full mb-4">
+        <Title clock={clock} clockColor={clockColor} />
         <div className="flex">
-          <EditClockButton clock={props.clockInfo} clockColor={clockColor} />
-          <DeleteClockButton clock={props.clockInfo} clockColor={clockColor} />
+          {/* <EditClockButton clock={clock} clockColor={clockColor} /> */}
+          <DeleteClockButton clock={clock} clockColor={clockColor} />
         </div>
       </div>
-      <CurrentSessionClock secondsPassed={secondsPassed || 0} />
-      <ButtonContainer
+      {/* <CurrentSessionClock secondsPassed={secondsPassed || 0} /> */}
+      {/* <ButtonContainer
         punchedIn={punchedIn}
         onPunchIn={handlePunchIn}
         onPunchOut={handlePunchOut}
@@ -88,7 +85,7 @@ export default function ClockContainer(props) {
       <Stats
         punchedIn={punchedIn}
         secondsPassed={secondsPassed}
-        clock={props.clockInfo}
+        clock={clock}
       /> */}
       {/* <ResponseMessage /> */}
     </div>
