@@ -1,8 +1,27 @@
 "use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import SubmitButton from "../components/state-cards/common-elements/SubmitButton";
 import ErrorMessage from "../components/state-cards/common-elements/AuthErrorMessage";
 
 export default function InputForm(props) {
+
+  let [userValues, setUserValues] = useState({ username: "", password: "" });
+  let [disabledSubmit, setDisabledSubmit] = useState(true);
+  let [errorMessage, setErrorMessage] = useState('Error Message')
+
+  const router = useRouter();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    router.push('/')
+  }
+
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    setUserValues({ ...userValues, [name]: value });
+  }
+
   return (
     <form className="flex flex-col items-center" onSubmit={submitHandler}>
       <input
