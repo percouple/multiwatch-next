@@ -30,3 +30,15 @@ export async function addClock(userId) {
 export async function updateClock(id: string, userId: string) {
   console.log("UPDATING CLOCK")
 }
+
+// For client-side login page
+export async function authenticateUser(formData) {
+  const { username, password } = formData;
+  const user = await prisma.users.findUnique({
+    where: {
+      username: username,
+      password: password
+    }
+  })
+  return user;
+}

@@ -1,4 +1,3 @@
-import React from "react";
 import CurrentTimeDisplay from "./sub-components/CurrentTime";
 import LoginButton from "./sub-components/LoginButton";
 import LogoutButton from "./sub-components/LogoutButton";
@@ -35,11 +34,11 @@ export default function Header({ theme, userId }) {
         <>
           <CreateNewTimerButton theme={theme} userId={userId} />
           {/* <Theme /> */}
-          {userId !== "default" ? (
-            <LogoutButton theme={theme} userId={userId} />
-          ) : (
+          {/* {userId !== "default" ? ( */}
+            {/* <LogoutButton theme={theme} userId={userId} /> */}
+          {/* ) : ( */}
             <LoginButton theme={theme} userId={userId}/>
-          )}
+          {/* )} */}
         </>
         {/* )} */}
       </div>

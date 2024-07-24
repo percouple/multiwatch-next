@@ -1,19 +1,26 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import SubmitButton from "../components/state-cards/common-elements/SubmitButton";
+import { authenticateUser } from "../../../lib/db-helpers";
 import ErrorMessage from "../components/state-cards/common-elements/AuthErrorMessage";
 
 export default function InputForm(props) {
   let [userValues, setUserValues] = useState({ username: "", password: "" });
   let [disabledSubmit, setDisabledSubmit] = useState(true);
-  let [errorMessage, setErrorMessage] = useState("Error Message");
+  let [errorMessage, setErrorMessage] = useState("");
 
   const router = useRouter();
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    router.push("/");
+    const user = await authenticateUser(userValues);
+    console.log(user);
+    if (!user) {
+      setErrorMessage("Username or password incorrect");
+      return
+    } else {
+      router.push(`/clocks/${user.id}`);
+    }
   };
 
   const changeHandler = (e) => {
@@ -39,7 +46,11 @@ export default function InputForm(props) {
         onChange={changeHandler}
         className="h-10 w-48 px-2 mb-2 rounded border-accent-2 border-2 outline-none bg-transparent placeholder:text-accent-2"
       />
-      <SubmitButton disabled={disabledSubmit} textContent="Sign In" />
+      <button
+        id="createUserButton"
+        className={`rounded-lg w-48 h-10 m-4 bg-accent-2 font-bold text-bkg`}
+        // disabled={disabledSubmit}
+      >Sign In</button>
       {errorMessage && <ErrorMessage message={errorMessage} />}
     </form>
   );
