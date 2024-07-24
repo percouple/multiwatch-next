@@ -14,7 +14,6 @@ export default function InputForm(props) {
   const submitHandler = async (e) => {
     e.preventDefault();
     const user = await authenticateUser(userValues);
-    console.log(user);
     if (!user) {
       setErrorMessage("Username or password incorrect");
       return
@@ -26,6 +25,11 @@ export default function InputForm(props) {
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setUserValues({ ...userValues, [name]: value });
+    if (!userValues.password || !userValues.username) {
+      setDisabledSubmit(true);
+    } else {
+      setDisabledSubmit(false);
+    }
   };
 
   return (
@@ -49,7 +53,7 @@ export default function InputForm(props) {
       <button
         id="createUserButton"
         className={`rounded-lg w-48 h-10 m-4 bg-accent-2 font-bold text-bkg`}
-        // disabled={disabledSubmit}
+        disabled={disabledSubmit}
       >Sign In</button>
       {errorMessage && <ErrorMessage message={errorMessage} />}
     </form>
