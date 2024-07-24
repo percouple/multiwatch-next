@@ -3,20 +3,17 @@
 import { revalidatePath } from "next/cache";
 import prisma from "./db";
 
-export async function deleteClock(id, userId) {
+export async function deleteClock(id: string, userId: string) {
   console.log("DELETING")
   await prisma.clocks.delete({
     where: {
       id: id,
     }
   });
-  console.log(id);
-  revalidatePath(`./clocks/`)
+  await revalidatePath(`./clocks/${userId}`)
 }
 
 export async function addClock(userId) {
-    console.log("ADDING CLOCK")
-    console.log(userId)
   await prisma.clocks.create({
     data: {
       name: "New Clock",
@@ -27,5 +24,5 @@ export async function addClock(userId) {
       allTime: 0,
     },
   });
-  revalidatePath(`./clocks/${userId}`)
+  await revalidatePath(`./clocks/${userId}`)
 }

@@ -20,7 +20,7 @@ export default async function ClocksContainer({ theme, userId }) {
             <ClockContainer
               id={clock.id}
               key={clock.id}
-              user={userId}
+              userId={userId}
               clock={clock}
               theme={theme}
             />
