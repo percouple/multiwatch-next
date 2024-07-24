@@ -3,11 +3,15 @@
 import { useEffect, useState } from "react";
 import ErrorMessage from "../clocks/[userId]/components/state-cards/common-elements/AuthErrorMessage";
 import * as yup from "yup";
+import { createNewUser } from "../lib/db-helpers";
+import { useRouter } from "next/navigation";
 
 export default function CreateNewUserCard() {
   let [userValues, setUserValues] = useState({ username: "", password: "" });
   let [disabledSubmit, setDisabledSubmit] = useState(true);
   let [errorMessage, setErrorMessage] = useState("");
+
+  const router = useRouter();
 
   const schema = yup.object().shape({
     password: yup
@@ -36,8 +40,14 @@ export default function CreateNewUserCard() {
   };
 
   // Handle form submission
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+    const userId = await createNewUser(userValues);
+    if (userId) {
+      router.push(`/clocks/${userId}`);
+    } else {
+      setErrorMessage("Username unavailable");
+    }
   };
 
   // Validate inputs on change
@@ -79,6 +89,7 @@ export default function CreateNewUserCard() {
         id="createUserButton"
         className={`rounded-lg w-48 h-10 m-4 bg-accent-2 font-bold text-bkg`}
         disabled={disabledSubmit}
+        type="submit"
       >
         Create Profile
       </button>
