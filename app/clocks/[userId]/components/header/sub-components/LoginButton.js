@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 
-export default function LoginButton() {
+export default function LoginButton({ userId }) {
   return (
     <Link
-      href="/login"
+      href={`/clocks/${userId}/login`}
       className="text-center cursor-pointer border-2 border-solid border-accent-1 rounded-md min-w-[4rem]"
     >
       Login

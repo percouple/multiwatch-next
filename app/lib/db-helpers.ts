@@ -26,3 +26,7 @@ export async function addClock(userId) {
   });
   await revalidatePath(`./clocks/${userId}`)
 }
+
+export async function updateClock(id: string, userId: string) {
+  console.log("UPDATING CLOCK")
+}

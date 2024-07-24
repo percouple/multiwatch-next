@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import SubmitButton from "../clocks/[userId]/components/state-cards/common-elements/SubmitButton";
-import ErrorMessage from "../clocks/[userId]/components/state-cards/common-elements/AuthErrorMessage";
+import SubmitButton from "../components/state-cards/common-elements/SubmitButton";
+import ErrorMessage from "../components/state-cards/common-elements/AuthErrorMessage";
 
 export default function InputForm(props) {
   let [userValues, setUserValues] = useState({ username: "", password: "" });

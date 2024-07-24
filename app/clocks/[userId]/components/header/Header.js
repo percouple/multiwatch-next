@@ -38,7 +38,7 @@ export default function Header({ theme, userId }) {
           {userId !== "default" ? (
             <LogoutButton theme={theme} userId={userId} />
           ) : (
-            <LoginButton theme={theme} />
+            <LoginButton theme={theme} userId={userId}/>
           )}
         </>
         {/* )} */}
