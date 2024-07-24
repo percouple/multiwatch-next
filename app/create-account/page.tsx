@@ -1,28 +1,12 @@
-"use client"
-
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  setCardMessage,
-  setClocksMessage,
-} from "../state/slices/errorMessagesSlice";
-import ErrorMessage from "./common-elements/AuthErrorMessage";
-import SubmitButton from "./common-elements/SubmitButton";
-import {
-  setCurrentUser,
-  toggleLoggedIn,
-  setBackgroundOverlay,
-} from "../state/slices/authSlice";
+"use client";
+import { useEffect, useState } from "react";
+import ErrorMessage from "../clocks/[userId]/components/state-cards/common-elements/AuthErrorMessage";
 import * as yup from "yup";
 
 export default function CreateNewUserCard() {
   let [userValues, setUserValues] = useState({ username: "", password: "" });
   let [disabledSubmit, setDisabledSubmit] = useState(true);
-
-  const dispatch = useDispatch();
-  const currentTheme = useSelector((state) => state.theme.theme);
-  const errorMessage = useSelector((state) => state.errorMessages.cardMessage);
+  let [errorMessage, setErrorMessage] = useState("");
 
   const schema = yup.object().shape({
     password: yup
@@ -53,24 +37,6 @@ export default function CreateNewUserCard() {
   // Handle form submission
   const submitHandler = (e) => {
     e.preventDefault();
-
-    axios
-      .post(`http://localhost:9000/create`, {
-        username: userValues.username,
-        password: userValues.password,
-      })
-      .then((userRes) => {
-        dispatch(setCurrentUser(userValues));
-        dispatch(setClocksMessage(userRes.data.message));
-        dispatch(setBackgroundOverlay(false));
-        dispatch(toggleLoggedIn());
-        setTimeout(() => {
-          dispatch(setClocksMessage(""));
-        }, 3000);
-      })
-      .catch((err) => {
-        dispatch(setCardMessage(err.response.data.message));
-      });
   };
 
   // Validate inputs on change
@@ -78,19 +44,15 @@ export default function CreateNewUserCard() {
     schema
       .validate(userValues, { abortEarly: false })
       .then(() => {
-        dispatch(setCardMessage(""));
         setDisabledSubmit(false);
       })
       .catch((err) => {
-        dispatch(setCardMessage(err.errors[0]));
         setDisabledSubmit(true);
       });
   }, [userValues]);
 
   // Clear error message on component mount
-  useEffect(() => {
-    dispatch(setCardMessage(""));
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div
@@ -117,7 +79,13 @@ export default function CreateNewUserCard() {
           onChange={changeHandler}
           className="h-10 w-48 px-2 mb-2 rounded border-accent-2 border-2 outline-none bg-transparent"
         />
-        <SubmitButton disabled={disabledSubmit} textContent="Create User" />
+        <button
+          id="createUserButton"
+          className={`rounded-lg w-48 h-10 m-4 bg-accent-2 font-bold text-bkg`}
+          disabled={disabledSubmit}
+        >
+          Create Profile
+        </button>
         {errorMessage && <ErrorMessage message={errorMessage} />}
       </form>
     </div>

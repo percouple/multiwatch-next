@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,7 +8,7 @@ import {
   setDisplayPhoneMenu,
 } from "../../state/slices/authSlice";
 import AuthCard from "../AuthCard";
-import CreateNewUserCard from "../CreateNewUserCard";
+import CreateNewUserCard from "../../../../../create-account/page";
 import PhoneMenu from "../../header/sub-components/PhoneMenu";
 import ThemesDisplay from "../ThemesDisplay";
 

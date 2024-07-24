@@ -1,5 +1,6 @@
 import React from "react";
 import InputForm from "./InputForm";
+import Link from "next/link";
 
 export default function Login ({ theme }) {
   return (
@@ -9,12 +10,13 @@ export default function Login ({ theme }) {
     >
       <h1 className="text-accent-1 text-4xl font-bold mb-4">Log in</h1>
       or
-      <div
+      <Link
+        href={'../../create-account'}
         className="underline cursor-pointer mb-8"
         // onClick={createAccountHandler}
       >
         create an account
-      </div>
+      </Link>
       <InputForm />
     </div>
   );
