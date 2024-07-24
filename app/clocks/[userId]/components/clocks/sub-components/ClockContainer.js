@@ -14,7 +14,7 @@ export default function ClockContainer({ theme, clock, userId }) {
   let [secondsPassed, setSecondsPassed] = useState(0);
 
   const clockOn = punchedIn ? "clockOn" : "clockOff";
-  const clockColor = nonTailwindColors[theme].clockOn;
+  const clockColor = nonTailwindColors[theme][clockOn];
 
   const handlePunchIn = (e) => {
     if (!punchedIn) {
@@ -60,7 +60,7 @@ export default function ClockContainer({ theme, clock, userId }) {
       <div className="flex justify-between w-full mb-4">
         <Title clock={clock} clockColor={clockColor} />
         <div className="flex">
-          <EditClockButton clock={clock} clockColor={clockColor} />
+          <EditClockButton clock={clock} clockColor={clockColor} userId={userId}/>
           <DeleteClockButton clock={clock} clockColor={clockColor} userId={userId}/>
         </div>
       </div>

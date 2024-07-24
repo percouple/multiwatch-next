@@ -18,6 +18,7 @@ export async function addClock(userId) {
     data: {
       name: "New Clock",
       userId: userId,
+      editing: false,
       lastSessionTime: 0,
       todaySessionTime: 0,
       thisWeekTime: 0,

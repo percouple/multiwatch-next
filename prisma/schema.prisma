@@ -21,13 +21,14 @@ model Users {
 
 model Clocks {
   id               String   @id @default(cuid())
-  user             Users   @relation(fields: [userId], references: [id])
+  user             Users    @relation(fields: [userId], references: [id])
   userId           String
   name             String
   lastSessionTime  Int
   todaySessionTime Int
   thisWeekTime     Int
   allTime          Int
+  editing          Boolean
   createdAt        DateTime @default(now())
   updatedAt        DateTime @default(now())
 }

@@ -1,11 +1,12 @@
-import { setEditingClock } from "../../state/slices/clockDataSlice";
 import EditIcon from "../../icons/EditClockButtonIcon";
+import { revalidatePath } from "next/cache";
 
-export default function EditClockButton({ clock, clockColor }) {
+export default function EditClockButton({ clock, clockColor, userId }) {
 
-  const clickHandler = (e) => {
+  const clickHandler = async (e) => {
     // dispatch(setEditingClock(clock.clockId));
     console.log("EDITING")
+    // await revalidatePath(`./clocks/${userId}`);
   };
 
   return (

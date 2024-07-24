@@ -13,7 +13,7 @@ export default async function ClocksContainer({ theme, userId }) {
   return (
     <div className="flex justify-center">
       <div className="flex justify-center items-center flex-wrap w-full">
-        {clockData.map((clock) =>
+        {clockData.map((clock) => 
           clock.editing ? (
             <EditClockContainer key={clock.id} clock={clock} theme={theme} />
           ) : (
