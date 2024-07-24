@@ -7,8 +7,7 @@ import Theme from "./sub-components/Theme";
 import CollapsedMenu from "./sub-components/CollapsedMenu";
 import CreateNewTimerButton from "./sub-components/CreateNewTimerButton";
 
-export default function Header({ theme, loggedIn }) {
-
+export default function Header({ theme, userId }) {
   // const [windowWidth, setWindowWidth] = useState(undefined);
 
   // useEffect(() => {
@@ -33,12 +32,15 @@ export default function Header({ theme, loggedIn }) {
         {/* {windowWidth && windowWidth < 630 ? (
           <CollapsedMenu theme={theme}/>
         ) : ( */}
-          <>
-            {/* <CreateNewTimerButton theme={theme} /> */}
-            {/* <Theme /> */}
-            {/* {loggedIn ? <LogoutButton theme={theme}/> :  */}
-            <LoginButton theme={theme}/>
-          </>
+        <>
+          <CreateNewTimerButton theme={theme} userId={userId} />
+          {/* <Theme /> */}
+          {userId !== "default" ? (
+            <LogoutButton theme={theme} userId={userId} />
+          ) : (
+            <LoginButton theme={theme} />
+          )}
+        </>
         {/* )} */}
       </div>
     </div>

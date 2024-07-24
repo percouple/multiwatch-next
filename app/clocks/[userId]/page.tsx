@@ -7,7 +7,6 @@ require("dotenv").config();
 
 export default function App({ params }) {
   const theme = "dark";
-  console.log(params.userId);
 
   return (
     <>
@@ -16,7 +15,7 @@ export default function App({ params }) {
           className={`font-sans font-light h-screen overflow-y-scroll scroll-auto text-base bg-bkg text-txt`}
         >
           {/* <BackgroundOverlay /> */}
-          <Header theme={theme} />
+          <Header theme={theme} userId={params.userId} />
           {/*{errorMessage && <ClockDisplayResponseMessage message={errorMessage}/>}*/}
           <ClocksContainer theme={theme} userId={params.userId} />
         </div>

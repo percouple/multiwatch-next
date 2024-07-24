@@ -11,7 +11,7 @@ import {
 } from "../../state/slices/clockDataSlice";
 import { nonTailwindColors } from "../../../../../helper-functions";
 
-export default function ClockContainer({ theme, clock }) {
+export default function ClockContainer({ theme, clock, user }) {
   // let [punchedIn, setPunchedIn] = useState(false);
   // let [punchInTime, setPunchInTime] = useState(null);
   // let [secondsPassed, setSecondsPassed] = useState(0);
@@ -73,7 +73,7 @@ export default function ClockContainer({ theme, clock }) {
         <Title clock={clock} clockColor={clockColor} />
         <div className="flex">
           {/* <EditClockButton clock={clock} clockColor={clockColor} /> */}
-          <DeleteClockButton clock={clock} clockColor={clockColor} />
+          <DeleteClockButton clock={clock} clockColor={clockColor} user={user}/>
         </div>
       </div>
       {/* <CurrentSessionClock secondsPassed={secondsPassed || 0} /> */}
