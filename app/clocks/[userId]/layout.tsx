@@ -10,7 +10,7 @@ export default function Layout({ children, params }) {
   const theme = "dark";
 
   return (
-    <>
+    <div className="">
       <React.StrictMode>
         <div
           className={`font-sans font-light h-screen overflow-y-scroll scroll-auto text-base bg-bkg text-txt`}
@@ -20,6 +20,6 @@ export default function Layout({ children, params }) {
           <ClocksContainer theme={theme} userId={params.userId} />
         </div>
       </React.StrictMode>
-    </>
+    </div>
   );
 }
