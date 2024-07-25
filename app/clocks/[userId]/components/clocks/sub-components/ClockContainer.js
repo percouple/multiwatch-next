@@ -1,5 +1,5 @@
-"use client"
-import { useState, useEffect } from 'react'
+"use client";
+import { useState, useEffect } from "react";
 import ButtonContainer from "./ButtonContainer";
 import Stats from "./Stats";
 import Title from "./Title";
@@ -7,8 +7,15 @@ import CurrentSessionClock from "./CurrentSessionClock";
 import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
 import { nonTailwindColors } from "../../../../../helper-functions";
+import { current } from "@reduxjs/toolkit";
 
-export default function ClockContainer({ theme, clock, userId }) {
+export default function ClockContainer({
+  theme,
+  clock,
+  userId,
+  clientClocks,
+  setClientClocks
+}) {
   let [punchedIn, setPunchedIn] = useState(false);
   let [punchInTime, setPunchInTime] = useState(null);
   let [secondsPassed, setSecondsPassed] = useState(0);
@@ -60,8 +67,18 @@ export default function ClockContainer({ theme, clock, userId }) {
       <div className="flex justify-between w-full mb-4">
         <Title clock={clock} clockColor={clockColor} />
         <div className="flex">
-          <EditClockButton clock={clock} clockColor={clockColor} userId={userId}/>
-          <DeleteClockButton clock={clock} clockColor={clockColor} userId={userId}/>
+          <EditClockButton
+            clock={clock}
+            clockColor={clockColor}
+            userId={userId}
+            clientClocks={clientClocks}
+            setClientClocks={setClientClocks}
+          />
+          <DeleteClockButton
+            clock={clock}
+            clockColor={clockColor}
+            userId={userId}
+          />
         </div>
       </div>
       <CurrentSessionClock secondsPassed={secondsPassed || 0} />

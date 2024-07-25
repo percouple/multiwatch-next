@@ -1,13 +1,17 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { setEditingClock } from "../../../state/slices/clockDataSlice";
 import CancelEditClockButtonIcon from "../../../icons/CancelEditClockButtonIcon";
 
-export default function CancelEditClockButton({ clock }) {
-  const dispatch = useDispatch();
+export default function CancelEditClockButton({ clock, setClientClocks, clientClocks }) {
 
-  const clickHandler = () => {
-    dispatch(setEditingClock(clock.clockId));
+  const clickHandler = async (e) => {
+    setClientClocks(
+      clientClocks.map((clientClock) => {
+        if (clientClock.id === clock.id) {
+          clientClock.editing = false;
+        } 
+        return clientClock
+      })
+    );
   };
 
   return (

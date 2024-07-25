@@ -1,12 +1,20 @@
 import EditIcon from "../../icons/EditClockButtonIcon";
-import { revalidatePath } from "next/cache";
 
-export default function EditClockButton({ clock, clockColor, userId }) {
-
+export default function EditClockButton({
+  clock,
+  clockColor,
+  clientClocks,
+  setClientClocks,
+}) {
   const clickHandler = async (e) => {
-    // dispatch(setEditingClock(clock.clockId));
-    console.log("EDITING")
-    // await revalidatePath(`./clocks/${userId}`);
+    setClientClocks(
+      clientClocks.map((clientClock) => {
+        if (clientClock.id === clock.id) {
+          clientClock.editing = true;
+        } 
+        return clientClock
+      })
+    );
   };
 
   return (

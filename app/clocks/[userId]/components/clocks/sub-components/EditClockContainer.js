@@ -1,39 +1,32 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import SaveButton from "./edit-clock-components/SaveButton";
+import React, {useState} from "react";
 import EditStats from "./edit-clock-components/EditStats";
 import EditTitle from "./edit-clock-components/EditTitle";
 import CurrentSessionClock from "./CurrentSessionClock";
 import CancelEditClockButton from "./edit-clock-components/CancelEditClockButton";
-import { useDispatch, useSelector } from "react-redux";
-import { editClock, flagForDBUpdate } from "../../state/slices/clockDataSlice";
 import { nonTailwindColors } from "../../../../../helper-functions";
+import { updateClock } from "../../../../../lib/db-helpers";
 
-export default function EditClockContainer({ clock }) {
+export default function EditClockContainer({ clock, theme, clientClocks, setClientClocks }) {
   const [currentClock, setCurrentClock] = useState(clock);
   const [errMessage, setErrMessage] = useState("");
 
-  const dispatch = useDispatch();
-  const theme = useSelector((state) => state.theme.theme);
   const color = nonTailwindColors[theme].editing;
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    console.log("SUBMITTING");
-    console.log(currentClock);
-    dispatch(editClock(currentClock));
-    dispatch(flagForDBUpdate());
+  const clockUpdater = () => {
+    // updateClock(formData, clock);
   };
 
   return (
     <div
       className={
-        "p-4 w-[300px] flex flex-col justify-center items-center shadow-xl border-solid border-4 rounded-lg m-8 border-editClockColor "
+        "p-4 w-[300px] flex flex-col justify-center items-center shadow-xl border-solid border-4 rounded-lg m-8 border-red "
       }
     >
       <form
-        onSubmit={submitHandler}
+        onSubmit={clockUpdater}
+        action={updateClock}
         className="flex flex-col justify-center items-center"
       >
         <div className="flex justify-between items-center w-full mb-4">
@@ -44,12 +37,19 @@ export default function EditClockContainer({ clock }) {
             color={color}
           />
           <div className="w-[40px]"></div>
-          <CancelEditClockButton clock={currentClock} />
+          <CancelEditClockButton clock={clock} setClientClocks={setClientClocks} clientClocks={clientClocks}/>
         </div>
         <div className="flex justify-center items-center w-full">
           <CurrentSessionClock secondsPassed={0} />
         </div>
-        <SaveButton currentClock={currentClock} setErrMessage={setErrMessage} />
+        <div className="flex justify-center my-2">
+          <button
+            type="submit"
+            className={`flex justify-center rounded-lg p-2 w-36 cursor-pointer bg-editClockColor font-light`}
+          >
+            Save
+          </button>
+        </div>
         <EditStats
           currentClock={currentClock}
           oldClock={clock}

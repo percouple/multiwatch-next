@@ -1,8 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 export default function EditTitle({ currentClock, oldClock, setCurrentClock, color }) {
-  const currentTheme = useSelector((state) => state.theme.theme);
+  // const currentTheme = useSelector((state) => state.theme.theme);
 
   const changeHandler = (e) => {
     const { value } = e.target;
