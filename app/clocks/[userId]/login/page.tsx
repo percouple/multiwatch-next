@@ -2,7 +2,7 @@ import React from "react";
 import InputForm from "./InputForm";
 import Link from "next/link";
 
-export default function Login({ theme }) {
+export default function Login({ params }) {
   return (
     <div className="absolute w-full h-screen">
       <div className="absolute inset-0 bg-neutral-950 bg-opacity-40 z-10"></div>
@@ -13,7 +13,7 @@ export default function Login({ theme }) {
         <h1 className="text-accent-1 text-4xl font-bold mb-4">Log in</h1>
         <p className="mb-4">or</p>
         <Link
-          href="/create-account" // Adjusted path
+          href={`/clocks/${params.userId}/create-account`}
           className="underline cursor-pointer mb-8"
         >
           create an account
