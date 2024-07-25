@@ -15,7 +15,8 @@ export default function EditClockContainer({ clock, theme, clientClocks, setClie
   const color = nonTailwindColors[theme].editing;
 
   const clockUpdater = () => {
-    // updateClock(formData, clock);
+    // Saves edit to the db
+    updateClock(currentClock);
   };
 
   return (
@@ -26,7 +27,6 @@ export default function EditClockContainer({ clock, theme, clientClocks, setClie
     >
       <form
         onSubmit={clockUpdater}
-        action={updateClock}
         className="flex flex-col justify-center items-center"
       >
         <div className="flex justify-between items-center w-full mb-4">

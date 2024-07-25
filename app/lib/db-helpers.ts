@@ -13,19 +13,15 @@ export async function deleteClock(id: string, userId: string) {
   await revalidatePath(`./clocks/${userId}`);
 }
 
-export async function updateClock(formData: FormData, clock: any) {
+// Client-side edit clock save function
+export async function updateClock(clock: any) {
 
   // Find the current clock
-  console.log(formData)
-  const name = formData.get("title") as string
-  const lastSessionTime = Number(formData.get("lastSessionTime") as unknown) || clock.lastSessionTime 
-  const todaySessionTime = Number(formData.get("todaySessionTime") as unknown) || clock.todaySessionTime
-  const thisWeekTime = Number(formData.get("thisWeekTime") as unknown) || clock.thisWeekTime
-  const allTime = Number(formData.get("allTime") as unknown) || clock.allTime
-
+  const {id, name, lastSessionTime, todaySessionTime, thisWeekTime, allTime } = clock;
+  
   const updatedClock = await prisma.clocks.update({
     where: {
-      id: clock.id
+      id: id
     },
     data: {
       name: name,
@@ -33,7 +29,6 @@ export async function updateClock(formData: FormData, clock: any) {
       todaySessionTime: todaySessionTime,
       thisWeekTime: thisWeekTime,
       allTime: allTime,
-      editing: false,
     }
   });
 
