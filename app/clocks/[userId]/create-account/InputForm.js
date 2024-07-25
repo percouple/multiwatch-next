@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ErrorMessage from "../clocks/[userId]/components/state-cards/common-elements/AuthErrorMessage";
+import ErrorMessage from "../components/state-cards/common-elements/AuthErrorMessage";
 import * as yup from "yup";
-import { createNewUser } from "../lib/db-helpers";
+import { createNewUser } from "../../../lib/db-helpers";
 import { useRouter } from "next/navigation";
 
 export default function CreateNewUserCard() {

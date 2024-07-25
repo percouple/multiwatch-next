@@ -7,7 +7,7 @@ import {
   setDisplayLogin,
   setDisplayPhoneMenu,
 } from "../../state/slices/authSlice";
-import AuthCard from "../AuthCard";
+import AuthCard from "../Login";
 import CreateNewUserCard from "../../../../../create-account/page";
 import PhoneMenu from "../../header/sub-components/PhoneMenu";
 import ThemesDisplay from "../ThemesDisplay";
