@@ -1,10 +1,5 @@
 import React from "react";
 import CollapsedMenuIcon from "../../icons/CollapsedMenuIcon";
-import {
-  setBackgroundOverlay,
-  setDisplayPhoneMenu,
-  setDisplayThemesSelection,
-} from "../../state/slices/authSlice";
 
 export default function CollapsedMenu( {theme} ) {
 

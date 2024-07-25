@@ -23,7 +23,7 @@ export default function Stats({ punchedIn, secondsPassed, clock }) {
   }
 
   return (
-    <div className="font-normal grid grid-rows-3 grid-cols-2 text-center max-w-18rem mx-auto mt-6">
+    <div className="font-normal grid grid-rows-3 grid-cols-2 text-center cursor-default max-w-18rem mx-auto mt-6">
       <div className="border-r border-gray-300 py-1 px-2">Last Session</div>
       <div className="border-l border-gray-300 py-1 px-2">
         {secondsToTime(clock.lastSessionTime)}

@@ -18,7 +18,7 @@ export async function updateClock(formData: FormData, clock: any) {
   // Find the current clock
   console.log(formData)
   const name = formData.get("title") as string
-  const lastSessionTime = Number(formData.get("lastSessionTime") as unknown) || clock.lastSessionTime
+  const lastSessionTime = Number(formData.get("lastSessionTime") as unknown) || clock.lastSessionTime 
   const todaySessionTime = Number(formData.get("todaySessionTime") as unknown) || clock.todaySessionTime
   const thisWeekTime = Number(formData.get("thisWeekTime") as unknown) || clock.thisWeekTime
   const allTime = Number(formData.get("allTime") as unknown) || clock.allTime

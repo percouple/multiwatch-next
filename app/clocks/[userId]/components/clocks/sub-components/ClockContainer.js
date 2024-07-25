@@ -7,7 +7,6 @@ import CurrentSessionClock from "./CurrentSessionClock";
 import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
 import { nonTailwindColors } from "../../../../../helper-functions";
-import { current } from "@reduxjs/toolkit";
 
 export default function ClockContainer({
   theme,
