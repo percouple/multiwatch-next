@@ -1,4 +1,3 @@
-"use client";
 
 import { useEffect, useState } from "react";
 import ErrorMessage from "../components/state-cards/common-elements/AuthErrorMessage";
