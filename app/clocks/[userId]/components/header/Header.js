@@ -2,27 +2,11 @@ import CurrentTimeDisplay from "./sub-components/CurrentTime";
 import LoginButton from "./sub-components/LoginButton";
 import LogoutButton from "./sub-components/LogoutButton";
 // import DBUpdateFlag from "./sub-components/DBUpdateFlag";
-import Theme from "./sub-components/Theme";
+import ThemeChangeButton from "./sub-components/ThemeChangeButton";
 import CollapsedMenu from "./sub-components/CollapsedMenu";
 import CreateNewTimerButton from "./sub-components/CreateNewTimerButton";
 
 export default function Header({ theme, userId }) {
-  // const [windowWidth, setWindowWidth] = useState(undefined);
-
-  // useEffect(() => {
-  //   function handleResize() {
-  //     setWindowWidth(window.innerWidth);
-  //   }
-
-  //   // Initial size
-  //   handleResize();
-
-  //   // Add event listener
-  //   window.addEventListener("resize", handleResize);
-
-  //   // Clean up
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
 
   return (
     <div className="flex justify-between items-center px-12 flex-wrap xs:justify-center">
@@ -33,7 +17,7 @@ export default function Header({ theme, userId }) {
         ) : ( */}
         <>
           <CreateNewTimerButton theme={theme} userId={userId} />
-          {/* <Theme /> */}
+          <ThemeChangeButton userId={userId}/>
           {/* {userId !== "default" ? ( */}
             {/* <LogoutButton theme={theme} userId={userId} /> */}
           {/* ) : ( */}

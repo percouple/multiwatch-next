@@ -5,20 +5,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 export default function CreateNewUserCard({ params }) {
-
-  // const router = useRouter();
-
-  // const clickOffHandler = (e: React.MouseEvent<HTMLDivElement>) => {
-  //   e.stopPropagation();
-  //   if (e.target instanceof HTMLDivElement && e.target.id === "authForm") {
-  //     // Prevent click on the form from closing it
-  //     return;
-  //   } else {
-  //     // Redirect to home page or any other page
-  //     router.push('/'); // Adjust path as needed
-  //   }
-  // };
-
+  
   return (
     <div className="absolute w-full h-screen">
       <Link className="absolute inset-0 bg-neutral-950 cursor-default bg-opacity-40 z-10" href={`/clocks/${params.userId}`}></Link>

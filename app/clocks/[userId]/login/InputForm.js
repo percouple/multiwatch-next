@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { authenticateUser } from "../../../lib/db-helpers";
-import ErrorMessage from "../components/state-cards/common-elements/AuthErrorMessage";
+import ErrorMessage from "../components/AuthErrorMessage";
 
 export default function InputForm(props) {
   let [userValues, setUserValues] = useState({ username: "", password: "" });
