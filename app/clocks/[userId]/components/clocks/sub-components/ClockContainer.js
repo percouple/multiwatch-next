@@ -97,6 +97,8 @@ export default function ClockContainer({
             clock={currentClock}
             clockColor={clockColor}
             userId={userId}
+            clientClocks={clientClocks}
+            setClientClocks={setClientClocks}
           />
         </div>
       </div>

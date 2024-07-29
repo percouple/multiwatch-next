@@ -10,7 +10,7 @@ export async function deleteClock(id: string, userId: string) {
       id: id,
     },
   });
-  revalidatePath(`./clocks/${userId}`);
+  await revalidatePath(`/clocks/${userId}`);
 }
 
 // Client-side edit clock save function
@@ -32,7 +32,7 @@ export async function updateClockFromEdit(clock: any) {
     },
   });
 
-  await revalidatePath(`./clocks/${clock.userId}`);
+  await revalidatePath(`/clocks/${clock.userId}`);
 }
 
 export async function updateClockFromPunchOut(
@@ -55,7 +55,7 @@ export async function updateClockFromPunchOut(
     },
   });
 
-  await revalidatePath(`./clocks/${clock.userId}`);
+  await revalidatePath(`/clocks/${clock.userId}`);
 }
 
 export async function addClock(userId) {
@@ -70,7 +70,7 @@ export async function addClock(userId) {
       allTime: 0,
     },
   });
-  await revalidatePath(`./clocks/${userId}`);
+  await revalidatePath(`/clocks/${userId}`);
 }
 
 // For client-side login page
