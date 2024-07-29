@@ -6,7 +6,7 @@ import EditTitle from "./edit-clock-components/EditTitle";
 import CurrentSessionClock from "./CurrentSessionClock";
 import CancelEditClockButton from "./edit-clock-components/CancelEditClockButton";
 import { nonTailwindColors } from "../../../../../helper-functions";
-import { updateClock } from "../../../../../lib/db-helpers";
+import { updateClockFromEdit } from "../../../../../lib/db-helpers";
 
 export default function EditClockContainer({ clock, theme, clientClocks, setClientClocks }) {
   const [currentClock, setCurrentClock] = useState(clock);
@@ -16,7 +16,7 @@ export default function EditClockContainer({ clock, theme, clientClocks, setClie
 
   const clockUpdater = () => {
     // Saves edit to the db
-    updateClock(currentClock);
+    updateClockFromEdit(currentClock);
   };
 
   return (

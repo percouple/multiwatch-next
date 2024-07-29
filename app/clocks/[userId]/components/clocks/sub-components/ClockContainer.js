@@ -7,6 +7,9 @@ import CurrentSessionClock from "./CurrentSessionClock";
 import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
 import { nonTailwindColors } from "../../../../../helper-functions";
+import { updateClockFromPunchOut } from "../../../../../lib/db-helpers";
+import { revalidatePath } from "next/cache";
+import { current } from "@reduxjs/toolkit";
 
 export default function ClockContainer({
   theme,
@@ -18,6 +21,7 @@ export default function ClockContainer({
   let [punchedIn, setPunchedIn] = useState(false);
   let [punchInTime, setPunchInTime] = useState(null);
   let [secondsPassed, setSecondsPassed] = useState(0);
+  let [currentClock, setCurrentClock] = useState(clock);
 
   const clockOn = punchedIn ? "clockOn" : "clockOff";
   const clockColor = nonTailwindColors[theme][clockOn];
@@ -32,9 +36,20 @@ export default function ClockContainer({
     }
   };
 
-  const handlePunchOut = (e) => {
+  const handlePunchOut = async (e) => {
     if (punchedIn) {
       setPunchedIn(false);
+      // Front-end updating
+      // setCurrentClock({
+      //   ...currentClock,
+      //   lastSessionTime: currentClock.lastSessionTime = secondsPassed,
+      //   todaySessionTime: currentClock.todaySessionTime += secondsPassed,
+      //   thisWeekTime: currentClock.thisWeekTime += secondsPassed,
+      //   allTime: currentClock.allTime += secondsPassed
+      // })
+
+      // Back End updating
+      await updateClockFromPunchOut(clock, secondsPassed)
       setSecondsPassed(0);
     }
   };
@@ -58,23 +73,26 @@ export default function ClockContainer({
     return () => clearInterval(intervalId);
   }, [punchedIn]);
 
+  useEffect(() => {
+    console.log(currentClock);
+  }, [currentClock])
   return (
     <div
       className={`p-4 w-[300px] flex flex-col justify-between items-center shadow-md shadow-neutral-900 border-solid border-4 rounded-lg m-8`}
       style={{ borderColor: `${clockColor}` }}
     >
       <div className="flex justify-between w-full mb-4">
-        <Title clock={clock} clockColor={clockColor} />
+        <Title clock={currentClock} clockColor={clockColor} />
         <div className="flex">
           <EditClockButton
-            clock={clock}
+            clock={currentClock}
             clockColor={clockColor}
             userId={userId}
             clientClocks={clientClocks}
             setClientClocks={setClientClocks}
           />
           <DeleteClockButton
-            clock={clock}
+            clock={currentClock}
             clockColor={clockColor}
             userId={userId}
           />
@@ -90,7 +108,7 @@ export default function ClockContainer({
       <Stats
         punchedIn={punchedIn}
         secondsPassed={secondsPassed}
-        clock={clock}
+        clock={currentClock}
       />
       {/* /* <ResponseMessage /> */}
     </div>

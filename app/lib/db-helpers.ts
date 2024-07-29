@@ -10,18 +10,18 @@ export async function deleteClock(id: string, userId: string) {
       id: id,
     },
   });
-  await revalidatePath(`./clocks/${userId}`);
+  revalidatePath(`./clocks/${userId}`);
 }
 
 // Client-side edit clock save function
-export async function updateClock(clock: any) {
-
+export async function updateClockFromEdit(clock: any) {
   // Find the current clock
-  const {id, name, lastSessionTime, todaySessionTime, thisWeekTime, allTime } = clock;
-  
+  const { id, name, lastSessionTime, todaySessionTime, thisWeekTime, allTime } =
+    clock;
+
   const updatedClock = await prisma.clocks.update({
     where: {
-      id: id
+      id: id,
     },
     data: {
       name: name,
@@ -29,10 +29,34 @@ export async function updateClock(clock: any) {
       todaySessionTime: todaySessionTime,
       thisWeekTime: thisWeekTime,
       allTime: allTime,
-    }
+    },
   });
 
-  await revalidatePath(`./clocks/${clock.userId}`)
+  await revalidatePath(`./clocks/${clock.userId}`);
+}
+
+export async function updateClockFromPunchOut(
+  clock: any,
+  secondsPassed: number
+) {
+  // Find the current clock
+  const { id, name } = clock;
+  let { lastSessionTime, todaySessionTime, thisWeekTime, allTime } = clock;
+
+  const updatedClock = await prisma.clocks.update({
+    where: {
+      id: id,
+    },
+    data: {
+      name: name,
+      lastSessionTime: lastSessionTime + secondsPassed,
+      todaySessionTime: todaySessionTime + secondsPassed,
+      thisWeekTime: thisWeekTime + secondsPassed,
+      allTime: allTime + secondsPassed,
+    },
+  });
+
+  await revalidatePath(`./clocks/${clock.userId}`);
 }
 
 export async function addClock(userId) {
