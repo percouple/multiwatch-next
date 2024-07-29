@@ -6,7 +6,7 @@ import Title from "./Title";
 import CurrentSessionClock from "./CurrentSessionClock";
 import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
-import { nonTailwindColors } from "../../../../../helper-functions";
+import { nonTailwindColors } from "../../../../../helpers";
 import { updateClockFromPunchOut } from "../../../../../lib/db-helpers";
 
 export default function ClockContainer({
@@ -14,7 +14,7 @@ export default function ClockContainer({
   clock,
   userId,
   clientClocks,
-  setClientClocks
+  setClientClocks,
 }) {
   let [punchedIn, setPunchedIn] = useState(false);
   let [punchInTime, setPunchInTime] = useState(null);
@@ -41,14 +41,14 @@ export default function ClockContainer({
       // Front-end updating
       setCurrentClock({
         ...currentClock,
-        lastSessionTime: currentClock.lastSessionTime = secondsPassed,
-        todaySessionTime: currentClock.todaySessionTime += secondsPassed,
-        thisWeekTime: currentClock.thisWeekTime += secondsPassed,
-        allTime: currentClock.allTime += secondsPassed
-      })
+        lastSessionTime: (currentClock.lastSessionTime = secondsPassed),
+        todaySessionTime: (currentClock.todaySessionTime += secondsPassed),
+        thisWeekTime: (currentClock.thisWeekTime += secondsPassed),
+        allTime: (currentClock.allTime += secondsPassed),
+      });
 
       // Back End updating
-      await updateClockFromPunchOut(currentClock)
+      await updateClockFromPunchOut(currentClock);
       setSecondsPassed(0);
     }
   };

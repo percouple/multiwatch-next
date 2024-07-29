@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { secondsToTime } from "../../../../../../helper-functions";
+import { secondsToTime } from "../../../../../../helpers";
 
 export default function EditStats({
   currentClock,

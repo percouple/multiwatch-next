@@ -1,5 +1,5 @@
 "use client";
-import { nonTailwindColors } from "../../../../../helper-functions";
+import { nonTailwindColors } from "../../../../../helpers";
 import CreateNewTimerButtonIcon from "../../icons/CreateNewTimerButtonIcon";
 import { addClock } from "../../../../../lib/db-helpers";
 

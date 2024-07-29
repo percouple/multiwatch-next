@@ -1,14 +1,19 @@
-"use client"
+"use client";
 
-import React, {useState} from "react";
+import React, { useState } from "react";
 import EditStats from "./edit-clock-components/EditStats";
 import EditTitle from "./edit-clock-components/EditTitle";
 import CurrentSessionClock from "./CurrentSessionClock";
 import CancelEditClockButton from "./edit-clock-components/CancelEditClockButton";
-import { nonTailwindColors } from "../../../../../helper-functions";
+import { nonTailwindColors } from "../../../../../helpers";
 import { updateClockFromEdit } from "../../../../../lib/db-helpers";
 
-export default function EditClockContainer({ clock, theme, clientClocks, setClientClocks }) {
+export default function EditClockContainer({
+  clock,
+  theme,
+  clientClocks,
+  setClientClocks,
+}) {
   const [currentClock, setCurrentClock] = useState(clock);
   const [errMessage, setErrMessage] = useState("");
 
@@ -37,7 +42,11 @@ export default function EditClockContainer({ clock, theme, clientClocks, setClie
             color={color}
           />
           <div className="w-[40px]"></div>
-          <CancelEditClockButton clock={clock} setClientClocks={setClientClocks} clientClocks={clientClocks}/>
+          <CancelEditClockButton
+            clock={clock}
+            setClientClocks={setClientClocks}
+            clientClocks={clientClocks}
+          />
         </div>
         <div className="flex justify-center items-center w-full">
           <CurrentSessionClock secondsPassed={0} />
