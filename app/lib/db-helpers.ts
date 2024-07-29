@@ -10,7 +10,6 @@ export async function deleteClock(id: string, userId: string) {
       id: id,
     },
   });
-  await revalidatePath(`/clocks/${userId}`);
 }
 
 // Client-side edit clock save function
@@ -35,9 +34,7 @@ export async function updateClockFromEdit(clock: any) {
   await revalidatePath(`/clocks/${clock.userId}`);
 }
 
-export async function updateClockFromPunchOut(
-  clock: any,
-) {
+export async function updateClockFromPunchOut(clock: any) {
   // Find the current clock
   const { id, name } = clock;
   let { lastSessionTime, todaySessionTime, thisWeekTime, allTime } = clock;
@@ -59,18 +56,23 @@ export async function updateClockFromPunchOut(
 }
 
 export async function addClock(userId) {
-  await prisma.clocks.create({
-    data: {
-      name: "New Clock",
-      userId: userId,
-      editing: false,
-      lastSessionTime: 0,
-      todaySessionTime: 0,
-      thisWeekTime: 0,
-      allTime: 0,
-    },
-  });
-  await revalidatePath(`/clocks/${userId}`);
+  try {
+    await prisma.clocks.create({
+      data: {
+        name: "New Clock",
+        userId: userId,
+        editing: false,
+        lastSessionTime: 0,
+        todaySessionTime: 0,
+        thisWeekTime: 0,
+        allTime: 0,
+      },
+    });
+    revalidatePath(`/clocks/${userId}`);
+    return {message: "Added clock successfully"}
+  } catch {
+    return { message: "Failed to Add clock" };
+  }
 }
 
 // For client-side login page

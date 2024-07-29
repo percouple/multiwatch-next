@@ -1,13 +1,10 @@
-"use client"
+"use client";
 
 import { useDispatch } from "react-redux";
-import { setTheme } from "../state/slices/themeSlice";
-import { displayThemes } from "../../theme/themesData";
+import { displayThemes } from "./themesData";
 
 export default function ThemesDisplay() {
-  const dispatch = useDispatch();
   const clickHandler = (name) => {
-    dispatch(setTheme(name));
   };
 
   return (
