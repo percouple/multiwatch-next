@@ -8,8 +8,6 @@ import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
 import { nonTailwindColors } from "../../../../../helper-functions";
 import { updateClockFromPunchOut } from "../../../../../lib/db-helpers";
-import { revalidatePath } from "next/cache";
-import { current } from "@reduxjs/toolkit";
 
 export default function ClockContainer({
   theme,
@@ -73,10 +71,6 @@ export default function ClockContainer({
 
     return () => clearInterval(intervalId);
   }, [punchedIn]);
-
-  useEffect(() => {
-    console.log(currentClock);
-  }, [currentClock])
 
   return (
     <div
