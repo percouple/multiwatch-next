@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { secondsToTime } from "../../../../../helper-functions";
 
 export default function Stats({ punchedIn, secondsPassed, clock }) {

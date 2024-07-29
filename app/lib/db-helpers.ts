@@ -37,7 +37,6 @@ export async function updateClockFromEdit(clock: any) {
 
 export async function updateClockFromPunchOut(
   clock: any,
-  secondsPassed: number
 ) {
   // Find the current clock
   const { id, name } = clock;
@@ -49,10 +48,10 @@ export async function updateClockFromPunchOut(
     },
     data: {
       name: name,
-      lastSessionTime: lastSessionTime + secondsPassed,
-      todaySessionTime: todaySessionTime + secondsPassed,
-      thisWeekTime: thisWeekTime + secondsPassed,
-      allTime: allTime + secondsPassed,
+      lastSessionTime: lastSessionTime,
+      todaySessionTime: todaySessionTime,
+      thisWeekTime: thisWeekTime,
+      allTime: allTime,
     },
   });
 

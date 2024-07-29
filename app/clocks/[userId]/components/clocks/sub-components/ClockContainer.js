@@ -39,17 +39,18 @@ export default function ClockContainer({
   const handlePunchOut = async (e) => {
     if (punchedIn) {
       setPunchedIn(false);
+
       // Front-end updating
-      // setCurrentClock({
-      //   ...currentClock,
-      //   lastSessionTime: currentClock.lastSessionTime = secondsPassed,
-      //   todaySessionTime: currentClock.todaySessionTime += secondsPassed,
-      //   thisWeekTime: currentClock.thisWeekTime += secondsPassed,
-      //   allTime: currentClock.allTime += secondsPassed
-      // })
+      setCurrentClock({
+        ...currentClock,
+        lastSessionTime: currentClock.lastSessionTime = secondsPassed,
+        todaySessionTime: currentClock.todaySessionTime += secondsPassed,
+        thisWeekTime: currentClock.thisWeekTime += secondsPassed,
+        allTime: currentClock.allTime += secondsPassed
+      })
 
       // Back End updating
-      await updateClockFromPunchOut(clock, secondsPassed)
+      await updateClockFromPunchOut(currentClock)
       setSecondsPassed(0);
     }
   };
@@ -64,7 +65,7 @@ export default function ClockContainer({
         // Get the current date in seconds
         const currentDateInSeconds = Date.now() / 1000;
         // Get my constantly updating seconds, send them to state
-        setSecondsPassed(() => Math.floor(currentDateInSeconds - punchInTime));
+        setSecondsPassed(Math.floor(currentDateInSeconds - punchInTime));
       }, 1000);
     } else {
       clearInterval(intervalId); // Clear interval when punching out
@@ -76,6 +77,7 @@ export default function ClockContainer({
   useEffect(() => {
     console.log(currentClock);
   }, [currentClock])
+
   return (
     <div
       className={`p-4 w-[300px] flex flex-col justify-between items-center shadow-md shadow-neutral-900 border-solid border-4 rounded-lg m-8`}
