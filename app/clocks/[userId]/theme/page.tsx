@@ -1,6 +1,6 @@
 "use client";
 
-import { displayThemes } from "./themesData";
+import { displayThemes } from "./themesList";
 import Link from "next/link";
 
 export default function ThemesDisplay({ params }) {
