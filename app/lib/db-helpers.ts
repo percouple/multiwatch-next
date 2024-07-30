@@ -32,7 +32,7 @@ export async function updateClockFromEdit(clock: any) {
     },
   });
 
-  revalidatePath(`/clocks/${clock.userId}`);
+  revalidatePath(`/clocks/${clock.userId}`, 'layout');
 }
 
 export async function updateClockFromPunchOut(clock: any) {

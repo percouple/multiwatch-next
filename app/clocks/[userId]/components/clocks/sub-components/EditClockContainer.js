@@ -19,15 +19,16 @@ export default function EditClockContainer({
 
   const color = nonTailwindColors[theme].editing;
 
-  const clockUpdater = () => {
+  const clockUpdater = async (e) => {
+    e.preventDefault();
     // Saves edit to the db
-    updateClockFromEdit(currentClock);
+    await updateClockFromEdit(currentClock);
 
     // Sets client clock to non-editing
     setClientClocks(
       clientClocks.map((clientClock) => {
         if (clientClock.id === clock.id) {
-          clientClock.editing = false;
+          return currentClock;
         }
         return clientClock;
       })
