@@ -2,9 +2,13 @@
 
 import { displayThemes } from "./themesList";
 import Link from "next/link";
+import { updateThemePreference } from "../../../lib/db-helpers";
 
 export default function ThemesDisplay({ params }) {
-  const clickHandler = (name) => {};
+  const clickHandler = async (name) => {
+    console.log(name)
+    await updateThemePreference();
+  };
 
   return (
     <div className="absolute w-full h-screen">
@@ -16,7 +20,7 @@ export default function ThemesDisplay({ params }) {
         className="flex flex-col justify-around items-center p-4 pt-6 w-72 h-auto absolute rounded-lg border-4 border-accent-1 top-1/4 left-1/2 transform -translate-x-1/2 bg-bkg z-20"
         id="authForm"
       >
-        <div className="text-2xl text-accent-1 font-normal">Select a theme</div>
+        <div className="text-2xl text-accent-1 font-normal mb-2">Select a theme</div>
         {displayThemes.map((theme, idx) => {
           const [name] = Object.keys(theme);
           return (

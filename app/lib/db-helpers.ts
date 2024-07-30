@@ -75,6 +75,10 @@ export async function addClock(userId) {
   }
 }
 
+export async function updateThemePreference() {
+  console.log("running")
+}
+
 // For client-side login page
 export async function authenticateUser(formData) {
   const { username, password } = formData;
