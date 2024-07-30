@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { nonTailwindColors } from "../../../../../helpers";
 
 export default function CurrentTimeCounter({ theme }) {
+  console.log(theme)
   let [currentTime, setCurrentTime] = useState("");
   let [amPm, setAmPm] = useState("");
 
@@ -26,7 +27,7 @@ export default function CurrentTimeCounter({ theme }) {
         <h1
           className="font-thin text-6xl mb-8"
           style={{
-            boxShadow: `0 4px 0 0 ${nonTailwindColors.dark.clockOn} `,
+            boxShadow: `0 4px 0 0 ${nonTailwindColors[theme].clockOn} `,
           }}
         >
           {currentTime}

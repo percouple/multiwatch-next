@@ -8,7 +8,7 @@ import CreateNewTimerButton from "./sub-components/CreateNewTimerButton";
 export default function Header({ theme, userId }) {
   return (
     <div className="flex justify-between items-center px-12 flex-wrap xs:justify-center">
-      <CurrentTimeDisplay />
+      <CurrentTimeDisplay theme={theme} />
       {/* {windowWidth && windowWidth < 630 ? (
           <CollapsedMenu theme={theme}/>
         ) : ( */}
