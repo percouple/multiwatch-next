@@ -22,6 +22,16 @@ export default function EditClockContainer({
   const clockUpdater = () => {
     // Saves edit to the db
     updateClockFromEdit(currentClock);
+
+    // Sets client clock to non-editing
+    setClientClocks(
+      clientClocks.map((clientClock) => {
+        if (clientClock.id === clock.id) {
+          clientClock.editing = false;
+        } 
+        return clientClock
+      })
+    );
   };
 
   return (
