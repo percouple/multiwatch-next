@@ -6,25 +6,22 @@ import CollapsedMenu from "./sub-components/CollapsedMenu";
 import CreateNewTimerButton from "./sub-components/CreateNewTimerButton";
 
 export default function Header({ theme, userId }) {
-
   return (
     <div className="flex justify-between items-center px-12 flex-wrap xs:justify-center">
       <CurrentTimeDisplay />
-      <div className="flex justify-center items-center ">
-        {/* {windowWidth && windowWidth < 630 ? (
+      {/* {windowWidth && windowWidth < 630 ? (
           <CollapsedMenu theme={theme}/>
         ) : ( */}
-        <>
-          <CreateNewTimerButton theme={theme} userId={userId} />
-          <ThemeChangeButton userId={userId}/>
-          {/* {userId !== "default" ? ( */}
-            {/* <LogoutButton theme={theme} userId={userId} /> */}
-          {/* ) : ( */}
-            <LoginButton theme={theme} userId={userId}/>
-          {/* )} */}
-        </>
+      <div className="flex items-center">
+        <CreateNewTimerButton theme={theme} userId={userId} />
+        <ThemeChangeButton userId={userId} />
+        {/* {userId !== "default" ? ( */}
+        {/* <LogoutButton theme={theme} userId={userId} /> */}
+        {/* ) : ( */}
+        <LoginButton theme={theme} userId={userId} />
         {/* )} */}
       </div>
+      {/* )} */}
     </div>
   );
 }

@@ -1,9 +1,8 @@
 "use client";
-import { nonTailwindColors } from "../../../../../helpers";
 import CreateNewTimerButtonIcon from "../../icons/CreateNewTimerButtonIcon";
 import { addClock } from "../../../../../lib/db-helpers";
 
-export default function CreateNewTimerButton({ theme, userId }) {
+export default function CreateNewTimerButton({ userId }) {
   const clickHandler = async () => {
     const res = await addClock(userId);
     // await revalidatePath(`/clocks/${userId}`);
@@ -11,10 +10,7 @@ export default function CreateNewTimerButton({ theme, userId }) {
   return (
     <button
       onClick={clickHandler}
-      className="relative h-10 w-10 cursor-pointer rounded-md bg-cover"
-      style={{
-        color: nonTailwindColors[theme].clockOff,
-      }}
+      className="relative h-10 w-10 cursor-pointer mx-2 rounded-md bg-cover text-accent-1 hover:text-accent-2 transition-all duration-300 ease-in-out"
       type="submit"
     >
       <CreateNewTimerButtonIcon />
