@@ -26,7 +26,7 @@ export default function ThemesDisplay({ params }) {
           return (
             <div
               key={idx}
-              className={`w-[85%] flex justify-around items-center rounded-md m-2 p-2 border-accent-2 border-2 hover:bg-neutral-600 transition duration-300 cursor-pointer`}
+              className={`w-[85%] flex justify-around items-center rounded-md m-2 p-2 border-accent-2 border-2 hover:bg-cmp_bkg transition duration-300 cursor-pointer`}
               onClick={() => clickHandler(name)}
             >
               <h2 onClick={() => clickHandler(name)}>{name}</h2>

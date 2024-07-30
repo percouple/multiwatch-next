@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { nonTailwindColors } from "../../../../../helpers";
 
 export default function CurrentTimeCounter({ theme }) {
-  console.log(theme)
   let [currentTime, setCurrentTime] = useState("");
   let [amPm, setAmPm] = useState("");
 

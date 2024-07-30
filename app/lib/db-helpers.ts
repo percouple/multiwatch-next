@@ -75,8 +75,6 @@ export async function addClock(userId) {
 }
 
 export async function updateThemePreference(userId: string, newTheme: string ) {
-  console.log(userId)
-  console.log(newTheme)
   const updatedUser = await prisma.users.update({
     where: {
       id: userId,
@@ -85,9 +83,6 @@ export async function updateThemePreference(userId: string, newTheme: string ) {
       theme_preference: newTheme,
     }
   })
-
-  console.log(updatedUser)
-  revalidatePath(`/clocks/${userId}/`)
 }
 
 export async function getUserInfo(userId: string) {
@@ -107,7 +102,10 @@ export async function authenticateUser(formData) {
       password: password,
     },
   });
-  return user;
+  setTimeout(() => {
+    console.log("STUFF")
+    return user;
+  }, 1000)
 }
 
 // For client-side create-user page

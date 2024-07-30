@@ -15,6 +15,7 @@ module.exports = {
       colors: {
         bkg: "hsl(var(--color-bkg) / <alpha-value>)",
         txt: "hsl(var(--color-txt) / <alpha-value>)",
+        cmp_bkg:"hsl(var(--color-cmp-bkg) / <alpha-value>)",
         accent: {
           1: "hsl(var(--color-accent1) / <alpha-value>)",
           2: "hsl(var(--color-accent2) / <alpha-value>)",

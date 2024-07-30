@@ -19,7 +19,7 @@ export default function EditClockButton({
 
   return (
     <div
-      className="w-8 h-8 bg-cover relative top-1 cursor-pointer bg-bkg"
+      className="w-8 h-8 bg-cover relative top-1 cursor-pointer bg-transparent"
       onClick={clickHandler}
       style={{ color: `${clockColor}` }}
     >
