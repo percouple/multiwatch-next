@@ -1,7 +1,6 @@
 import CurrentTimeDisplay from "./sub-components/CurrentTime";
 import LoginButton from "./sub-components/LoginButton";
 import LogoutButton from "./sub-components/LogoutButton";
-// import DBUpdateFlag from "./sub-components/DBUpdateFlag";
 import ThemeChangeButton from "./sub-components/ThemeChangeButton";
 import CollapsedMenu from "./sub-components/CollapsedMenu";
 import CreateNewTimerButton from "./sub-components/CreateNewTimerButton";
