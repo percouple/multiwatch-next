@@ -28,8 +28,8 @@ export default function EditClockContainer({
       clientClocks.map((clientClock) => {
         if (clientClock.id === clock.id) {
           clientClock.editing = false;
-        } 
-        return clientClock
+        }
+        return clientClock;
       })
     );
   };
@@ -64,7 +64,7 @@ export default function EditClockContainer({
         <div className="flex justify-center my-2">
           <button
             type="submit"
-            className={`flex justify-center rounded-lg p-2 w-36 cursor-pointer bg-editClockColor font-light`}
+            className={`flex justify-center rounded-lg p-2 w-36 cursor-pointer bg-editClockColor font-light transform transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-txt shadow-md`}
           >
             Save
           </button>

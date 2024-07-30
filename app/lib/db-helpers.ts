@@ -18,7 +18,7 @@ export async function updateClockFromEdit(clock: any) {
   const { id, name, lastSessionTime, todaySessionTime, thisWeekTime, allTime } =
     clock;
 
-  const updatedClock = await prisma.clocks.update({
+  await prisma.clocks.update({
     where: {
       id: id,
     },
@@ -28,10 +28,11 @@ export async function updateClockFromEdit(clock: any) {
       todaySessionTime: todaySessionTime,
       thisWeekTime: thisWeekTime,
       allTime: allTime,
+      editing: false,
     },
   });
 
-  await revalidatePath(`/clocks/${clock.userId}`);
+  revalidatePath(`/clocks/${clock.userId}`);
 }
 
 export async function updateClockFromPunchOut(clock: any) {
