@@ -11,12 +11,13 @@ datasource db {
 }
 
 model Users {
-  id        String   @id @default(cuid())
-  username  String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
-  Clocks    Clocks[]
+  id               String   @id @default(cuid())
+  username         String   @unique
+  password         String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @default(now())
+  Clocks           Clocks[]
+  theme_preference String   @default("light")
 }
 
 model Clocks {

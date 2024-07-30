@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "studio": "npx prisma studio",
-    "seed": "",
+    "seed": "npx seed.ts",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },

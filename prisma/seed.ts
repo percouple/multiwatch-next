@@ -5,6 +5,7 @@ const initialUsers: Prisma.UsersCreateInput[] = [
   {
     username: "terry",
     password: "1234",
+    theme_preference: "dark",
     Clocks: {
       create: [
         {
@@ -37,6 +38,7 @@ const initialUsers: Prisma.UsersCreateInput[] = [
   {
     username: "dave",
     password: "2345",
+    theme_preference: "dark",
     Clocks: {
       create: [
         {
@@ -53,6 +55,7 @@ const initialUsers: Prisma.UsersCreateInput[] = [
   {
     username: "steve",
     password: "1",
+    theme_preference: "olive",
   },
 ];
 

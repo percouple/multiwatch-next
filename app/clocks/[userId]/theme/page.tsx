@@ -7,7 +7,7 @@ import { updateThemePreference } from "../../../lib/db-helpers";
 export default function ThemesDisplay({ params }) {
   const clickHandler = async (name) => {
     console.log(name)
-    await updateThemePreference();
+    await updateThemePreference(params.userId, name);
   };
 
   return (
