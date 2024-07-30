@@ -24,11 +24,13 @@ export default function EditClockContainer({
     // Saves edit to the db
     await updateClockFromEdit(currentClock);
 
+    const pusherClock = {...currentClock, editing: false}
+
     // Sets client clock to non-editing
     setClientClocks(
       clientClocks.map((clientClock) => {
         if (clientClock.id === clock.id) {
-          return currentClock;
+          return pusherClock;
         }
         return clientClock;
       })
