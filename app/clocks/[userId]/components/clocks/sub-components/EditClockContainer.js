@@ -40,7 +40,7 @@ export default function EditClockContainer({
   return (
     <div
       className={
-        "p-4 w-[300px] flex flex-col justify-center items-center shadow-xl border-solid border-4 border-editClockColor rounded-lg m-8"
+        "p-4 w-[300px] flex flex-col justify-center items-center shadow-xl bg-bkg border-solid border-4 border-editClockColor rounded-lg m-8"
       }
     >
       <form

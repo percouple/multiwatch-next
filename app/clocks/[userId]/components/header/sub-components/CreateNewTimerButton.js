@@ -10,7 +10,7 @@ export default function CreateNewTimerButton({ userId }) {
   return (
     <button
       onClick={clickHandler}
-      className="relative h-10 w-10 cursor-pointer mx-2 rounded-md bg-cmp_bkg bg-cover text-accent-1 hover:text-accent-2 transition-all duration-300 ease-in-out"
+      className="relative h-10 w-10 cursor-pointer mx-2 rounded-md bg-bkg bg-cover text-accent-1 hover:text-accent-2 transition-all duration-300 ease-in-out"
       type="submit"
     >
       <CreateNewTimerButtonIcon />
