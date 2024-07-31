@@ -11,7 +11,7 @@ export default function Header({ theme, userId }) {
       <CurrentTimeDisplay theme={theme} />
       {/* {windowWidth && windowWidth < 630 ? (
           <CollapsedMenu theme={theme}/>
-        ) : ( */}
+          ) : ( */}
       <div className="flex items-center">
         <CreateNewTimerButton theme={theme} userId={userId} />
         <ThemeChangeButton userId={userId} />
