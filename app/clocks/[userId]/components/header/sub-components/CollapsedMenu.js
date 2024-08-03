@@ -1,15 +1,13 @@
 import React from "react";
 import CollapsedMenuIcon from "../../icons/CollapsedMenuIcon";
+import Link from "next/link";
 
-export default function CollapsedMenu( {theme} ) {
-
-  const clickHandler = () => {
-    console.log("CLICKING");
-  };
+export default function CollapsedMenu( {userId} ) {
 
   return (
-    <div className="border-4 p-1 rounded-md border-accent-1">
+    <Link className="border-4 p-1 rounded-md border-accent-1"
+    href={`/clocks/${userId}/collapse-open`}>
       <CollapsedMenuIcon />
-    </div>
+    </Link>
   );
 }

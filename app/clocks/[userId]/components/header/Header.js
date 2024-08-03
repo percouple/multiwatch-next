@@ -9,19 +9,17 @@ export default function Header({ theme, userId }) {
   return (
     <div className="flex justify-between items-center px-12 flex-wrap xs:justify-center">
       <CurrentTimeDisplay theme={theme} />
-      {/* {windowWidth && windowWidth < 630 ? (
-          <CollapsedMenu theme={theme}/>
-          ) : ( */}
-      <div className="flex items-center">
+      <div className="flex md:hidden items-center">
+        <CollapsedMenu userId={userId}/>
+      </div>
+      <div className="hidden md:flex items-center">
         <CreateNewTimerButton theme={theme} userId={userId} />
         <ThemeChangeButton userId={userId} />
         {/* {userId !== "default" ? ( */}
         {/* <LogoutButton theme={theme} userId={userId} /> */}
         {/* ) : ( */}
         <LoginButton theme={theme} userId={userId} />
-        {/* )} */}
       </div>
-      {/* )} */}
     </div>
   );
 }
