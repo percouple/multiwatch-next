@@ -7,6 +7,7 @@ require("dotenv").config();
 
 export default async function Layout({ children, params }) {
   const user = await getUserInfo(params.userId);
+  console.log(user)
   return (
     <React.StrictMode>
       <div

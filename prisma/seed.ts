@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 
 const initialUsers: Prisma.UsersCreateInput[] = [
   {
-    username: "terry",
+    username: "harold",
     password: "1234",
     theme_preference: "dark",
     Clocks: {
@@ -36,7 +36,7 @@ const initialUsers: Prisma.UsersCreateInput[] = [
     },
   },
   {
-    username: "dave",
+    username: "henry",
     password: "2345",
     theme_preference: "dark",
     Clocks: {
@@ -53,7 +53,7 @@ const initialUsers: Prisma.UsersCreateInput[] = [
     },
   },
   {
-    username: "steve",
+    username: "bob",
     password: "1",
     theme_preference: "olive",
   },
@@ -61,6 +61,12 @@ const initialUsers: Prisma.UsersCreateInput[] = [
 
 async function main() {
   console.log("Starting seeding...");
+
+  await prisma.clocks.deleteMany({});
+  console.log("Clocks deleted")
+  await prisma.users.deleteMany({});
+  console.log("Users deleted")
+  console.log("Seeding...")
 
   for (const user of initialUsers) {
     const newUser = await prisma.users.create({
