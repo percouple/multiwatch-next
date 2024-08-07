@@ -21,8 +21,8 @@ export default function CurrentTimeCounter({ theme }) {
   }, []);
 
   return (
-    <div className="relative flex mt-4 justify-between max-w-[300px]">
-      <div className="min-w-56 text-left">
+    <div className="relative flex mt-4 justify-between w-full max-w-[300px]">
+      <div className="w-full max-w-56  text-left">
         <h1
           className="font-thin text-6xl mb-8"
           style={{

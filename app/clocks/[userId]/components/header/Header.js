@@ -7,12 +7,14 @@ import CreateNewTimerButton from "./sub-components/CreateNewTimerButton";
 
 export default function Header({ theme, userId }) {
   return (
-    <div className="flex justify-between items-center px-12 flex-wrap xs:justify-center">
-      <CurrentTimeDisplay theme={theme} />
-      <div className="flex md:hidden items-center">
+    <div className="flex justify-between items-center px-12 flex-wrap w-full">
+      <div className="flex flex-1">
+        <CurrentTimeDisplay theme={theme} className="flex-1"/>
+      </div>
+      <div className="flex md:hidden items-center ">
         <CollapsedMenu userId={userId}/>
       </div>
-      <div className="hidden md:flex items-center">
+      <div className="hidden md:flex items-center flex-1">
         <CreateNewTimerButton theme={theme} userId={userId} />
         <ThemeChangeButton userId={userId} />
         {/* {userId !== "default" ? ( */}

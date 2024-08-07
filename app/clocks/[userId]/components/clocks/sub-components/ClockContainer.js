@@ -20,6 +20,7 @@ export default function ClockContainer({
   let [punchInTime, setPunchInTime] = useState(null);
   let [secondsPassed, setSecondsPassed] = useState(0);
   let [currentClock, setCurrentClock] = useState(clock);
+  let [expanded, setExpanded] = useState(false);
 
   const clockOn = punchedIn ? "clockOn" : "clockOff";
   const clockColor = nonTailwindColors[theme][clockOn];
@@ -74,7 +75,7 @@ export default function ClockContainer({
 
   return (
     <div
-      className={`p-4 w-[300px] flex flex-col justify-between items-center bg-bkg shadow-md shadow-neutral-900 border-solid border-4 rounded-lg m-8`}
+      className={`p-4 flex w-full flex-col justify-between items-center bg-bkg shadow-md shadow-neutral-900 border-solid border-4 rounded-lg m-8`}
       style={{ borderColor: `${clockColor}` }}
     >
       <div className="flex justify-between w-full mb-4">
@@ -96,13 +97,15 @@ export default function ClockContainer({
           />
         </div>
       </div>
-      <CurrentSessionClock secondsPassed={secondsPassed || 0} />
-      <ButtonContainer
-        punchedIn={punchedIn}
-        onPunchIn={handlePunchIn}
-        onPunchOut={handlePunchOut}
-        clockColor={clockColor}
-      />
+      <div className="flex w-full justify-between">
+        <CurrentSessionClock secondsPassed={secondsPassed || 0} />
+        <ButtonContainer
+          punchedIn={punchedIn}
+          onPunchIn={handlePunchIn}
+          onPunchOut={handlePunchOut}
+          clockColor={clockColor}
+        />
+      </div>
       <Stats
         punchedIn={punchedIn}
         secondsPassed={secondsPassed}
