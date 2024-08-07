@@ -6,6 +6,7 @@ import Title from "./Title";
 import CurrentSessionClock from "./CurrentSessionClock";
 import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
+import ShowStatisticsIcon from "../../icons/ShowStatisticsIcon";
 import { nonTailwindColors } from "../../../../../helpers";
 import { updateClockFromPunchOut } from "../../../../../lib/db-helpers";
 
@@ -98,6 +99,9 @@ export default function ClockContainer({
         </div>
       </div>
       <div className="flex w-full justify-between">
+        <div onClick={() => setExpanded(!expanded)}>
+          <ShowStatisticsIcon />
+        </div>
         <CurrentSessionClock secondsPassed={secondsPassed || 0} />
         <ButtonContainer
           punchedIn={punchedIn}
@@ -106,11 +110,14 @@ export default function ClockContainer({
           clockColor={clockColor}
         />
       </div>
-      <Stats
+      {expanded &&
+
+        <Stats
         punchedIn={punchedIn}
         secondsPassed={secondsPassed}
         clock={currentClock}
-      />
+        />
+      }
       {/* /* <ResponseMessage /> */}
     </div>
   );
