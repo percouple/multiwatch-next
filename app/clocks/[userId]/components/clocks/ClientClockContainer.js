@@ -7,7 +7,7 @@ export default function ClientClockContainer({ clockData, theme }) {
   let [clientClocks, setClientClocks] = useState(clockData);
 
   return (
-    <div className="flex justify-center items-center flex-wrap w-full">
+    <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
       {clientClocks.map((clock) =>
         clock.editing ? (
           <EditClockContainer

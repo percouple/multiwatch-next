@@ -6,7 +6,7 @@ export default function CollapsedMenu( {userId} ) {
 
   return (
     <Link className="border-4 p-1 rounded-md border-accent-1"
-    href={`/clocks/${userId}/collapse-open`}>
+    href={`/clocks/${userId}/collapse-menu`}>
       <CollapsedMenuIcon />
     </Link>
   );

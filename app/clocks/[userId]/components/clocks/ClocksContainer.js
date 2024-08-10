@@ -10,8 +10,6 @@ export default async function ClocksContainer({ theme, userId }) {
   });
 
   return (
-    <div className="flex justify-center">
       <ClientClockContainer clockData={clockData} theme={theme}/>
-    </div>
   );
 }
