@@ -80,46 +80,48 @@ export default function ClockContainer({
         shadow-neutral-900 border-solid border-4 rounded-lg m-8 p-4"
       style={{ borderColor: `${clockColor}` }}
     >
-      <div className="flex justify-between w-full mb-4">
+      <div className="flex justify-between w-full my-4">
         <Title clock={currentClock} clockColor={clockColor} />
-        <div className="flex">
-          <EditClockButton
-            clock={currentClock}
-            clockColor={clockColor}
-            userId={userId}
-            clientClocks={clientClocks}
-            setClientClocks={setClientClocks}
-          />
-          <DeleteClockButton
-            clock={currentClock}
-            clockColor={clockColor}
-            userId={userId}
-            clientClocks={clientClocks}
-            setClientClocks={setClientClocks}
-          />
-        </div>
-      </div>
-      <div className="flex w-full justify-between">
-        <div
-          onClick={() => setExpanded(!expanded)}
-          className="flex justify-start items-center cursor-pointer ml-4"
-          style={{ backgroundColor: clockColor }}
-        >
-          <ShowStatisticsIcon />
-        </div>
-        <CurrentSessionClock secondsPassed={secondsPassed || 0} />
         <ButtonContainer
           punchedIn={punchedIn}
           onPunchIn={handlePunchIn}
           onPunchOut={handlePunchOut}
         />
       </div>
+      <div className="flex w-full justify-between items-center">
+        <CurrentSessionClock secondsPassed={secondsPassed || 0} />
+        <div
+          onClick={() => setExpanded(!expanded)}
+          className="cursor-pointer ml-4 h-fit p-1 rounded-full"
+          style={{ backgroundColor: clockColor }}
+        >
+          <ShowStatisticsIcon />
+        </div>
+      </div>
       {expanded && (
-        <Stats
-          punchedIn={punchedIn}
-          secondsPassed={secondsPassed}
-          clock={currentClock}
-        />
+        <>
+          <div className="flex">
+            <EditClockButton
+              clock={currentClock}
+              clockColor={clockColor}
+              userId={userId}
+              clientClocks={clientClocks}
+              setClientClocks={setClientClocks}
+            />
+            <DeleteClockButton
+              clock={currentClock}
+              clockColor={clockColor}
+              userId={userId}
+              clientClocks={clientClocks}
+              setClientClocks={setClientClocks}
+            />
+          </div>
+          <Stats
+            punchedIn={punchedIn}
+            secondsPassed={secondsPassed}
+            clock={currentClock}
+          />
+        </>
       )}
       {/* /* <ResponseMessage /> */}
     </div>
