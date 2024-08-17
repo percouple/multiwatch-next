@@ -13,5 +13,9 @@ export function routingDataArray(id: string) {
       title: "Create Account",
       url: `/clocks/${id}/create-account`,
     },
+    {
+      title: "Themes",
+      url: `/clocks/${id}/theme`,
+    },
   ];
 }

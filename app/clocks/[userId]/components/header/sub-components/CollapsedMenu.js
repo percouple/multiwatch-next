@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function CollapsedMenu( {userId} ) {
 
   return (
-    <Link className="border-4 p-1 rounded-md border-accent-1"
+    <Link className="border-4 p-1 rounded-md border-accent-2"
     href={`/clocks/${userId}/collapse-menu`}>
       <CollapsedMenuIcon />
     </Link>
