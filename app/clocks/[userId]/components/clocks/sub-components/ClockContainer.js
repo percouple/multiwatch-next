@@ -22,9 +22,7 @@ export default function ClockContainer({
   let [secondsPassed, setSecondsPassed] = useState(0);
   let [currentClock, setCurrentClock] = useState(clock);
   let [expanded, setExpanded] = useState(false);
-
-  const clockOn = punchedIn ? "clockOn" : "clockOff";
-  const clockColor = nonTailwindColors[theme][clockOn];
+  let [clockColor, setClockColor] = useState(nonTailwindColors[theme].clockOff);
 
   const handlePunchIn = (e) => {
     if (!punchedIn) {
@@ -71,6 +69,10 @@ export default function ClockContainer({
       clearInterval(intervalId); // Clear interval when punching out
     }
 
+    punchedIn
+      ? setClockColor(nonTailwindColors[theme].clockOn)
+      : setClockColor(nonTailwindColors[theme].clockOff);
+
     return () => clearInterval(intervalId);
   }, [punchedIn]);
 
@@ -104,6 +106,8 @@ export default function ClockContainer({
             punchedIn={punchedIn}
             secondsPassed={secondsPassed}
             clock={currentClock}
+            clockColor={clockColor}
+            theme={theme}
           />
           <div className="flex justify-center flex-wrap my-4">
             <EditClockButton

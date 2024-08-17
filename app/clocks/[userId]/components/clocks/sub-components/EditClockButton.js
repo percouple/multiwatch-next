@@ -1,5 +1,3 @@
-import EditIcon from "../../icons/EditClockButtonIcon";
-
 export default function EditClockButton({
   clock,
   clockColor,
@@ -20,9 +18,10 @@ export default function EditClockButton({
   return (
     <div
       className="flex w-44 justify-center items-center font-extrabold italic text-lg text-txt
-      bg-transparent cursor-pointer border-4 border-editClockColor rounded-md p-2 mx-4
+      bg-transparent cursor-pointer border-4 rounded-md p-2 mx-4
       mt-4"
       onClick={clickHandler}
+      style={{borderColor: clockColor}}
     >
       Edit Stats
     </div>
