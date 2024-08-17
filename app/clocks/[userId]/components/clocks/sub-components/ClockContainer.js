@@ -100,7 +100,12 @@ export default function ClockContainer({
       </div>
       {expanded && (
         <>
-          <div className="flex">
+          <Stats
+            punchedIn={punchedIn}
+            secondsPassed={secondsPassed}
+            clock={currentClock}
+          />
+          <div className="flex justify-center flex-wrap my-4">
             <EditClockButton
               clock={currentClock}
               clockColor={clockColor}
@@ -116,11 +121,6 @@ export default function ClockContainer({
               setClientClocks={setClientClocks}
             />
           </div>
-          <Stats
-            punchedIn={punchedIn}
-            secondsPassed={secondsPassed}
-            clock={currentClock}
-          />
         </>
       )}
       {/* /* <ResponseMessage /> */}

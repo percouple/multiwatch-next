@@ -11,19 +11,20 @@ export default function EditClockButton({
       clientClocks.map((clientClock) => {
         if (clientClock.id === clock.id) {
           clientClock.editing = true;
-        } 
-        return clientClock
+        }
+        return clientClock;
       })
     );
   };
 
   return (
     <div
-      className="w-8 h-8 bg-cover relative top-1 cursor-pointer bg-transparent"
+      className="flex w-44 justify-center items-center font-extrabold italic text-lg text-txt
+      bg-transparent cursor-pointer border-4 border-editClockColor rounded-md p-2 mx-4
+      mt-4"
       onClick={clickHandler}
-      style={{ color: `${clockColor}` }}
     >
-      <EditIcon />{" "}
+      Edit Stats
     </div>
   );
 }

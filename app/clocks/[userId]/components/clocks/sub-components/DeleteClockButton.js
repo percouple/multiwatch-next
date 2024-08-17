@@ -24,15 +24,15 @@ export default function DeleteClockButton({
   };
 
   return (
-    <button
+    <div
       type="submit"
-      className={`h-10 w-10 bg-transparent cursor-pointer bg-no-repeat bg-cover`}
-      style={{
-        color: clockColor,
-      }}
+      className="flex w-44 justify-center items-center font-extrabold italic text-lg text-txt
+      bg-transparent cursor-pointer border-4 border-editClockColor rounded-md p-2 mx-4
+      mt-4"
+
       onClick={clickHandler}
     >
-      <DeleteClockButtonIcon />
-    </button>
+      Delete Clock
+    </div>
   );
 }
