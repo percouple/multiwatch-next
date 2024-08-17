@@ -11,11 +11,12 @@ export default async function Layout({ children, params }) {
   return (
     <React.StrictMode>
       <div
-        className={`font-sans font-light h-screen overflow-y-scroll scroll-auto text-base bg-bkg text-txt`}
+        className={`font-sans font-light h-screen overflow-y-scroll 
+          scroll-auto text-base bg-bkg text-txt`}
         theme={user.theme_preference}
       >
         {children}
-        <div className="bg-cmp_bkg rounded-xl pb-4 m-4">
+        <div className="bg-cmp_bkg rounded-xl p-4 m-4">
           <Header theme={user.theme_preference} userId={params.userId} />
         </div>
         <div className="bg-cmp_bkg rounded-xl p-2 m-4">
