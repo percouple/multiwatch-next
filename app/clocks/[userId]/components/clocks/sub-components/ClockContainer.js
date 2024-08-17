@@ -77,10 +77,10 @@ export default function ClockContainer({
   return (
     <div
       className="flex flex-col justify-between items-center bg-bkg shadow-md 
-        shadow-neutral-900 border-solid border-4 rounded-lg m-8 p-4"
+        shadow-neutral-900 border-solid border-4 rounded-lg mt-4 mx-2 px-4"
       style={{ borderColor: `${clockColor}` }}
     >
-      <div className="flex justify-between w-full my-4">
+      <div className="flex justify-between w-full mt-4">
         <Title clock={currentClock} clockColor={clockColor} />
         <ButtonContainer
           punchedIn={punchedIn}
@@ -88,11 +88,11 @@ export default function ClockContainer({
           onPunchOut={handlePunchOut}
         />
       </div>
-      <div className="flex w-full justify-between items-center">
+      <div className="flex w-full justify-between items-center m-4">
         <CurrentSessionClock secondsPassed={secondsPassed || 0} />
         <div
           onClick={() => setExpanded(!expanded)}
-          className="cursor-pointer ml-4 h-fit p-1 rounded-full"
+          className="cursor-pointer ml-2 h-fit p-1 rounded-full"
           style={{ backgroundColor: clockColor }}
         >
           <ShowStatisticsIcon />
