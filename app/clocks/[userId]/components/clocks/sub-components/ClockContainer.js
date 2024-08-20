@@ -72,7 +72,6 @@ export default function ClockContainer({
     punchedIn
       ? setClockColor(nonTailwindColors[theme].clockOn)
       : setClockColor(nonTailwindColors[theme].clockOff);
-
     return () => clearInterval(intervalId);
   }, [punchedIn]);
 

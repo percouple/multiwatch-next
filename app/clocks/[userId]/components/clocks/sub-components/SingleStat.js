@@ -6,7 +6,7 @@ export default function SingleStat({ label, time, punchedIn, theme }) {
 
   useEffect(() => {
     console.log("TRIGGERING");
-    if (label !== "Last Started") {
+    if (label !== "Last Started" && label !== "Last Session") {
       setStatColor(
         punchedIn
           ? nonTailwindColors[theme].clockOn
