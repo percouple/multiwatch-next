@@ -60,7 +60,7 @@ export default function EditClockContainer({
             clientClocks={clientClocks}
           />
         </div>
-        <div className="flex justify-center items-center w-full">
+        <div className="flex w-full justify-between items-center m-4">
           <CurrentSessionClock secondsPassed={0} />
         </div>
         <div className="flex justify-center my-2"></div>
