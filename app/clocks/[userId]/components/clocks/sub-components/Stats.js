@@ -45,21 +45,21 @@ export default function Stats({
   return (
     <div
       className="font-normal flex justify-center flex-wrap text-center cursor-default 
-    max-w-18rem mx-auto mt-6"
+    max-w-18rem mx-auto mt-6 bg-cmp_bkg p-4 rounded-lg max-w-[80%]"
     >
-      {statArray.map((stat, idx) => {
-        return (
-          <SingleStat
-            key={idx}
-            label={stat.label}
-            time={stat.time}
-            color={clockColor}
-            clock={clock}
-            theme={theme}
-            punchedIn={punchedIn}
-          />
-        );
-      })}
+        {statArray.map((stat, idx) => {
+          return (
+            <SingleStat
+              key={idx}
+              label={stat.label}
+              time={stat.time}
+              color={clockColor}
+              clock={clock}
+              theme={theme}
+              punchedIn={punchedIn}
+            />
+          );
+        })}
     </div>
   );
 }
