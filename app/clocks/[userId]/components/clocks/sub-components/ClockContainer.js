@@ -100,7 +100,7 @@ export default function ClockContainer({
         </div>
       </div>
       {expanded && (
-        <>
+      <div>
           <Stats
             punchedIn={punchedIn}
             secondsPassed={secondsPassed}
@@ -124,7 +124,7 @@ export default function ClockContainer({
               setClientClocks={setClientClocks}
             />
           </div>
-        </>
+        </div>
       )}
       {/* /* <ResponseMessage /> */}
     </div>

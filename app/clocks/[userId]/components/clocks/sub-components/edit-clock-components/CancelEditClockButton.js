@@ -16,7 +16,9 @@ export default function CancelEditClockButton({ clock, setClientClocks, clientCl
 
   return (
     <div
-      className="h-10 w-10 bg-transparent cursor-pointer text-editClockColor"
+      className="flex justify-center p-1 rounded-full cursor-pointer bg-editClockColor 
+        font-light transform transition-transform duration-300 ease-in-out 
+        hover:-translate-y-0.5 hover:shadow-black shadow-md"
       onClick={clickHandler}
     >
       <CancelEditClockButtonIcon />

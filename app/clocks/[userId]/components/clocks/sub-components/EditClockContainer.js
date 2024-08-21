@@ -45,7 +45,7 @@ export default function EditClockContainer({
     >
       <form
         onSubmit={clockUpdater}
-        className="flex flex-col justify-center items-center"
+        className="flex w-full flex-col justify-center items-center"
       >
         <div className="flex justify-between w-full mt-4">
           <EditTitle
