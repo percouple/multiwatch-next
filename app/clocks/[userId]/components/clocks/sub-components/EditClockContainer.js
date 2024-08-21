@@ -60,28 +60,28 @@ export default function EditClockContainer({
             clientClocks={clientClocks}
           />
         </div>
-        <div className="flex w-full justify-between items-center m-4">
+        <div className="flex w-full justify-between items-center mt-4">
           <CurrentSessionClock secondsPassed={0} />
         </div>
-        <div className="flex justify-center my-2"></div>
+        {errMessage && (
+          <div className="flex justify-center text-center mt-4">{errMessage}</div>
+        )}
+        <div className="flex justify-center mb-2"></div>
         <EditStats
           currentClock={currentClock}
           oldClock={clock}
           setCurrentClock={setCurrentClock}
           setErrMessage={setErrMessage}
-        />
+          />
         <button
           type="submit"
-          className="flex justify-center rounded-lg p-2 w-36 cursor-pointer 
-            bg-editClockColor font-light transform transition-all duration-300 
-            ease-in-out hover:-translate-y-1 hover:shadow-txt shadow-md"
+          className="flex w-44 justify-center items-center font-extrabold italic text-lg text-txt
+          bg-cmp_bkg cursor-pointer border-4 rounded-md p-2 mx-4 border-editClockColor
+          my-4 hover:bg-bkg transition-colors duration-300 ease-in-out"
         >
           Save
         </button>
       </form>
-      {errMessage && (
-        <div className="flex justify-center text-center mt-4">{errMessage}</div>
-      )}
     </div>
   );
 }

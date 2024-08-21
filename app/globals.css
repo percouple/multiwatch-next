@@ -14,7 +14,7 @@
   div[theme="dark"] {
     --color-bkg: 223deg 7.4% 19.8%;
     --color-txt: 0deg 0% 96.1%;
-    --color-cmp-bkg:  223deg 7.4% 17%;
+    --color-cmp-bkg: 223deg 7.4% 17%;
     --color-accent1: 179deg 41.1% 46.7%;
     --color-accent2: 34deg 100% 49.8%;
     --color-edit-clock: 270deg 31.1% 46.7%;
@@ -42,5 +42,10 @@
     --color-accent1: 245deg 72% 59%;
     --color-accent2: 250deg 60% 80%;
     --color-edit-clock: 249deg 93% 75%;
+  }
+
+  /* Disable default input styling chromium */
+  input:focus {
+    outline: none;
   }
 }

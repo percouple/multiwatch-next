@@ -19,7 +19,7 @@ export default function EditClockButton({
     <div
       className="flex w-44 justify-center items-center font-extrabold italic text-lg text-txt
       bg-cmp_bkg cursor-pointer border-4 rounded-md p-2 mx-4
-      mt-4"
+      mt-4 hover:bg-bkg transition-colors duration-300 ease-in-out"
       onClick={clickHandler}
       style={{borderColor: clockColor}}
     >
