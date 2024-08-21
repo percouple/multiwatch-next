@@ -77,7 +77,7 @@ export default function ClockContainer({
 
   return (
     <div
-      className="flex flex-col justify-between items-center bg-bkg shadow-md 
+      className="flex flex-col justify-between items-center h-fit bg-bkg shadow-md 
         shadow-neutral-900 border-solid border-4 rounded-lg mt-4 mx-2 px-4"
       style={{ borderColor: `${clockColor}` }}
     >
