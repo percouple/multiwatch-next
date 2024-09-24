@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import ErrorMessage from "../components/state-cards/common-elements/AuthErrorMessage";
+import ErrorMessage from "./AuthErrorMessage";
 import * as yup from "yup";
 import { createNewUser } from "../../../lib/db-helpers";
 import { useRouter } from "next/navigation";
@@ -12,6 +12,7 @@ export default function CreateNewUserCard() {
 
   const router = useRouter();
 
+  // Validation schema
   const schema = yup.object().shape({
     password: yup
       .string()

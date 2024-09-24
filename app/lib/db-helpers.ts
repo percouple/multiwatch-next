@@ -126,6 +126,8 @@ export async function createNewUser(formData) {
       },
     });
 
+    await addClock(user.id);
+
     return user.id;
   }
 }

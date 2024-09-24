@@ -1,7 +1,6 @@
 "use client"
 
 import InputForm from "./InputForm";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 export default function CreateNewUserCard({ params }) {
