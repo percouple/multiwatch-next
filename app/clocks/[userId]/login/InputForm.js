@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { authenticateUser } from "../../../lib/db-helpers";
+import { authenticateUser } from "../../../../http_helpers";
 import ErrorMessage from "../create-account/AuthErrorMessage";
 
 export default function InputForm(props) {
@@ -16,7 +16,7 @@ export default function InputForm(props) {
     const user = await authenticateUser(userValues);
     if (!user) {
       setErrorMessage("Username or password incorrect");
-      return
+      return;
     } else {
       router.push(`/clocks/${user.id}`);
     }
@@ -54,7 +54,9 @@ export default function InputForm(props) {
         id="createUserButton"
         className={`rounded-lg w-48 h-10 m-4 bg-accent-2 font-bold text-bkg`}
         disabled={disabledSubmit}
-      >Sign In</button>
+      >
+        Sign In
+      </button>
       {errorMessage && <ErrorMessage message={errorMessage} />}
     </form>
   );

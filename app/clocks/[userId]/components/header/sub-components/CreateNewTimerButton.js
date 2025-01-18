@@ -1,6 +1,6 @@
 "use client";
 import CreateNewTimerButtonIcon from "../../icons/CreateNewTimerButtonIcon";
-import { addClock } from "../../../../../lib/db-helpers";
+import { addClock } from "../../../../../../http_helpers";
 
 export default function CreateNewTimerButton({ userId }) {
   const clickHandler = async () => {

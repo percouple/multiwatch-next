@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import ErrorMessage from "./AuthErrorMessage";
 import * as yup from "yup";
-import { createNewUser } from "../../../lib/db-helpers";
+import { createNewUser } from "../../../../http_helpers";
 import { useRouter } from "next/navigation";
 
 export default function CreateNewUserCard() {

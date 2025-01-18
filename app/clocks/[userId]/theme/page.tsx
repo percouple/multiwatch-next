@@ -2,7 +2,7 @@
 
 import { displayThemes } from "./themesList";
 import Link from "next/link";
-import { updateThemePreference } from "../../../lib/db-helpers";
+import { updateThemePreference } from "../../../../http_helpers";
 
 export default function ThemesDisplay({ params }) {
   const clickHandler = async (name) => {

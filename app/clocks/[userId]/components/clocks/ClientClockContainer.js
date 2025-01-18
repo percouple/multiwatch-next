@@ -8,7 +8,7 @@ export default function ClientClockContainer({ clockData, theme }) {
 
   return (
     <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 m-2">
-      {clientClocks.map((clock) =>
+      {/* {clientClocks.map((clock) =>
         clock.editing ? (
           <EditClockContainer
             key={clock.id}
@@ -28,7 +28,7 @@ export default function ClientClockContainer({ clockData, theme }) {
             setClientClocks={setClientClocks}
           />
         )
-      )}
+      )} */}
     </div>
   );
 }

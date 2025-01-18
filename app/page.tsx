@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default async function Index() {
-  redirect(`./clocks/default`);
+  redirect(`./clocks/default/login`);
 }
