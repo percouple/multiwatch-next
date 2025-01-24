@@ -1,5 +1,5 @@
 import React from "react";
-import InputForm from "../clocks/[userId]/components/common/InputForm";
+import InputForm from "../clocks/[userId]/components/common/LoginForm";
 import Link from "next/link";
 
 export default function Login({ params }) {
@@ -20,7 +20,7 @@ export default function Login({ params }) {
         <p className="mb-4">please sign in or</p>
         <Link
           className="underline cursor-pointer mb-8"
-          href={'./clocks?userId=no-user'}
+          href={"./clocks?userId=no-user"}
         >
           create an account
         </Link>

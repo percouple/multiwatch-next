@@ -14,7 +14,7 @@ export default function InputForm(props) {
   const submitHandler = async (e) => {
     e.preventDefault();
     const user = await authenticateUser(userValues);
-    if (!user) {
+    if (!user.user) {
       setErrorMessage("Username or password incorrect");
       return;
     } else {

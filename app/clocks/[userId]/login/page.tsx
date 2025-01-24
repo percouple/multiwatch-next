@@ -1,5 +1,5 @@
 import React from "react";
-import InputForm from "../components/common/InputForm";
+import InputForm from "../components/common/LoginForm";
 import Link from "next/link";
 
 export default function Login({ params }) {
