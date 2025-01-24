@@ -1,6 +1,3 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 // Define url address. Not from .env variables, because 
 // it's hosted on a different port on the same machine
 const url = `http://localhost:33406`
