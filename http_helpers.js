@@ -1,10 +1,9 @@
-'use client'
-
 import dotenv from 'dotenv';
 dotenv.config();
 
-// Import address from .env vars
-const url = `http://${process.env.LOCAL_IP}:`
+// Define url address. Not from .env variables, because 
+// it's hosted on a different port on the same machine
+const url = `http://localhost:33406`
 
 // Get user info
 const getUser = async (userId) => {
@@ -31,9 +30,6 @@ const createNewUser = async () => {
 }
 
 const authenticateUser = async (userInfo) => {
-
-    console.log(userInfo)
-    console.log(url)
 
     // Input should already be validated
     await fetch(`${url}/auth-user`, {
