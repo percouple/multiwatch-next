@@ -1,10 +1,15 @@
-import 'dotenv/config'
+'use client'
+
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Import address from .env vars
-const url = `http://${process.env.LOCAL_IP}:${process.env.LOCAL_PORT}`
+const url = `http://${process.env.LOCAL_IP}:`
 
 // Get user info
 const getUser = async (userId) => {
+
+    console.log("GETUSER")
     
     // Force handle for no current userId
     if (!userId) {
@@ -25,8 +30,20 @@ const createNewUser = async () => {
 
 }
 
-const authenticateUser = async () => {
+const authenticateUser = async (userInfo) => {
 
+    console.log(userInfo)
+    console.log(url)
+
+    // Input should already be validated
+    await fetch(`${url}/auth-user`, {
+        method: 'POST',
+        body: JSON.stringify(userInfo)
+    })
+    .then(data => data.json())
+    //  inject into front end
+    .then(data => console.log(data))
+    .catch(err => console.error('Error: ', err))
 }
 
 const addClock = async (userId) => {

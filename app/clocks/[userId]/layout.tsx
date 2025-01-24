@@ -43,7 +43,7 @@ export default async function Layout({ children, params }) {
     updatedAt: '2025-01-17T02:37:50.883Z',
     theme_preference: 'dark'
   }
-  console.log(user)
+  console.log(params)
   return (
     <React.StrictMode>
       <div
