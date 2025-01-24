@@ -3,24 +3,24 @@
 const url = `http://localhost:3306`
 
 // Get user info
-const getUser = async (userId) => {
+// const getUser = async (userId) => {
 
-    console.log("GETUSER")
+//     console.log("GETUSER")
     
-    // Force handle for no current userId
-    if (!userId) {
-        userId === null;
-    }
+//     // Force handle for no current userId
+//     if (!userId) {
+//         userId === null;
+//     }
 
-    await fetch(`${url}/get-user`, {
-        method: 'POST',
-        body: JSON.stringify(userId)
-    })
-    .then(data => data.json())
-    //  inject into front end
-    .then(data => console.log(data))
-    .catch(err => console.error('Error: ', err))
-}
+//     await fetch(`${url}/get-user`, {
+//         method: 'POST',
+//         body: JSON.stringify(userId)
+//     })
+//     .then(data => data.json())
+//     //  inject into front end
+//     .then(data => console.log(data))
+//     .catch(err => console.error('Error: ', err))
+// }
 
 const createNewUser = async () => {
 
@@ -42,6 +42,23 @@ const authenticateUser = async (userInfo) => {
     .catch(err => console.error('Error: ', err))
 }
 
+// Packages http post request to get user clocks based on ID input
+// User has already been validated by virtue of up front login screen
+const getUserClocks = async (userId) => {
+
+    // Input should already be validated
+    return await fetch(`${url}/get-user-clocks`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',  // Set Content-Type to application/json
+        },
+        body: JSON.stringify({userId: userId})
+    })
+    .then(res => res.json())
+    .then(data => data.clocks)
+    .catch(err => console.error('Error: ', err))
+}
+
 const addClock = async (userId) => {
     // hard code for convenience
 }
@@ -51,8 +68,9 @@ const updateThemePreference = async (userId, themeName) => {
 }
 
 export {
-    getUser,
+    // getUser,
     createNewUser,
+    getUserClocks,
     authenticateUser,
     addClock,
     updateThemePreference

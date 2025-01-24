@@ -8,7 +8,7 @@ import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
 import ShowStatisticsIcon from "../../icons/ShowStatisticsIcon";
 import { nonTailwindColors } from "../../../../../helpers";
-import { updateClockFromPunchOut } from "../../../../../lib/db-helpers";
+// import { updateClockFromPunchOut } from "../../../../../lib/db-helpers";
 
 export default function ClockContainer({
   theme,

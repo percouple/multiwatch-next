@@ -1,5 +1,5 @@
 import React from "react";
-import { deleteClock } from "../../../../../lib/db-helpers";
+// import { deleteClock } from "../../../../../../http_helpers";
 
 export default function DeleteClockButton({
   clientClocks,
@@ -24,12 +24,12 @@ export default function DeleteClockButton({
 
   return (
     <div
-      type="submit"
-      className="flex w-44 justify-center items-center font-extrabold italic text-lg text-txt
-      bg-cmp_bkg cursor-pointer border-4 rounded-md p-2 mx-4
-      mt-4"
-      onClick={clickHandler}
-      style={{borderColor: clockColor}}
+      // type="submit"
+      // className="flex w-44 justify-center items-center font-extrabold italic text-lg text-txt
+      // bg-cmp_bkg cursor-pointer border-4 rounded-md p-2 mx-4
+      // mt-4"
+      // onClick={clickHandler}
+      // style={{borderColor: clockColor}}
     >
       Delete Clock
     </div>

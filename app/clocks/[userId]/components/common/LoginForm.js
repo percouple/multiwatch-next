@@ -18,7 +18,7 @@ export default function InputForm(props) {
       setErrorMessage("Username or password incorrect");
       return;
     } else {
-      router.push(`/clocks/${user.id}`);
+      router.push(`/clocks/${user.user.id}`);
     }
   };
 

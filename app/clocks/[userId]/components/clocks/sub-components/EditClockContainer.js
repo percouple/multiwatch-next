@@ -6,7 +6,7 @@ import EditTitle from "./edit-clock-components/EditTitle";
 import CurrentSessionClock from "./CurrentSessionClock";
 import CancelEditClockButton from "./edit-clock-components/CancelEditClockButton";
 import { nonTailwindColors } from "../../../../../helpers";
-import { updateClockFromEdit } from "../../../../../lib/db-helpers";
+import { updateClockFromEdit } from "../../../../../../http_helpers";
 
 export default function EditClockContainer({
   clock,
