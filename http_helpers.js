@@ -2,27 +2,19 @@
 // it's hosted on a different port on the same machine
 const url = `http://localhost:3306`
 
-// Get user info
-// const getUser = async (userId) => {
+const createNewUser = async (userInfo) => {
 
-//     console.log("GETUSER")
-//     // Force handle for no current userId
-//     if (!userId) {
-//         userId === null;
-//     }
-
-//     await fetch(`${url}/get-user`, {
-//         method: 'POST',
-//         body: JSON.stringify(userId)
-//     })
-//     .then(data => data.json())
-//     //  inject into front end
-//     .then(data => console.log(data))
-//     .catch(err => console.error('Error: ', err))
-// }
-
-const createNewUser = async () => {
-
+    // Input should already be validated
+    return await fetch(`${url}/create-user`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',  // Set Content-Type to application/json
+        },
+        body: JSON.stringify(userInfo)
+    })
+    .then(res => res.json())
+    .then(data => data)
+    .catch(err => console.error('Error: ', err))
 }
 
 const authenticateUser = async (userInfo) => {
