@@ -31,7 +31,7 @@ export default function InputForm({ type }) {
       .required("Missing username"),
   });
 
-  // Instantiate Router for next handling
+  // Instantiate Router for next routing
   const router = useRouter();
 
   // Handle db update for both login and create user

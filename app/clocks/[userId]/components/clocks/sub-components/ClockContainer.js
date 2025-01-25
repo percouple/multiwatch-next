@@ -14,8 +14,8 @@ export default function ClockContainer({
   theme,
   clock,
   userId,
-  clientClocks,
-  setClientClocks,
+  clockData,
+  setClockData,
 }) {
   let [punchedIn, setPunchedIn] = useState(false);
   let [punchInTime, setPunchInTime] = useState(null);
@@ -113,15 +113,15 @@ export default function ClockContainer({
               clock={currentClock}
               clockColor={clockColor}
               userId={userId}
-              clientClocks={clientClocks}
-              setClientClocks={setClientClocks}
+              clockData={clockData}
+              setClockData={setClockData}
             />
             <DeleteClockButton
               clock={currentClock}
               clockColor={clockColor}
               userId={userId}
-              clientClocks={clientClocks}
-              setClientClocks={setClientClocks}
+              clockData={clockData}
+              setClockData={setClockData}
             />
           </div>
         </div>

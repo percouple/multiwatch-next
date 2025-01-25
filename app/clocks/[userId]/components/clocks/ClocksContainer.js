@@ -14,8 +14,8 @@ export default function ClocksContainer({ theme, userId, clockData, setClockData
       //     key={clock.id}
       //     clock={clock}
       //     theme={theme}
-      //     setClientClocks={setClientClocks}
-      //     clientClocks={clientClocks}
+      //     setClockData={setClockData}
+      //     clockData={clockData}
       //   />
       // ) : 
       (
@@ -25,8 +25,8 @@ export default function ClocksContainer({ theme, userId, clockData, setClockData
           userId={clock.userId}
           clock={clock}
           theme={theme}
-          clientClocks={clockData}
-          setClientClocks={setClockData}
+          clockData={clockData}
+          setClockData={setClockData}
         />
       )
     )}

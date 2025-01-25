@@ -50,6 +50,7 @@ const getUserClocks = async (userId) => {
     .catch(err => console.error('Error: ', err))
 }
 
+// Add clock to a user
 const addClock = async (userId) => {
 
     return await fetch(`${url}/create-clock`, {
@@ -64,15 +65,30 @@ const addClock = async (userId) => {
     .catch(err => console.error('Error: ', err))
 }
 
+const deleteClock = async (clockId) => {
+
+    console.log("ROUTING THRU HELPERS")
+    return await fetch(`${url}/delete-clock`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',  // Set Content-Type to application/json
+        },
+        body: JSON.stringify({clockId: clockId})
+    })
+    .then(res => res.json())
+    .then(data => data.newClock)
+    .catch(err => console.error('Error: ', err))
+}
+
 const updateThemePreference = async (userId, themeName) => {
     // hard code 
 }
 
 export {
-    // getUser,
     createNewUser,
     getUserClocks,
     authenticateUser,
     addClock,
+    deleteClock,
     updateThemePreference
 }
