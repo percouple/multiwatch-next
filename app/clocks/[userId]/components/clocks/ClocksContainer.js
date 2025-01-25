@@ -1,7 +1,4 @@
 'use client'
-
-import React, {useState, useEffect} from "react";
-import { getUserClocks } from "../../../../../http_helpers";
 import ClockContainer from './sub-components/ClockContainer';
 
 export default function ClocksContainer({ theme, userId, clockData, setClockData }) {

@@ -13,7 +13,7 @@ export default function Header({ theme, userId, clockData, setClockData }) {
           <CollapsedMenu userId={userId} />
         </div>
         <div className="hidden md:flex items-center flex-1">
-          {/* <ThemeChangeButton userId={userId} /> */}
+          <ThemeChangeButton userId={userId} />
           <LogoutButton theme={theme} userId={userId} />
           <CreateNewTimerButton
             theme={theme}

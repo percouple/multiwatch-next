@@ -1,7 +1,5 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
-import { nonTailwindColors } from "../../../../../helpers";
+import { useState, useEffect } from "react";
+// import { nonTailwindColors } from "../../../../../helpers";
 
 export default function CurrentTimeCounter({ theme }) {
   let [currentTime, setCurrentTime] = useState("");
@@ -21,13 +19,11 @@ export default function CurrentTimeCounter({ theme }) {
   }, []);
 
   return (
-    <div className="relative flex mt-4 justify-between w-full max-w-[300px]">
-      <div className="w-full max-w-56  text-left">
+    <div className="relative flex mt-4 justify-between w-full max-w-[300px]
+    ">
+      <div className="w-full max-w-56 text-left">
         <h1
-          className="font-thin text-6xl mb-8"
-          style={{
-            boxShadow: `0 4px 0 0 ${nonTailwindColors[theme].clockOn} `,
-          }}
+          className="font-thin text-6xl mb-8 current-time-header-box-shadow"
         >
           {currentTime}
         </h1>

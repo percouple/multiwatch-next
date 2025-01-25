@@ -48,6 +48,7 @@ export default function Layout({ children, params }) {
 
   let [clockData, setClockData] = useState([]);
   
+  // Fetch clock data, using getUserClocks
   useEffect(() => {
     const fetchClockData = async () => {
       try {
@@ -66,25 +67,24 @@ export default function Layout({ children, params }) {
   return (
     <React.StrictMode>
       <div
-        className={`font-sans font-light h-screen overflow-y-scroll 
-          scroll-auto text-base bg-bkg text-txt`}
-        theme={'light'}
+        className='font-sans font-light h-screen overflow-y-scroll 
+          scroll-auto '
       >
         {children}
-        <div className="bg-cmp_bkg rounded-xl p-4 m-4">
+        <div className="rounded-xl p-4 m-4">
           <Header 
           theme={user.theme_preference} 
           clockData={clockData}
           setClockData={setClockData}
           userId={params.userId} />
         </div>
-        <div className="bg-cmp_bkg rounded-xl p-2 m-4">
+        {/* <div className="bg-cmp_bkg rounded-xl p-2 m-4">
           <ClocksContainer 
-          theme={'light'} 
+          theme='light'
           clockData={clockData}
           setClockData={setClockData}
           userId={params.userId} />
-        </div>
+        </div> */}
       </div>
     </React.StrictMode>
   );

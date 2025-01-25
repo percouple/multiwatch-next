@@ -3,15 +3,25 @@
 @tailwind utilities;
 
 @layer base {
-  div[theme="light"] {
+  :root {
+    --color-background-base: 0deg 0% 96.1%;
+    --color-background-muted: 0deg 0% 87%;
+    --color-text-base: 223deg 7.4% 19.8%;
+    --color-text-muted: 223deg 7.4% 19.8%;
+    --color-text-inverted: 223deg 7.4% 19.8%;
+    --color-accent1: 179deg 41.1% 46.7%;
+    --color-accent2: 34deg 100% 49.8%;
+    --color-edit-clock: 270deg 41.1% 46.7%;
+  }
+  /* .theme-light {
     --color-bkg: 0deg 0% 96.1%;
     --color-txt: 223deg 7.4% 19.8%;
     --color-cmp-bkg: 0deg 0% 87%;
     --color-accent1: 179deg 41.1% 46.7%;
     --color-accent2: 34deg 100% 49.8%;
     --color-edit-clock: 270deg 41.1% 46.7%;
-  }
-  div[theme="dark"] {
+  } */
+  .theme-dark {
     --color-bkg: 223deg 7.4% 19.8%;
     --color-txt: 0deg 0% 96.1%;
     --color-cmp-bkg: 223deg 7.4% 17%;
@@ -19,7 +29,7 @@
     --color-accent2: 34deg 100% 49.8%;
     --color-edit-clock: 270deg 31.1% 46.7%;
   }
-  div[theme="retro"] {
+  .theme-retro {
     --color-bkg: 197deg 37% 24%;
     --color-txt: 0deg 0% 96.1%;
     --color-cmp-bkg: 197deg 37% 21%;
@@ -27,7 +37,7 @@
     --color-accent2: 12deg 76% 61%;
     --color-edit-clock: 43deg 74% 66%;
   }
-  div[theme="olive"] {
+  .theme-olive {
     --color-bkg: 128deg 21% 46%;
     --color-txt: 83deg 90% 94%;
     --color-cmp-bkg: 128deg 21% 38%;
@@ -35,7 +45,7 @@
     --color-accent2: 15deg 40% 40%;
     --color-edit-clock: 4deg 80% 65%;
   }
-  div[theme="grape"] {
+  .theme-grape {
     --color-bkg: 233deg 51% 14%;
     --color-txt: 286deg 70% 97%;
     --color-cmp-bkg: 233deg 51% 18%;
@@ -47,5 +57,9 @@
   /* Disable default input styling chromium */
   input:focus {
     outline: none;
+  }
+
+  .current-time-header-box-shadow {
+    box-shadow: 0 4px 0 0 hsl(var(--color-accent1));
   }
 }

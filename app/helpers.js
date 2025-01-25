@@ -73,35 +73,35 @@ export const secondsToTime = (secs) => {
   return `${years} ${weeks} ${days} ${hours}:${minutes}:${secs} `;
 };
 
-export const nonTailwindColors = {
-  light: {
-    text: 'hsl(223, 7.4% 19.8%)',
-    clockOn: 'hsl(34, 100%, 49.8%)',
-    clockOff: 'hsl(179, 41.1%, 46.7%)',
-    editing: 'hsl(270deg 41.1% 46.7%)',
-  },
-  dark: {
-    text: 'hsl(0, 0% 96.1%)',
-    clockOn: 'hsl(34, 100%, 49.8%)',
-    clockOff: 'hsl(179, 41.1%, 46.7%)',
-    editing: 'hsl(270deg 41.1% 46.7%)',
-  },
-  retro: {
-    text: 'hsl(197, 37% 24%)',
-    clockOn: 'hsl(12, 76%, 61%)',
-    clockOff: 'hsl(173, 58%, 39%)',
-    editing: 'hsl(43, 74%, 66%)',
-  },
-  olive: {
-    text: 'hsl(83, 90% 94%)',
-    clockOn: 'hsl(15, 62%, 40%)',
-    clockOff: 'hsl(162, 27%, 19%)',
-    editing: 'hsl(4, 80%, 65%)',
-  },
-  grape: {
-    text: 'hsl(286, 70% 97%)',
-    clockOn: "hsl(273, 43%, 65%)",
-    clockOff: "hsl(245, 72%, 59%)",
-    editing: "hsl(249, 93%, 83%)",
-  },
-}
+// export const nonTailwindColors = {
+//   light: {
+//     text: 'hsl(223, 7.4% 19.8%)',
+//     clockOn: 'hsl(34, 100%, 49.8%)',
+//     clockOff: 'hsl(179, 41.1%, 46.7%)',
+//     editing: 'hsl(270deg 41.1% 46.7%)',
+//   },
+//   dark: {
+//     text: 'hsl(0, 0% 96.1%)',
+//     clockOn: 'hsl(34, 100%, 49.8%)',
+//     clockOff: 'hsl(179, 41.1%, 46.7%)',
+//     editing: 'hsl(270deg 41.1% 46.7%)',
+//   },
+//   retro: {
+//     text: 'hsl(197, 37% 24%)',
+//     clockOn: 'hsl(12, 76%, 61%)',
+//     clockOff: 'hsl(173, 58%, 39%)',
+//     editing: 'hsl(43, 74%, 66%)',
+//   },
+//   olive: {
+//     text: 'hsl(83, 90% 94%)',
+//     clockOn: 'hsl(15, 62%, 40%)',
+//     clockOff: 'hsl(162, 27%, 19%)',
+//     editing: 'hsl(4, 80%, 65%)',
+//   },
+//   grape: {
+//     text: 'hsl(286, 70% 97%)',
+//     clockOn: "hsl(273, 43%, 65%)",
+//     clockOff: "hsl(245, 72%, 59%)",
+//     editing: "hsl(249, 93%, 83%)",
+//   },
+// }

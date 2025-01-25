@@ -6,7 +6,6 @@ import { updateThemePreference } from "../../../../http_helpers";
 
 export default function ThemesDisplay({ params }) {
   const clickHandler = async (name) => {
-    console.log(name)
     await updateThemePreference(params.userId, name);
   };
 
