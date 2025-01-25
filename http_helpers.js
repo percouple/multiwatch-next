@@ -80,6 +80,20 @@ const deleteClock = async (clockId) => {
     .catch(err => console.error('Error: ', err))
 }
 
+const updateClock = async (clockId, changeObj) => {
+
+    return await fetch(`${url}/update-clock`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',  // Set Content-Type to application/json
+        },
+        body: JSON.stringify({clockId: clockId, changeObj: changeObj})
+    })
+    .then(res => res.json())
+    .then(data => data.result)
+    .catch(err => console.error('Error: ', err))
+}
+
 const updateThemePreference = async (userId, themeName) => {
     // hard code 
 }
@@ -90,5 +104,6 @@ export {
     authenticateUser,
     addClock,
     deleteClock,
+    updateClock,
     updateThemePreference
 }
