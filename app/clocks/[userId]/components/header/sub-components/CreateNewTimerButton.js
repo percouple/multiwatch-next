@@ -2,10 +2,10 @@
 import CreateNewTimerButtonIcon from "../../icons/CreateNewTimerButtonIcon";
 import { addClock } from "../../../../../../http_helpers";
 
-export default function CreateNewTimerButton({ userId }) {
+export default function CreateNewTimerButton({ userId, clockData, setClockData }) {
   const clickHandler = async () => {
     const res = await addClock(userId);
-    // await revalidatePath(`/clocks/${userId}`);
+    setClockData([...clockData, res])
   };
   return (
     <div

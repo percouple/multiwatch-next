@@ -1,10 +1,12 @@
-import React from "react";
+'use client'
+
+import React, {useState, useEffect} from "react";
 import Header from "./components/header/Header";
 import ClocksContainer from "./components/clocks/ClocksContainer";
-import { getUser } from "../../../http_helpers";
+import { getUserClocks } from "../../../http_helpers";
 import 'dotenv/config';
 
-export default async function Layout({ children, params }) {
+export default function Layout({ children, params }) {
   // const user = await getUser(params.userId);
   // Hard coded user for convenience
   const user = {
@@ -43,20 +45,45 @@ export default async function Layout({ children, params }) {
     updatedAt: '2025-01-17T02:37:50.883Z',
     theme_preference: 'dark'
   }
-  console.log(params)
+
+  let [clockData, setClockData] = useState([]);
+  
+  useEffect(() => {
+    const fetchClockData = async () => {
+      try {
+        // Assuming getUserClocks is a function that returns a Promise
+        const data = await getUserClocks(params.userId);
+        setClockData(data);  // Update state with fetched clock data
+      } catch (error) {
+        console.error('Error fetching clock data:', error);
+      }
+    };
+
+    if (params.userId) {
+      fetchClockData();
+    }
+  }, [params.userId])
   return (
     <React.StrictMode>
       <div
         className={`font-sans font-light h-screen overflow-y-scroll 
           scroll-auto text-base bg-bkg text-txt`}
-        // theme={user.theme_preference}
+        theme={'light'}
       >
         {children}
         <div className="bg-cmp_bkg rounded-xl p-4 m-4">
-          <Header theme={user.theme_preference} userId={params.userId} />
+          <Header 
+          theme={user.theme_preference} 
+          clockData={clockData}
+          setClockData={setClockData}
+          userId={params.userId} />
         </div>
         <div className="bg-cmp_bkg rounded-xl p-2 m-4">
-          <ClocksContainer theme={user.theme_preference} userId={params.userId} />
+          <ClocksContainer 
+          theme={'light'} 
+          clockData={clockData}
+          setClockData={setClockData}
+          userId={params.userId} />
         </div>
       </div>
     </React.StrictMode>

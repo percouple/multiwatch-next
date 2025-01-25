@@ -6,7 +6,6 @@ const url = `http://localhost:3306`
 // const getUser = async (userId) => {
 
 //     console.log("GETUSER")
-    
 //     // Force handle for no current userId
 //     if (!userId) {
 //         userId === null;
@@ -60,7 +59,17 @@ const getUserClocks = async (userId) => {
 }
 
 const addClock = async (userId) => {
-    // hard code for convenience
+
+    return await fetch(`${url}/create-clock`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',  // Set Content-Type to application/json
+        },
+        body: JSON.stringify({userId: userId})
+    })
+    .then(res => res.json())
+    .then(data => data.newClock)
+    .catch(err => console.error('Error: ', err))
 }
 
 const updateThemePreference = async (userId, themeName) => {
