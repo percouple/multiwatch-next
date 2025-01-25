@@ -8,7 +8,7 @@ import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
 import ShowStatisticsIcon from "../../icons/ShowStatisticsIcon";
 import { nonTailwindColors } from "../../../../../helpers";
-// import { updateClockFromPunchOut } from "../../../../../lib/db-helpers";
+import { updateClock } from "../../../../../../http_helpers";
 
 export default function ClockContainer({
   theme,
@@ -48,7 +48,8 @@ export default function ClockContainer({
       });
 
       // Back End updating
-      await updateClockFromPunchOut(currentClock);
+      const result = await updateClock(currentClock.id, currentClock);
+      console.log(result)
       setSecondsPassed(0);
     }
   };
