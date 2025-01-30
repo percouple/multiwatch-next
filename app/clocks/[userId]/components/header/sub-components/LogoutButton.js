@@ -7,7 +7,9 @@ export default function LoginButton({ userId }) {
   return (
     <Link
       href={`/cold-login`}
-      className="text-center cursor-pointer mx-2 py-2 px-6 bg-bkg border-4 border-solid border-accent-1 rounded-md min-w-[4rem] transition-all hover:border-accent-2 duration-300 ease-in-out"
+      className="text-center cursor-pointer mx-2 py-2 px-6 bg-skin-backgroundBase 
+      border-4 border-solid border-skin-accent-1 rounded-md min-w-[4rem] 
+      transition-all hover:border-skin-accent-2 duration-300 ease-in-out"
     >
       Logout
     </Link>

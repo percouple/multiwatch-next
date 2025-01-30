@@ -4,14 +4,14 @@
 
 @layer base {
   :root {
-    --color-background-base: 0deg 0% 96.1%;
-    --color-background-muted: 0deg 0% 87%;
-    --color-text-base: 223deg 7.4% 19.8%;
-    --color-text-muted: 223deg 7.4% 19.8%;
-    --color-text-inverted: 223deg 7.4% 19.8%;
-    --color-accent1: 179deg 41.1% 46.7%;
-    --color-accent2: 34deg 100% 49.8%;
-    --color-edit-clock: 270deg 41.1% 46.7%;
+    --color-background-base: rgba(244,244,244,1);
+    --color-background-muted: rgba(224, 224, 224, 1);
+    --color-text-base: rgb(255, 255, 255, 1);
+    --color-text-muted: rgba(79, 79, 79, 1);
+    --color-text-inverted: rgba(34, 34, 34, 1);
+    --color-accent1: rgba(44, 191, 176, 1);
+    --color-accent2: rgba(255, 127, 0, 1);
+    --color-edit-clock: rgba(150, 57, 168, 1);
   }
   /* .theme-light {
     --color-bkg: 0deg 0% 96.1%;
@@ -60,6 +60,6 @@
   }
 
   .current-time-header-box-shadow {
-    box-shadow: 0 4px 0 0 hsl(var(--color-accent1));
+    box-shadow: 0 4px 0 0 var(--color-accent1);
   }
 }

@@ -37,16 +37,16 @@ export default function InputForm({ type }) {
   // Handle db update for both login and create user
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(type)
+    console.log(type);
     if (type == "create user") {
       const result = await createNewUser(userValues);
-      console.log("RESULT: ", result)
+      console.log("RESULT: ", result);
       if (result.user) {
         router.push(`/clocks/${result.user.id}`);
       } else {
         setErrorMessage(result.message);
       }
-    } else if (type === 'login') {
+    } else if (type === "login") {
       const user = await authenticateUser(userValues);
       if (!user.user) {
         setErrorMessage("Username or password incorrect");
@@ -97,9 +97,9 @@ export default function InputForm({ type }) {
         placeholder="username"
         name="username"
         onChange={changeHandler}
-        className="h-10 w-48 px-2 mb-2 rounded border-accent-2 
-        border-2 outline-none bg-transparent 
-        placeholder:text-accent-2"
+        className="h-10 w-48 px-2 mb-2 rounded bg-skin-backgroundBase
+        border-2 outline-none
+        placeholder:text-skin-textMuted"
       />
       <input
         value={userValues.password}
@@ -107,18 +107,26 @@ export default function InputForm({ type }) {
         name="password"
         placeholder="password"
         onChange={changeHandler}
-        className="h-10 w-48 px-2 mb-2 rounded border-accent-2 
-        border-2 outline-none bg-transparent 
-        placeholder:text-accent-2"
+        className={`h-10 w-48 px-2 mb-2 rounded
+        border-2 outline-none bg-skin-backgroundBase
+        placeholder:text-skin-textMuted 
+        ${errorMessage && "border-skin-accent-2"}`}
       />
-      <button
-        id="createUserButton"
-        className={`rounded-lg w-48 h-10 m-4 bg-accent-2 
-          font-bold text-bkg`}
-        disabled={disabledSubmit}
-      >
-        {type === "login" ? "Sign In" : "Create Account"}
-      </button>
+      <div className="flex justify-center">
+        <button
+          id="createUserButton"
+          className={`relative rounded-md w-48 h-10 m-4 border-4
+          border-skin-accent-1
+          font-bold text-skin-textBase z-0 
+          ${!disabledSubmit && "hover:border-skin-accent-2"}`}
+          disabled={disabledSubmit}
+        >
+          {type === "login" ? "Sign In" : "Create Account"}
+          {disabledSubmit && <div className="rounded-lg absolute top-0
+              bg-[rgba(255,255,255,.4)] z-10 size-full"
+          ></div>}
+        </button>
+      </div>
       {errorMessage && type === "create user" && (
         <ErrorMessage message={errorMessage} />
       )}

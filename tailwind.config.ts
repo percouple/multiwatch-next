@@ -14,16 +14,16 @@ module.exports = {
     extend: {
       colors: {
           skin: {
-            backgroundBase: "hsl(var(--color-background-base) / <alpha-value>)",
-            backgroundMuted:"hsl(var(--color-background-muted) / <alpha-value>)",
+            backgroundBase: "var(--color-background-base)",
+            backgroundMuted:"var(--color-background-muted)",
             accent: {
-              1: "hsl(var(--color-accent1) / <alpha-value>)",
-              2: "hsl(var(--color-accent2) / <alpha-value>)",
+              1: "var(--color-accent1)",
+              2: "var(--color-accent2)",
             },
-            textBase: "hsl(var(--color-text-base) / <alpha-value>)",
-            textMuted: "hsl(var(--color-text-muted) / <alpha-value>)",
-            textInverted: "hsl(var(--color-text-inverted) / <alpha-value>)",
-            editClockAccent: "hsl(var(--color-edit-clock) / <alpha-value>)",
+            textBase: "var(--color-text-base)",
+            textMuted: "var(--color-text-muted)",
+            textInverted: "var(--color-text-inverted)",
+            editClockAccent: "var(--color-edit-clock)",
           }
         },
       backgroundImage: {

@@ -28,7 +28,7 @@ export default function CurrentTimeCounter({ theme }) {
           {currentTime}
         </h1>
       </div>
-      <div className="absolute top-16 text-2xl align-sub text-accent-1">
+      <div className="absolute top-16 text-2xl align-sub text-skin-accent-1">
         {amPm}
       </div>
     </div>

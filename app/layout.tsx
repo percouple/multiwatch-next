@@ -14,10 +14,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="bg-skin-backgroundBase text-skin-textBase">
+          {children}</div>
+      </body>
     </html>
   );
 }
