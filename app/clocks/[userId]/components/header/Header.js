@@ -6,7 +6,8 @@ import CreateNewTimerButton from "./sub-components/CreateNewTimerButton";
 
 export default function Header({ theme, userId, clockData, setClockData }) {
   return (
-    <div className="flex justify-between items-center px-12 w-full">
+    <div className="flex justify-between items-center px-12 w-full 
+    bg-skin-backgroundMuted pb-4 rounded-xl">
       <CurrentTimeDisplay theme={theme} />
       <div>
         <div className="flex md:hidden items-center ">
