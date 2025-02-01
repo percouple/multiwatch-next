@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect } from "react";
 import ButtonContainer from "./ButtonContainer";
 import Stats from "./Stats";
@@ -7,7 +6,6 @@ import CurrentSessionClock from "./CurrentSessionClock";
 import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
 import ShowStatisticsIcon from "../../icons/ShowStatisticsIcon";
-import { nonTailwindColors } from "../../../../../helpers";
 import { updateClock } from "../../../../../../http_helpers";
 
 export default function ClockContainer({
@@ -22,7 +20,7 @@ export default function ClockContainer({
   let [secondsPassed, setSecondsPassed] = useState(0);
   let [currentClock, setCurrentClock] = useState(clock);
   let [expanded, setExpanded] = useState(false);
-  let [clockColor, setClockColor] = useState(nonTailwindColors[theme].clockOff);
+  let [clockColor, setClockColor] = useState("skin-accent-1");
 
   const handlePunchIn = (e) => {
     if (!punchedIn) {
@@ -71,16 +69,16 @@ export default function ClockContainer({
     }
 
     punchedIn
-      ? setClockColor(nonTailwindColors[theme].clockOn)
-      : setClockColor(nonTailwindColors[theme].clockOff);
+      ? setClockColor("skin-accent-2")
+      : setClockColor("skin-accent-1");
     return () => clearInterval(intervalId);
   }, [punchedIn]);
 
   return (
     <div
-      className="flex flex-col justify-between items-center h-fit bg-bkg shadow-md 
-        shadow-neutral-900 border-solid border-4 rounded-lg m-2 px-4"
-      style={{ borderColor: `${clockColor}` }}
+      className={`flex flex-col justify-between items-center h-fit bg-skin-backgroundBase 
+      shadow-md shadow-neutral-900 border-solid border-4 rounded-lg m-2 px-4 
+      border-${clockColor}`}
     >
       <div className="flex justify-between w-full mt-4">
         <Title clock={currentClock} clockColor={clockColor} />
@@ -94,8 +92,8 @@ export default function ClockContainer({
         <CurrentSessionClock secondsPassed={secondsPassed || 0} />
         <div
           onClick={() => setExpanded(!expanded)}
-          className="cursor-pointer ml-2 h-fit p-1 rounded-full"
-          style={{ backgroundColor: clockColor }}
+          className={`cursor-pointer ml-2 h-fit p-1 rounded-full 
+          bg-${clockColor}`}
         >
           <ShowStatisticsIcon />
         </div>

@@ -25,11 +25,11 @@ export default function DeleteClockButton({
   return (
     <div
       type="submit"
-      className="flex w-44 justify-center items-center font-extrabold italic text-lg text-txt
-      bg-cmp_bkg cursor-pointer border-4 rounded-md p-2 mx-4
-      mt-4"
+      className="flex w-44 justify-center items-center font-extrabold italic text-lg 
+      text-skin-textInverted cursor-pointer bg-skin-accent-1 
+      rounded-md p-2 mx-4 mt-4 hover:bg-skin-accent-2 transition-colors 
+      duration-200 ease-in-out"
       onClick={clickHandler}
-      style={{borderColor: clockColor}}
     >
       Delete Clock
     </div>

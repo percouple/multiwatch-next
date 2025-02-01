@@ -1,7 +1,7 @@
 'use client'
 import ClockContainer from './sub-components/ClockContainer';
 
-export default function ClocksContainer({ theme, userId, clockData, setClockData }) {
+export default function ClocksContainer({ userId, clockData, setClockData }) {
 
   return (
     <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 m-2">
@@ -21,7 +21,6 @@ export default function ClocksContainer({ theme, userId, clockData, setClockData
           key={clock.id}
           userId={clock.userId}
           clock={clock}
-          theme={theme}
           clockData={clockData}
           setClockData={setClockData}
         />

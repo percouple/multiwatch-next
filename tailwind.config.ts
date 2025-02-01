@@ -17,8 +17,8 @@ module.exports = {
             backgroundBase: "var(--color-background-base)",
             backgroundMuted:"var(--color-background-muted)",
             accent: {
-              1: "var(--color-accent1)",
-              2: "var(--color-accent2)",
+              1: "var(--color-accent-1)",
+              2: "var(--color-accent-2)",
             },
             textBase: "var(--color-text-base)",
             textMuted: "var(--color-text-muted)",

@@ -1,26 +1,24 @@
 import { useEffect, useState } from "react";
-import { nonTailwindColors } from "../../../../../helpers";
 
 export default function SingleStat({ label, time, punchedIn, theme }) {
-  let [statColor, setStatColor] = useState(nonTailwindColors[theme].text);
+  let [statColor, setStatColor] = useState("text-skin-textBase");
 
   useEffect(() => {
-    console.log("TRIGGERING");
     if (label !== "Last Started" && label !== "Last Session") {
       setStatColor(
         punchedIn
-          ? nonTailwindColors[theme].clockOn
-          : nonTailwindColors[theme].text
+          ? "text-skin-accent-2"
+          : "text-skin-textBase"
       );
     } else {
-      setStatColor(nonTailwindColors[theme].text);
+      setStatColor("text-skin-textBase");
     }
   }, [punchedIn]);
 
   return (
     <div className="flex justify-center items-center w-64">
-      <span className="w-1/2 p-1 my-2 border-r-2 border-txt">{label}</span>
-      <span className="w-1/2 px-1" style={{ color: statColor }}>
+      <span className="w-1/2 p-1 my-2 border-r-2 border-skin-textMuted">{label}</span>
+      <span className={`w-1/2 px-1 ${statColor} `}>
         {time}
       </span>
     </div>

@@ -17,11 +17,11 @@ export default function EditClockButton({
 
   return (
     <div
-      className="flex w-44 justify-center items-center font-extrabold italic text-lg text-txt
-      bg-cmp_bkg cursor-pointer border-4 rounded-md p-2 mx-4
-      mt-4 hover:bg-bkg transition-colors duration-300 ease-in-out"
+      className="flex w-44 justify-center items-center font-extrabold italic text-lg 
+      text-skin-textInverted cursor-pointer bg-skin-accent-1 
+      rounded-md p-2 mx-4 mt-4 hover:bg-skin-accent-2 transition-colors 
+      duration-200 ease-in-out"
       onClick={clickHandler}
-      style={{borderColor: clockColor}}
     >
       Edit Stats
     </div>

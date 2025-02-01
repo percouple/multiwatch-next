@@ -7,7 +7,7 @@ export default function ButtonContainer({ punchedIn, onPunchIn, onPunchOut }) {
     <>
       {punchedIn ? (
         <button
-          className="flex justify-center rounded-full p-1 cursor-pointer bg-accent-1 
+          className="flex justify-center rounded-full p-1 cursor-pointer bg-skin-accent-1 
         font-light transform transition-transform duration-300 ease-in-out 
         hover:-translate-y-1 hover:shadow-black shadow-md"
           onClick={onPunchOut}
@@ -16,7 +16,7 @@ export default function ButtonContainer({ punchedIn, onPunchIn, onPunchOut }) {
         </button>
       ) : (
         <button
-          className="flex justify-center p-1 rounded-full cursor-pointer bg-accent-2 
+          className="flex justify-center p-1 rounded-full cursor-pointer bg-skin-accent-2 
         font-light transform transition-transform duration-300 ease-in-out 
         hover:-translate-y-1 hover:shadow-black shadow-md"
           onClick={onPunchIn}

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import {updateClock} from '../../../../../../http_helpers'
+import {updateClock} from '../../../../../../http_helpers';
+import '../../../../../../globals.css'
 
 export default function Title({ clock, clockColor }) {
 
@@ -18,10 +19,10 @@ export default function Title({ clock, clockColor }) {
   return (
     <form onSubmit={submitHandler}>
       <input
-        className="flex bg-transparent border-none 
-        cursor-default pt-2 pb-1 w-2/3 outline-none text-3xl 
-        font-thin hover:cursor-text"
-        style={{ boxShadow: `0px 3px 0 0 ${clockColor}` }}
+        className={`flex bg-transparent border-none 
+          cursor-default pt-2 pb-1 w-2/3 outline-none text-3xl 
+          font-thin clock-title-box-shadow hover:cursor-text `}
+        // style={{ boxShadow: `0px 3px 0 0 var(${clockColor})` }}
         placeholder={clock.name}
         onChange={changeHandler}
         onBlur={submitHandler}
