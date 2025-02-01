@@ -9,7 +9,7 @@
     --color-text-base: rgb(0, 0, 0);
     --color-text-muted: rgba(79, 79, 79, 1);
     --color-text-inverted: rgba(244,244,244,1);
-    --color-accent-1: rgb(48, 165, 192);
+    --color-accent-1: rgb(31, 109, 151);
     --color-accent-2: rgba(255, 127, 0, 1);
     --color-edit-clock: rgba(150, 57, 168, 1);
   }
@@ -22,38 +22,77 @@
     --color-edit-clock: 270deg 41.1% 46.7%;
   } */
   .theme-dark {
-    --color-background-base: rgb(0, 0, 0);
-    --color-background-muted: rgba(79, 79, 79, 1);
+    --color-background-base: rgb(0, 12, 18);
+    --color-background-muted: rgb(0, 22, 34);
     --color-text-base: rgba(224, 224, 224, 1);
     --color-text-muted: rgba(79, 79, 79, 1);
     --color-text-inverted: rgba(244,244,244,1);
-    --color-accent-1: rgb(48, 165, 192);
+    --color-accent-1: rgb(31, 109, 151);
     --color-accent-2: rgba(255, 127, 0, 1);
     --color-edit-clock: rgba(150, 57, 168, 1);
   }
   .theme-retro {
-    --color-bkg: 197deg 37% 24%;
-    --color-txt: 0deg 0% 96.1%;
-    --color-cmp-bkg: 197deg 37% 21%;
-    --color-accent1: 173deg 58% 39%;
-    --color-accent2: 12deg 76% 61%;
-    --color-edit-clock: 43deg 74% 66%;
+    /* Backgrounds */
+    --color-background-base: rgb(240, 237, 225); /* Lighter, more neutral beige for base */
+    --color-background-muted: rgb(173, 185, 152); /* Muted olive-green with more contrast */
+
+    /* Text Colors */
+    --color-text-base: rgba(60, 60, 55, 1); /* Darker beige-gray for better legibility */
+    --color-text-muted: rgba(95, 95, 95, 1); /* Softer gray for less emphasis */
+    --color-text-inverted: rgba(255, 255, 255, 1); /* Pure white for high contrast text on dark elements */
+
+    /* Accent Colors */
+    --color-accent-1: rgb(33, 53, 57); /* Darker teal with more depth */
+    --color-accent-2: rgba(145, 130, 54, 1); /* Mustard yellow with better contrast */
+    
+    /* Additional Adjustments */
+    --color-edit-clock: rgba(200, 65, 170, 1); /* A bolder magenta for call-to-actions */
+    
+    /* Optional button/hover adjustments */
+    --color-button-bg: rgb(60, 45, 90); /* Dark purple for buttons */
+    --color-button-hover: rgb(90, 65, 125); /* Lighter purple for hover effect */
   }
   .theme-olive {
-    --color-bkg: 128deg 21% 46%;
-    --color-txt: 83deg 90% 94%;
-    --color-cmp-bkg: 128deg 21% 38%;
-    --color-accent1: 162deg 27% 19%;
-    --color-accent2: 15deg 40% 40%;
-    --color-edit-clock: 4deg 80% 65%;
+    /* Backgrounds */
+    --color-background-base: rgb(10, 24, 22); /* Very dark green with a hint of teal */
+    --color-background-muted: rgb(28, 47, 44); /* Muted forest green for secondary elements */
+
+    /* Text Colors */
+    --color-text-base: rgba(204, 204, 204, 1); /* Light grayish-white for good contrast */
+    --color-text-muted: rgba(120, 120, 120, 1); /* Softer muted gray for less emphasis */
+    --color-text-inverted: rgba(244, 244, 244, 1); /* Pure white for text on dark backgrounds */
+
+    /* Accent Colors */
+    --color-accent-1: rgb(34, 81, 56); /* Deep muted green for large elements or borders */
+    --color-accent-2: rgba(255, 48, 48, 1); /* Bold red accent for call-to-action items, links, etc. */
+    
+    /* Action/Highlight Color */
+    --color-edit-clock: rgba(200, 40, 60, 1); /* Rich, deep red for interactive elements (edit clock, buttons) */
+    
+    /* Optional button/hover adjustments */
+    --color-button-bg: rgb(21, 44, 39); /* Dark, muted green for buttons */
+    --color-button-hover: rgb(15, 30, 28); /* Slightly darker green on hover for subtle contrast */
   }
   .theme-grape {
-    --color-bkg: 233deg 51% 14%;
-    --color-txt: 286deg 70% 97%;
-    --color-cmp-bkg: 233deg 51% 18%;
-    --color-accent1: 245deg 72% 59%;
-    --color-accent2: 250deg 60% 80%;
-    --color-edit-clock: 249deg 93% 75%;
+    /* Backgrounds */
+    --color-background-base: rgb(22, 13, 40); /* Very dark purple with a hint of blue */
+    --color-background-muted: rgb(43, 22, 65); /* Muted lavender or violet, softer but still rich */
+    
+    /* Text Colors */
+    --color-text-base: rgba(230, 230, 230, 1); /* Soft off-white for high contrast */
+    --color-text-muted: rgba(130, 130, 130, 1); /* Muted gray for less important text */
+    --color-text-inverted: rgba(244, 244, 244, 1); /* Bright white for high-contrast text on dark backgrounds */
+
+    /* Accent Colors */
+    --color-accent-1: rgb(95, 51, 157); /* Deep violet/purple for key elements like borders or accents */
+    --color-accent-2: rgba(208, 99, 255, 1); /* Bright lilac or lavender for interactive elements */
+    
+    /* Action/Highlight Color */
+    --color-edit-clock: rgba(210, 40, 255, 1); /* Bold electric purple for action items (edit clock, buttons) */
+    
+    /* Optional button/hover adjustments */
+    --color-button-bg: rgb(44, 25, 70); /* Darker purple for button backgrounds */
+    --color-button-hover: rgb(56, 33, 91); /* Lighter purple on hover for better interaction feedback */
   }
 
   /* Disable default input styling chromium */
@@ -65,7 +104,11 @@
     box-shadow: 0 4px 0 0 var(--color-accent-2);
   }
 
-  .clock-title-box-shadow {
+  .clock-title-box-shadow-off {
     box-shadow: 0px 3px 0 0 var(--color-accent-1);
+  }
+
+  .clock-title-box-shadow-on {
+    box-shadow: 0px 3px 0 0 var(--color-accent-2);
   }
 }

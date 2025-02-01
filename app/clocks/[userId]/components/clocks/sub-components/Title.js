@@ -20,9 +20,9 @@ export default function Title({ clock, clockColor }) {
     <form onSubmit={submitHandler}>
       <input
         className={`flex bg-transparent border-none 
-          cursor-default pt-2 pb-1 w-2/3 outline-none text-3xl 
-          font-thin clock-title-box-shadow hover:cursor-text `}
-        // style={{ boxShadow: `0px 3px 0 0 var(${clockColor})` }}
+          cursor-default pt-2 pb-1 w-2/3 outline-none text-3xl font-thin 
+          clock-title-box-shadow-${clockColor === "skin-accent-1" ? "off" : "on"} 
+          hover:cursor-text `}
         placeholder={clock.name}
         onChange={changeHandler}
         onBlur={submitHandler}
