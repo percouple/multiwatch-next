@@ -28,7 +28,6 @@ const authenticateUser = async (userInfo) => {
         body: JSON.stringify(userInfo)
     })
     .then(res => res.json())
-    //  inject into front end
     .then(data => data)
     .catch(err => console.error('Error: ', err))
 }

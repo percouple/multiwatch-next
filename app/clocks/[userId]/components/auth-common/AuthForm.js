@@ -37,7 +37,6 @@ export default function InputForm({ type }) {
   // Handle db update for both login and create user
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(type);
     if (type == "create user") {
       const result = await createNewUser(userValues);
       console.log("RESULT: ", result);
@@ -48,6 +47,7 @@ export default function InputForm({ type }) {
       }
     } else if (type === "login") {
       const user = await authenticateUser(userValues);
+      console.log(user)
       if (!user.user) {
         setErrorMessage("Username or password incorrect");
         return;
