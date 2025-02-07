@@ -1,5 +1,5 @@
 import React from "react";
-import { secondsToTime } from "../../../../../helpers";
+import { secondsToTime, dateObjectConverter } from "../../../../../helpers";
 import SingleStat from "./SingleStat";
 
 export default function Stats({
@@ -39,7 +39,7 @@ export default function Stats({
     { label: "Today", time: secondsToTime(todayDisplayTime) },
     { label: "This Week", time: secondsToTime(thisWeekDisplayTime) },
     { label: "All Time", time: secondsToTime(allTimeDisplayTime) },
-    { label: "Last Started", time: lastTouchedTime },
+    { label: "Last Started", time: dateObjectConverter(lastTouchedTime)},
   ];
 
   return (

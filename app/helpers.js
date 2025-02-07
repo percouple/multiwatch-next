@@ -73,6 +73,11 @@ export const secondsToTime = (secs) => {
   return `${years} ${weeks} ${days} ${hours}:${minutes}:${secs} `;
 };
 
+export const dateObjectConverter = (dateString) => {
+  const date = new Date(dateString)
+  return date.toLocaleTimeString() + ", " + date.toLocaleDateString()
+}
+
 // export const nonTailwindColors = {
 //   light: {
 //     text: 'hsl(223, 7.4% 19.8%)',
