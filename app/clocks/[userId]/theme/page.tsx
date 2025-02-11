@@ -3,8 +3,11 @@
 import { displayThemes } from "./themesList";
 import Link from "next/link";
 import { updateThemePreference } from "../../../../http_helpers";
+import { useParams } from "next/navigation";
 
-export default function ThemesDisplay({ params }) {
+export default function ThemesDisplay({ }) {
+  const params = useParams();
+  
   const clickHandler = async (name) => {
     await updateThemePreference(params.userId, name);
   };

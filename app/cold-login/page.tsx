@@ -2,7 +2,7 @@ import React from "react";
 import InputForm from "../clocks/[userId]/components/auth-common/AuthForm";
 import Link from "next/link";
 
-export default function Login({ params }) {
+export default function Login({ }) {
   return (
     <div className="absolute w-full h-screen">
       <div

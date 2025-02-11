@@ -1,14 +1,18 @@
 import React from "react";
 import Link from "next/link";
 import { routingDataArray } from "./routing-data";
+import { useParams } from 'next/navigation';
 
 interface RoutingDataItem {
   title: string;
   url: string;
 }
 
-export default function Login({ params }) {
+export default function Login({ }) {
+
+  const params = useParams();
   const routingData: RoutingDataItem[] = routingDataArray(params.userId);
+
   return (
     <div className="absolute w-full h-screen">
       <Link

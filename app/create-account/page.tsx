@@ -3,7 +3,7 @@
 import Link from "next/link";
 import LoginForm from "../clocks/[userId]/components/auth-common/AuthForm";
 
-export default function CreateNewUserCard({ params }) {
+export default function CreateNewUserCard({ }) {
   return (
     <div className="absolute w-full h-screen">
       <div

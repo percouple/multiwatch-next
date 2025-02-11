@@ -5,8 +5,9 @@ import Header from "./components/header/Header";
 import ClocksContainer from "./components/clocks/ClocksContainer";
 import { getUserClocks } from "../../../http_helpers";
 import 'dotenv/config';
+import { useParams } from 'next/navigation';
 
-export default function Layout({ children, params }) {
+export default function Layout({ children }) {
   // const user = await getUser(params.userId);
   // Hard coded user for convenience
   const user = {
@@ -47,6 +48,7 @@ export default function Layout({ children, params }) {
   }
 
   let [clockData, setClockData] = useState([]);
+  const params = useParams();
   
   // Fetch clock data, using getUserClocks
   useEffect(() => {
