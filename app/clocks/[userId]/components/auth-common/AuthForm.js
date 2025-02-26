@@ -90,14 +90,14 @@ export default function InputForm({ type }) {
   }, []);
 
   return (
-    <form className="flex flex-col items-center" onSubmit={submitHandler}>
+    <form className="flex flex-col" onSubmit={submitHandler}>
       <input
         value={userValues.username}
         type="text"
         placeholder="username"
         name="username"
         onChange={changeHandler}
-        className="h-10 w-48 px-2 mb-2 rounded bg-skin-backgroundBase
+        className="h-10 w-full px-2 mb-2 rounded bg-skin-backgroundBase
         border-2 outline-none
         placeholder:text-skin-textMuted"
       />
@@ -107,12 +107,12 @@ export default function InputForm({ type }) {
         name="password"
         placeholder="password"
         onChange={changeHandler}
-        className={`h-10 w-48 px-2 mb-2 rounded
+        className={`h-10 w-full px-2 mb-2 rounded
         border-2 outline-none bg-skin-backgroundBase
         placeholder:text-skin-textMuted 
         ${errorMessage && "border-skin-accent-2"}`}
       />
-      <div className="flex justify-center">
+      <div className="flex">
         <button
           id="createUserButton"
           className={`relative rounded-md w-48 h-10 m-4 border-4
