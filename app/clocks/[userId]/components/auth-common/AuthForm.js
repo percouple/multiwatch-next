@@ -47,7 +47,7 @@ export default function InputForm({ type }) {
       }
     } else if (type === "login") {
       const user = await authenticateUser(userValues);
-      console.log(user)
+      console.log(user);
       if (!user.user) {
         setErrorMessage("Username or password incorrect");
         return;
@@ -90,7 +90,7 @@ export default function InputForm({ type }) {
   }, []);
 
   return (
-    <form className="flex flex-col" onSubmit={submitHandler}>
+    <form className="flex flex-col m-4" onSubmit={submitHandler}>
       <input
         value={userValues.username}
         type="text"
@@ -98,7 +98,7 @@ export default function InputForm({ type }) {
         name="username"
         onChange={changeHandler}
         className="h-10 w-full px-2 mb-2 rounded bg-skin-backgroundBase
-        border-2 outline-none
+        border-2 outline-none border-skin-accent-1
         placeholder:text-skin-textMuted"
       />
       <input
@@ -107,29 +107,35 @@ export default function InputForm({ type }) {
         name="password"
         placeholder="password"
         onChange={changeHandler}
-        className={`h-10 w-full px-2 mb-2 rounded
+        className={`h-10 w-full px-2 mb-2 rounded border-skin-accent-1
         border-2 outline-none bg-skin-backgroundBase
         placeholder:text-skin-textMuted 
         ${errorMessage && "border-skin-accent-2"}`}
       />
-      <div className="flex">
+      {errorMessage && type === "login" && (
+        <ErrorMessage message={errorMessage} />
+      )}
+      <div className="flex justify-center mt-4">
         <button
           id="createUserButton"
-          className={`relative rounded-md w-48 h-10 m-4 border-4
-          border-skin-accent-1
-          font-bold text-skin-textBase z-0 
-          ${!disabledSubmit && "hover:border-skin-accent-2"}`}
+          className={`relative rounded-md w-48 h-10 bg-skin-backgroundBase
+          font-bold z-0 duration-300 transition-all
+          ${
+            disabledSubmit
+              ? "text-skin-textMuted bg-skin-backgroundMuted border-2 border-skin-textMuted"
+              : "text-skin-textBase hover:bg-skin-accent-2 hover:transition-transform hover:scale-105 border-none"
+          }
+          `}
           disabled={disabledSubmit}
         >
           {type === "login" ? "Sign In" : "Create Account"}
-          {disabledSubmit && <div className="rounded-lg absolute top-0
-              bg-[rgba(255,255,255,.4)] z-10 size-full"
-          ></div>}
         </button>
       </div>
-      {errorMessage && type === "create user" && (
-        <ErrorMessage message={errorMessage} />
-      )}
+      <div className="mt-4">
+        {errorMessage && type === "create user" && (
+          <ErrorMessage message={errorMessage} />
+        )}
+      </div>
     </form>
   );
 }

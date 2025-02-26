@@ -2,7 +2,7 @@ import React from "react";
 import InputForm from "../clocks/[userId]/components/auth-common/AuthForm";
 import Link from "next/link";
 
-export default function Login({ }) {
+export default function Login({}) {
   return (
     <div className="absolute w-full h-screen">
       <div
@@ -10,22 +10,29 @@ export default function Login({ }) {
         bg-opacity-40 z-1"
       ></div>
       <div
-        className="flex flex-col justify-around items-center p-4 pt-6 
+        className="flex flex-col justify-around p-4 pt-6 
         w-72 h-auto absolute rounded-lg border-4 border-skin-accent-1 top-1/4 
-        left-1/2 transform -translate-x-1/2 z-20 bg-skin-backgroundMuted"
+        left-1/2 transform -translate-x-1/2 z-20 bg-skin-backgroundMuted
+        shadow-2xl"
         id="authForm"
       >
-        <div className="text-skin-accent-2 text-4xl font-bold mb-4">
-          Hello!</div>
-        <div className="" >Welcome to Multiwatch!</div>
-        <div className="mb-4">please sign in or</div>
-        <Link
-          className="underline cursor-pointer mb-8"
-          href="/create-account"
-        >
-          create an account
-        </Link>
+        <div className="text-skin-accent-2 text-4xl font-bold my-4">Hello!</div>
+        <div className="text-skin-textBase">Welcome to Multiwatch!</div>
+        <div className="text-skin-textMuted my-4">An app to help you track your habits.
+        </div>
         <InputForm type={"login"} />
+        <div className="flex flex-col text-center justify-center items-center mb-4">
+          or
+          <Link
+            className="flex justify-center underline cursor-pointer 
+            text-skin-textBase rounded-md p-2 mt-4 bg-skin-backgroundBase 
+            w-48 duration-300 transition-all hover:bg-skin-accent-2 
+            hover:transition-transform hover:scale-105"
+            href="/create-account"
+          >
+            Create an account
+          </Link>
+        </div>
       </div>
     </div>
   );

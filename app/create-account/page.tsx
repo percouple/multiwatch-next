@@ -3,7 +3,7 @@
 import Link from "next/link";
 import LoginForm from "../clocks/[userId]/components/auth-common/AuthForm";
 
-export default function CreateNewUserCard({ }) {
+export default function CreateNewUserCard({}) {
   return (
     <div className="absolute w-full h-screen">
       <div
@@ -16,15 +16,22 @@ export default function CreateNewUserCard({ }) {
         left-1/2 transform -translate-x-1/2 bg-skin-base z-20 bg-skin-backgroundMuted"
         id="authForm"
       >
-        <h1
-          className="text-skin-accent-2 text-4xl font-bold mb-4"
-        >
+        <h1 className="text-skin-accent-2 text-4xl font-bold mb-4">
           Create Account
         </h1>
         <LoginForm type={"create user"} />
-        <Link className="underline text-sm cursor-pointer m-4 text-skin-textMuted 
+        <div className="flex flex-col justify-center items-center text-sm cursor-pointer 
+        mx-4 text-skin-textMuted">
+          I already have an account,
+          <Link
+            className="underline text-sm cursor-pointer mx-4 text-skin-textMuted 
         hover:text-skin-textBase "
-        href={"/cold-login"}>I already have an account, take me to login</Link>
+            href={"/cold-login"}
+          >
+            {" "}
+            take me to login
+          </Link>
+        </div>
       </div>
     </div>
   );
