@@ -19,11 +19,12 @@ export default function CreateNewUserCard({ }) {
         <h1
           className="text-skin-accent-2 text-4xl font-bold mb-4"
         >
-          Create new user
+          Create Account
         </h1>
-        <Link className="underline cursor-pointer mb-8"
-        href={"/cold-login"}>I have an account, take me to login</Link>
         <LoginForm type={"create user"} />
+        <Link className="underline text-sm cursor-pointer m-4 text-skin-textMuted 
+        hover:text-skin-textBase "
+        href={"/cold-login"}>I already have an account, take me to login</Link>
       </div>
     </div>
   );
