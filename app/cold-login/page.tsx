@@ -17,8 +17,8 @@ export default function Login({}) {
         id="authForm"
       >
         <div className="text-skin-accent-2 text-4xl font-bold my-4">Hello!</div>
-        <div className="text-skin-textBase">Welcome to Multiwatch!</div>
-        <div className="text-skin-textMuted my-4">An app to help you track your habits.
+        <div className="text-lg text-skin-textBase">Welcome to Multiwatch!</div>
+        <div className="text-skin-backgroundBase font-bold my-4 ">An app to help you track your habits.
         </div>
         <InputForm type={"login"} />
         <div className="flex flex-col text-center justify-center items-center mb-4">
