@@ -94,7 +94,16 @@ const updateClock = async (clockId, changeObj) => {
 }
 
 const updateThemePreference = async (userId, themeName) => {
-    // hard code 
+    return await fetch(`${url}/update-theme`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',  // Set Content-Type to application/json
+        },
+        body: JSON.stringify({userId: userId, themeName: themeName})
+    })
+    .then(res => res.json())
+    .then(data => data.result)
+    .catch(err => console.error('Error: ', err))
 }
 
 export {
