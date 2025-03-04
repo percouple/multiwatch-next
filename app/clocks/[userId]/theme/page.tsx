@@ -19,7 +19,9 @@ export default function ThemesDisplay({ }) {
         href={`/clocks/${params.userId}`}
       ></Link>
       <div
-        className="flex flex-col justify-around items-center p-4 pt-6 w-72 h-auto absolute rounded-lg border-4 border-accent-1 top-1/4 left-1/2 transform -translate-x-1/2 bg-bkg z-20"
+        className="flex flex-col justify-around items-center p-4 pt-6 w-72 h-auto
+        absolute rounded-lg border-4 border-skin-accent-1 top-1/4 left-1/2 transform 
+        -translate-x-1/2 bg-skin-backgroundBase z-20"
         id="authForm"
       >
         <div className="text-2xl text-accent-1 font-normal mb-2">Select a theme</div>
@@ -28,8 +30,10 @@ export default function ThemesDisplay({ }) {
           return (
             <div
               key={idx}
-              className={`w-[85%] flex justify-around items-center rounded-md m-2 p-2 border-accent-2 border-2 hover:bg-cmp_bkg transition duration-300 cursor-pointer`}
-              onClick={() => clickHandler(name)}
+              className={`w-[85%] flex justify-around items-center rounded-md m-2 p-2 
+                border-skin-accent-2 border-2 hover:bg-skin-backgroundMuted transition duration-300 
+                cursor-pointer`}
+              onClick={() => {clickHandler(name); console.log(name)}}
             >
               <h2 onClick={() => clickHandler(name)}>{name}</h2>
               <div className="flex justify-center items-center">
