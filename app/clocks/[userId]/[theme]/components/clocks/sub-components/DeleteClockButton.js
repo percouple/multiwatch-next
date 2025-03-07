@@ -1,5 +1,5 @@
 import React from "react";
-import { deleteClock } from "../../../../../../http_helpers";
+import { deleteClock } from "../../../../../../../http_helpers";
 
 export default function DeleteClockButton({
   clockData,
@@ -8,9 +8,7 @@ export default function DeleteClockButton({
   clockColor,
   userId,
 }) {
-
   const clickHandler = async () => {
-    
     // Backend
     await deleteClock(clock.id);
 
@@ -19,7 +17,7 @@ export default function DeleteClockButton({
       clockData.filter((clientClock) => {
         return clientClock.id !== clock.id;
       })
-    )
+    );
   };
 
   return (

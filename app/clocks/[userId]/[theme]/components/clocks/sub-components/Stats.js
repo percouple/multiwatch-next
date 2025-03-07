@@ -1,5 +1,5 @@
 import React from "react";
-import { secondsToTime, dateObjectConverter } from "../../../../../helpers";
+import { secondsToTime, dateObjectConverter } from "../../../../../../helpers";
 import SingleStat from "./SingleStat";
 
 export default function Stats({
@@ -39,7 +39,7 @@ export default function Stats({
     { label: "Today", time: secondsToTime(todayDisplayTime) },
     { label: "This Week", time: secondsToTime(thisWeekDisplayTime) },
     { label: "All Time", time: secondsToTime(allTimeDisplayTime) },
-    { label: "Last Started", time: dateObjectConverter(lastTouchedTime)},
+    { label: "Last Started", time: dateObjectConverter(lastTouchedTime) },
   ];
 
   return (
@@ -47,19 +47,19 @@ export default function Stats({
       className="font-normal flex justify-center flex-wrap text-center cursor-default 
     max-w-18rem mx-auto mt-6 bg-cmp_bkg p-4 rounded-lg max-w-[80%]"
     >
-        {statArray.map((stat, idx) => {
-          return (
-            <SingleStat
-              key={idx}
-              label={stat.label}
-              time={stat.time}
-              color={clockColor}
-              clock={clock}
-              theme={theme}
-              punchedIn={punchedIn}
-            />
-          );
-        })}
+      {statArray.map((stat, idx) => {
+        return (
+          <SingleStat
+            key={idx}
+            label={stat.label}
+            time={stat.time}
+            color={clockColor}
+            clock={clock}
+            theme={theme}
+            punchedIn={punchedIn}
+          />
+        );
+      })}
     </div>
   );
 }

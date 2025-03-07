@@ -1,7 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { authenticateUser, createNewUser } from "../../../../../http_helpers";
+import {
+  authenticateUser,
+  createNewUser,
+} from "../../../../../../http_helpers";
 import ErrorMessage from "./AuthErrorMessage";
 import * as yup from "yup";
 
@@ -41,7 +44,7 @@ export default function InputForm({ type }) {
       const result = await createNewUser(userValues);
       console.log("RESULT: ", result);
       if (result.user) {
-        router.push(`/clocks/${result.user.id}`);
+        router.push(`/clocks/${result.user.id}/${result.user.theme_preference}`);
       } else {
         setErrorMessage(result.message);
       }
@@ -52,7 +55,7 @@ export default function InputForm({ type }) {
         setErrorMessage("Username or password incorrect");
         return;
       } else {
-        router.push(`/clocks/${user.user.id}`);
+        router.push(`/clocks/${user.user.id}/${user.user.theme_preference}`);
       }
     }
   };
@@ -126,7 +129,7 @@ export default function InputForm({ type }) {
               : "text-skin-textBase hover:bg-skin-accent-2 hover:transition-transform hover:scale-105 border-none"
           }
           `}
-          disabled={disabledSubmit}
+          disabled={false}
         >
           {type === "login" ? "Sign In" : "Create Account"}
         </button>

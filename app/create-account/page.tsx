@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import LoginForm from "../clocks/[userId]/components/auth-common/AuthForm";
+import LoginForm from "../clocks/[userId]/[theme]/components/auth-common/AuthForm";
 
 export default function CreateNewUserCard({}) {
   return (
@@ -20,8 +20,10 @@ export default function CreateNewUserCard({}) {
           Create Account
         </h1>
         <LoginForm type={"create user"} />
-        <div className="flex flex-col justify-center items-center text-sm cursor-pointer 
-        mx-4 text-skin-textMuted">
+        <div
+          className="flex flex-col justify-center items-center text-sm cursor-pointer 
+        mx-4 text-skin-textMuted"
+        >
           I already have an account,
           <Link
             className="underline text-sm cursor-pointer mx-4 text-skin-textMuted 

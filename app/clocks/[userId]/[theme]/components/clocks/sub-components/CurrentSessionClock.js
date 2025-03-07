@@ -1,5 +1,5 @@
 import React from "react";
-import { secondsToTime } from "../../../../../helpers";
+import { secondsToTime } from "../../../../../../helpers";
 
 export default function CurrentSessionClock({ secondsPassed }) {
   return (

@@ -6,7 +6,7 @@ import CurrentSessionClock from "./CurrentSessionClock";
 import DeleteClockButton from "./DeleteClockButton";
 import EditClockButton from "./EditClockButton";
 import ShowStatisticsIcon from "../../icons/ShowStatisticsIcon";
-import { updateClock } from "../../../../../../http_helpers";
+import { updateClock } from "../../../../../../../http_helpers";
 
 export default function ClockContainer({
   theme,
@@ -47,7 +47,7 @@ export default function ClockContainer({
 
       // Back End updating
       const result = await updateClock(currentClock.id, currentClock);
-      console.log(result)
+      console.log(result);
       setSecondsPassed(0);
     }
   };
@@ -68,9 +68,7 @@ export default function ClockContainer({
       clearInterval(intervalId); // Clear interval when punching out
     }
 
-    punchedIn
-      ? setClockColor("skin-accent-2")
-      : setClockColor("skin-accent-1");
+    punchedIn ? setClockColor("skin-accent-2") : setClockColor("skin-accent-1");
     return () => clearInterval(intervalId);
   }, [punchedIn]);
 
@@ -99,7 +97,7 @@ export default function ClockContainer({
         </div>
       </div>
       {expanded && (
-      <div>
+        <div>
           <Stats
             punchedIn={punchedIn}
             secondsPassed={secondsPassed}

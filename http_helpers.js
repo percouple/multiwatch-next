@@ -3,7 +3,6 @@
 const url = `http://localhost:3306`
 
 const createNewUser = async (userInfo) => {
-
     // Input should already be validated
     return await fetch(`${url}/create-user`, {
         method: 'POST',
@@ -17,8 +16,21 @@ const createNewUser = async (userInfo) => {
     .catch(err => console.error('Error: ', err))
 }
 
-const authenticateUser = async (userInfo) => {
+const findUser = async (userId) => {
+    // Input should already be validated
+    return await fetch(`${url}/find-user`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',  // Set Content-Type to application/json
+        },
+        body: JSON.stringify({userId: userId})
+    })
+    .then(res => res.json())
+    .then(data => data)
+    .catch(err => console.error('Error: ', err))
+}
 
+const authenticateUser = async (userInfo) => {
     // Input should already be validated
     return await fetch(`${url}/auth-user`, {
         method: 'POST',
@@ -93,16 +105,16 @@ const updateClock = async (clockId, changeObj) => {
     .catch(err => console.error('Error: ', err))
 }
 
-const updateThemePreference = async (userId, themeName) => {
-    return await fetch(`${url}/update-theme`, {
+const editUser = async (userId, changeObj) => {
+    return await fetch(`${url}/edit-user`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',  // Set Content-Type to application/json
         },
-        body: JSON.stringify({userId: userId, themeName: themeName})
+        body: JSON.stringify({userId: userId, changeObj: changeObj})
     })
     .then(res => res.json())
-    .then(data => data.result)
+    .then(data => data.user.theme_preference)
     .catch(err => console.error('Error: ', err))
 }
 
@@ -113,5 +125,6 @@ export {
     addClock,
     deleteClock,
     updateClock,
-    updateThemePreference
+    editUser,
+    findUser
 }
