@@ -48,6 +48,7 @@ export default function Layout({ children }) {
   }
 
   let [clockData, setClockData] = useState([]);
+  let [theme, setTheme] = useState("light");
   const params = useParams();
   
   // Fetch clock data, using getUserClocks
@@ -69,8 +70,9 @@ export default function Layout({ children }) {
   return (
     <React.StrictMode>
       <div
-        className='font-sans font-light h-screen overflow-y-scroll
-          scroll-auto '
+        className={`theme-${theme} bg-skin-backgroundBase text-skin-textBase 
+        font-sans font-light h-screen overflow-y-scroll
+        scroll-auto`}
       >
         {children}
         <div className="rounded-xl p-4 m-4">
