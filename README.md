@@ -43,4 +43,4 @@ Before you start, make sure you have the following installed:
   npm --version
 
 ### Process
-No builds have been created yet, as this is still in the development stage. To run the development, git pull the repo, then run "npm run dev" to get the working model. 
+No builds have been created yet, as this is still in the development stage. To run the development, git pull the repo, run "npm i", then run "npm run dev" to get the working model. 
