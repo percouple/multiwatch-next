@@ -1,9 +1,11 @@
 "use client";
+import '../../../../../globals.css'
 
-import { displayThemes } from "./themesList";
+// import { displayThemes } from "./themesList";
 import Link from "next/link";
 import { editUser } from "../../../../../http_helpers";
 import { useParams, useRouter } from "next/navigation";
+import IndividualThemeCard from './IndividualThemeCard';
 
 export default function ThemesDisplay(props) {
   const params = useParams();
@@ -14,8 +16,15 @@ export default function ThemesDisplay(props) {
     router.push(`/clocks/${params.userId}/${newTheme}`)
   };
 
+  // List out the display themes available to user, 
+  // Iterate over them to create boxes for theme selection
+  const displayThemes = ["light","dark", "retro", "olive", "grape"]
+
+  const colorNames = ["skin-backgroundBase", "skin-textBase","skin-accent-1", "skin-accent-2",]
+
   return (
     <div className="absolute w-full h-screen">
+      {/* When clicking off of the card, exit card view */}
       <Link
         className="absolute inset-0 cursor-default bg-neutral-950 bg-opacity-40 z-10"
         href={`/clocks/${params.userId}/${params.theme}`}
@@ -24,37 +33,45 @@ export default function ThemesDisplay(props) {
         className="flex flex-col justify-around items-center p-4 pt-6 w-72 h-auto
         absolute rounded-lg border-4 border-skin-accent-1 top-1/4 left-1/2 transform 
         -translate-x-1/2 bg-skin-backgroundBase z-20"
-        id="authForm"
       >
         <div className="text-2xl text-accent-1 font-normal mb-2">
           Select a theme
         </div>
+        {/* Map over themes and make a button element with each one */}
         {displayThemes.map((theme, idx) => {
-          const [name] = Object.keys(theme);
+          console.log(theme)
           return (
             <div
-              key={idx}
-              className={`w-[85%] flex justify-around items-center rounded-md m-2 p-2 
-                border-skin-accent-2 border-2 hover:bg-skin-backgroundMuted transition duration-300 
-                cursor-pointer`}
-              onClick={() => {
-                clickHandler(name);
-              }}
-            >
-              <h2 onClick={() => clickHandler(name)}>{name}</h2>
-              <div className="flex justify-center items-center">
-                {theme[name].map((color, idx) => {
-                  return (
-                    <div
-                      key={idx}
-                      style={{ backgroundColor: color }}
-                      className="w-[15px] h-[15px] rounded-full p-2 m-1 border-neutral-500 border-2"
-                      onClick={() => clickHandler(name)}
-                    ></div>
-                  );
-                })}
-              </div>
-            </div>
+            key={idx}
+            className={`w-[85%] flex justify-around items-center rounded-md m-2 p-2 
+                      border-skin-accent-2 border-2 hover:bg-skin-backgroundMuted transition duration-300 
+                      cursor-pointer`}
+            onClick={() => {
+              clickHandler(theme);
+            }}
+          >
+            <IndividualThemeCard theme={theme} />
+          </div>
+            // <div
+            //   key={idx}
+            //   className={`w-[85%] flex justify-around items-center rounded-md m-2 p-2 
+            //     border-skin-accent-2 border-2 hover:bg-skin-backgroundMuted transition duration-300 
+            //     cursor-pointer`}
+            //   onClick={() => {
+            //     clickHandler(theme);
+            //   }}
+            // >
+            //   <h2 onClick={() => clickHandler(theme)}>{theme}</h2>
+            //   <div className={`theme-${theme} flex justify-center items-center`}>
+            //     {colorNames.map((colorName, idx) => {
+            //       return (<div
+            //         key={idx}
+            //         className={`bg-${colorName} w-[15px] h-[15px] rounded-full p-2 m-1 border-neutral-500 border-2`}
+            //         onClick={() => clickHandler(theme)}
+            //       ></div>)
+            //     })}
+            //   </div>
+            // </div>
           );
         })}
       </div>
