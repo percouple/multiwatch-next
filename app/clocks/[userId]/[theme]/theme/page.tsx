@@ -11,8 +11,7 @@ export default function ThemesDisplay(props) {
 
   const clickHandler = async (name) => {
     const newTheme = await editUser(params.userId, { theme_preference: name });
-    router.push(`/clocks/${params.userId}/${newTheme}/theme`)
-    console.log(newTheme);
+    router.push(`/clocks/${params.userId}/${newTheme}`)
   };
 
   return (
