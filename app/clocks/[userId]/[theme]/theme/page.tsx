@@ -1,5 +1,4 @@
 "use client";
-import '../../../../../globals.css'
 
 // import { displayThemes } from "./themesList";
 import Link from "next/link";
@@ -20,8 +19,6 @@ export default function ThemesDisplay(props) {
   // Iterate over them to create boxes for theme selection
   const displayThemes = ["light","dark", "retro", "olive", "grape"]
 
-  const colorNames = ["skin-backgroundBase", "skin-textBase","skin-accent-1", "skin-accent-2",]
-
   return (
     <div className="absolute w-full h-screen">
       {/* When clicking off of the card, exit card view */}
@@ -39,7 +36,6 @@ export default function ThemesDisplay(props) {
         </div>
         {/* Map over themes and make a button element with each one */}
         {displayThemes.map((theme, idx) => {
-          console.log(theme)
           return (
             <div
             key={idx}
@@ -52,26 +48,6 @@ export default function ThemesDisplay(props) {
           >
             <IndividualThemeCard theme={theme} />
           </div>
-            // <div
-            //   key={idx}
-            //   className={`w-[85%] flex justify-around items-center rounded-md m-2 p-2 
-            //     border-skin-accent-2 border-2 hover:bg-skin-backgroundMuted transition duration-300 
-            //     cursor-pointer`}
-            //   onClick={() => {
-            //     clickHandler(theme);
-            //   }}
-            // >
-            //   <h2 onClick={() => clickHandler(theme)}>{theme}</h2>
-            //   <div className={`theme-${theme} flex justify-center items-center`}>
-            //     {colorNames.map((colorName, idx) => {
-            //       return (<div
-            //         key={idx}
-            //         className={`bg-${colorName} w-[15px] h-[15px] rounded-full p-2 m-1 border-neutral-500 border-2`}
-            //         onClick={() => clickHandler(theme)}
-            //       ></div>)
-            //     })}
-            //   </div>
-            // </div>
           );
         })}
       </div>
