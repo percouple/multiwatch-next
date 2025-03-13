@@ -16,7 +16,7 @@ export default function ThemesDisplay(props) {
 
   // List out the display themes available to user, 
   // Iterate over them to create boxes for theme selection
-  const displayThemes = ["light","dark", "retro", "olive", "grape"]
+  const displayThemes = ["light","dark", "retro", "olive", "grape", "oxford", "cliffs"]
 
   return (
     <div className="absolute w-full h-screen">
@@ -39,7 +39,8 @@ export default function ThemesDisplay(props) {
             <div
             key={idx}
             className={`w-[85%] flex justify-around items-center rounded-md m-2 p-2 
-                      border-skin-accent-2 border-2 hover:bg-skin-backgroundMuted transition duration-300 
+                      bg-skin-backgroundMuted border-2 border-transparent transition duration-300 hover:bg-skin-backgroundBase
+                      hover:border-2 hover:border-skin-backgroundMuted
                       cursor-pointer`}
             onClick={() => {
               clickHandler(theme);

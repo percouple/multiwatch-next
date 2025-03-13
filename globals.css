@@ -134,3 +134,27 @@
   --color-button-bg: rgb(44, 25, 70); 
   --color-button-hover: rgb(56, 33, 91)
 }
+.theme-oxford {
+  --color-background-base: rgb(38, 30, 17); /* Dark brown for main background */
+  --color-background-muted: rgb(66, 50, 29); /* Muted warm brown for secondary background */
+  --color-text-base: rgba(255, 255, 255, 1); /* White text for contrast */
+  --color-text-muted: rgba(169, 133, 92, 1); /* Muted brownish beige for less emphasized text */
+  --color-text-inverted: rgba(255, 244, 211, 1); /* Light beige for inverted text */
+  --color-accent-2: rgb(255, 159, 45); /* Vibrant, golden yellow for the first accent */
+  --color-accent-1: rgb(112, 65, 22); /* Deep, dark brown with red undertones for the second accent */
+  --color-edit-clock: rgba(223, 151, 89, 1); /* Vibrant, earthy amber for special elements */
+  --color-button-bg: rgb(50, 33, 18); /* Very dark brown for buttons */
+  --color-button-hover: rgb(80, 55, 31); /* Slightly lighter brown for hover state */
+}
+.theme-cliffs {
+  --color-background-base: rgb(33, 47, 60); 
+  --color-background-muted: rgb(58, 78, 94); 
+  --color-text-base: rgba(255, 255, 255, 1); 
+  --color-text-muted: rgba(180, 180, 180, 1); 
+  --color-text-inverted: rgba(0, 0, 0, 1); 
+  --color-accent-1: rgba(94, 179, 229, 1); 
+  --color-accent-2: rgba(255, 165, 0, 1);
+  --color-edit-clock: rgba(123, 200, 255, 1); 
+  --color-button-bg: rgb(24, 36, 46); 
+  --color-button-hover: rgb(42, 62, 79);
+}
