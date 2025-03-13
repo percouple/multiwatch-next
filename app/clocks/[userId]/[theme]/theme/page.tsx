@@ -1,6 +1,5 @@
 "use client";
 
-// import { displayThemes } from "./themesList";
 import Link from "next/link";
 import { editUser } from "../../../../../http_helpers";
 import { useParams, useRouter } from "next/navigation";
