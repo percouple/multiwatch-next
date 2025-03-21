@@ -10,7 +10,6 @@ import { useParams } from "next/navigation";
 export default function Layout({ children }) {
 
   let [clockData, setClockData] = useState([]);
-  let [userTheme, setUserTheme] = useState("light");
   const params = useParams();
 
   // Fetch clock data, using getUserClocks
@@ -30,15 +29,10 @@ export default function Layout({ children }) {
     }
   }, [params.userId]);
 
-  // Change theme based on params change
-  useEffect(() => {
-    setUserTheme(params.theme);
-  }, [params.theme]);
-
   return (
     <React.StrictMode>
       <div
-        className={`theme-${userTheme} bg-skin-backgroundBase text-skin-textBase 
+        className={`theme-${params.theme} bg-skin-backgroundBase text-skin-textBase 
         font-sans font-light h-screen overflow-y-scroll
         scroll-auto`}
       >
