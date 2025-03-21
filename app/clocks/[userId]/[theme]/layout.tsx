@@ -32,19 +32,19 @@ export default function Layout({ children }) {
   return (
     <React.StrictMode>
       <div
-        className={`theme-${params.theme} bg-skin-backgroundBase text-skin-textBase 
-        font-sans font-light h-screen overflow-y-scroll
-        scroll-auto`}
+        className={`theme-${params.theme} bg-skin-backgroundBase 
+        text-skin-textBase font-sans font-light h-screen 
+        overflow-y-scroll scroll-auto`}
       >
         {children}
-        <div className="rounded-xl p-4 m-4">
+        <div className="rounded-xl m-8 border-skin-accent-1 border-4">
           <Header
             clockData={clockData}
             setClockData={setClockData}
             userId={params.userId}
           />
         </div>
-        <div className="bg-skin-backgroundMuted rounded-xl p-2 m-4">
+        <div className="bg-skin-backgroundMuted rounded-xl p-4 mx-8">
           <ClocksContainer
             clockData={clockData}
             setClockData={setClockData}
