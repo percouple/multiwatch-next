@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Login({}) {
   return (
-    <div className="absolute w-full h-screen">
+    <div className="absolute w-full h-screen theme-cliffs">
       <div
         className="absolute inset-0 cursor-default bg-skin-backgroundBase
         bg-opacity-40 z-1"
@@ -18,7 +18,7 @@ export default function Login({}) {
       >
         <div className="text-skin-accent-2 text-4xl font-bold my-4">Hello!</div>
         <div className="text-lg text-skin-textBase">Welcome to Multiwatch!</div>
-        <div className="text-skin-backgroundBase font-bold my-4 ">
+        <div className="text-skin-textMuted font-bold my-4 ">
           An app to help you track your habits.
         </div>
         <InputForm type={"login"} />

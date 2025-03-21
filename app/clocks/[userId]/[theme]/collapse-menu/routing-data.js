@@ -1,5 +1,5 @@
 
-export function routingDataArray(id) {
+export function routingDataArray(id, theme) {
   return [
     {
       title: "Logout",
@@ -7,11 +7,11 @@ export function routingDataArray(id) {
     },
     {
       title: "Create Account",
-      url: `/clocks/${id}/create-account`,
+      url: `/create-account`,
     },
     {
       title: "Themes",
-      url: `/clocks/${id}/theme`,
+      url: `/clocks/${id}/${theme}/theme`,
     },
   ];
 }

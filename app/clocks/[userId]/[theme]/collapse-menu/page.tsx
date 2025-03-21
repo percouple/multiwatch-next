@@ -8,7 +8,7 @@ import { useParams } from 'next/navigation';
 export default function Login({ }) {
 
   const params = useParams();
-  const routingData = routingDataArray(params.userId)
+  const routingData = routingDataArray(params.userId, params.theme)
 
   return (
     <div className="absolute w-full h-screen">

@@ -5,7 +5,7 @@ import LoginForm from "../clocks/[userId]/[theme]/components/auth-common/AuthFor
 
 export default function CreateNewUserCard({}) {
   return (
-    <div className="absolute w-full h-screen">
+    <div className="absolute w-full h-screen theme-cliffs">
       <div
         className="absolute inset-0 bg-skin-backgroundBase
         cursor-default bg-opacity-40 z-10"
