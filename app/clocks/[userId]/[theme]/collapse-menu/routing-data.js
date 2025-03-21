@@ -2,8 +2,8 @@
 export function routingDataArray(id) {
   return [
     {
-      title: "Login",
-      url: `/clocks/${id}/login`,
+      title: "Logout",
+      url: `/cold-login/revoke-token`,
     },
     {
       title: "Create Account",
