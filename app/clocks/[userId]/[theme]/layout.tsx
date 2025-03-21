@@ -3,49 +3,11 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/header/Header";
 import ClocksContainer from "./components/clocks/ClocksContainer";
-import { findUser, getUserClocks } from "../../../../http_helpers";
+import { getUserClocks } from "../../../../http_helpers";
 import "dotenv/config";
 import { useParams } from "next/navigation";
 
 export default function Layout({ children }) {
-  // const user = await getUser(params.userId);
-  // Hard coded user for convenience
-  // const user = {
-  //   id: 'cm605gh420000x2f26r26g7pc',
-  //   username: 'harold',
-  //   password: '1234',
-  //   Clocks: {
-  //     create: [
-  //       {
-  //         name: "superClock",
-  //         allTime: 10000,
-  //         editing: false,
-  //         lastSessionTime: 2,
-  //         thisWeekTime: 222222,
-  //         todaySessionTime: 222,
-  //       },
-  //       {
-  //         name: "third clock",
-  //         allTime: 100,
-  //         editing: true,
-  //         lastSessionTime: 0,
-  //         thisWeekTime: 22,
-  //         todaySessionTime: 2,
-  //       },
-  //       {
-  //         name: "nuh nuh clock",
-  //         allTime: 1000,
-  //         editing: false,
-  //         lastSessionTime: 2,
-  //         thisWeekTime: 2222,
-  //         todaySessionTime: 222356,
-  //       },
-  //     ],
-  //   },
-  //   createdAt: '2025-01-17T02:37:50.883Z',
-  //   updatedAt: '2025-01-17T02:37:50.883Z',
-  //   theme_preference: 'light'
-  // }
 
   let [clockData, setClockData] = useState([]);
   let [userTheme, setUserTheme] = useState("light");
