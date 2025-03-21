@@ -1,9 +1,5 @@
-interface RoutingDataItem {
-  title: string;
-  url: string;
-}
 
-export function routingDataArray(id: string) {
+export function routingDataArray(id) {
   return [
     {
       title: "Login",

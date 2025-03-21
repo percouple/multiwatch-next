@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/clocks/[userId]/[theme]/layout.tsx"  ],
+, "app/clocks/[userId]/[theme]/layout.tsx", "app/clocks/[userId]/[theme]/collapse-menu/routing-data.js"  ],
   "exclude": [
     "node_modules"
   ]
