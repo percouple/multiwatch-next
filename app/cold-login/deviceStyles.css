@@ -1,5 +1,5 @@
 /* PHONES */
-@media (max-width: 650px) {
+@media (max-width: 760px) {
   .ds-card {
     flex-direction: column;
     justify-content: space-around;
@@ -18,7 +18,7 @@
 }
 
 /* COMPUTER */
-@media (min-width: 650px) {
+@media (min-width: 760px) {
   .ds-card {
     padding: 4rem;
     flex-direction: row;
@@ -32,9 +32,9 @@
     font-size: 8vw;
   }
   .ds-card-text-body{
-    font-size: 3vw;
+    font-size: 2vw;
   }
   .ds-card-text-foot{
-    font-size: 2vw;
+    font-size: 1vw;
   }
 }
