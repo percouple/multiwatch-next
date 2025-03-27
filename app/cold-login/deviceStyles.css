@@ -1,0 +1,22 @@
+/* PHONES */
+@media (max-width: 650px) {
+  .ds-card {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+  }
+}
+
+/* COMPUTER */
+@media (min-width: 650px) {
+  .ds-card {
+    padding: 4rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .ds-form {
+    padding-top: 4rem;
+    margin-left: 4rem;
+  }
+}
