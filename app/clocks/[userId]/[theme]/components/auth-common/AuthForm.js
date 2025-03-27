@@ -101,7 +101,7 @@ export default function InputForm({ type }) {
         name="username"
         onChange={changeHandler}
         className="h-10 w-full px-2 mb-2 rounded bg-skin-backgroundBase
-        border-2 outline-none border-skin-accent-1
+        border-2 outline-none border-skin-accent-1 text-skin-accent-2
         placeholder:text-skin-textMuted"
       />
       <input
@@ -111,7 +111,7 @@ export default function InputForm({ type }) {
         placeholder="password"
         onChange={changeHandler}
         className={`h-10 w-full px-2 mb-2 rounded border-skin-accent-1
-        border-2 outline-none bg-skin-backgroundBase
+        border-2 outline-none bg-skin-backgroundBase text-skin-accent-2
         placeholder:text-skin-textMuted 
         ${errorMessage && "border-skin-accent-2"}`}
       />

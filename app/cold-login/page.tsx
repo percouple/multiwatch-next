@@ -25,6 +25,10 @@ export default function Login({}) {
           <div className="text-skin-textMuted font-bold my-4 ">
             An app to help you track your habits.
           </div>
+        <div className="text-skin-accent-2 text-4xl font-bold my-4">Hello!</div>
+        <div className="text-lg text-skin-textBase">Welcome to Multiwatch!</div>
+        <div className="text-skin-textMuted font-bold my-4 ">
+          An app to help you track your habits.
         </div>
         <div className="ds-form">
           <InputForm type={"login"} />
