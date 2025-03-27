@@ -6,6 +6,15 @@
     align-items: center;
     padding: 1rem;
   }
+  .ds-card-text-head{
+    font-size: 8vh;
+  }
+  .ds-card-text-body{
+    font-size: 3vh;
+  }
+  .ds-card-text-foot{
+    font-size: 2vh;
+  }
 }
 
 /* COMPUTER */
@@ -18,5 +27,14 @@
   .ds-form {
     padding-top: 4rem;
     margin-left: 4rem;
+  }
+  .ds-card-text-head{
+    font-size: 8vw;
+  }
+  .ds-card-text-body{
+    font-size: 3vw;
+  }
+  .ds-card-text-foot{
+    font-size: 2vw;
   }
 }
