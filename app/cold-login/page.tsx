@@ -5,11 +5,7 @@ import Link from "next/link";
 
 export default function Login({}) {
   return (
-    <div className="absolute w-full h-screen flex justify-center theme-light">
-      <div
-        className="absolute inset-0 cursor-default bg-skin-backgroundBase
-        bg-opacity-40 z-1"
-      ></div>
+    <div className="absolute w-full h-screen flex justify-center theme-light bg-skin-backgroundBase">
       <div
         className="flex ds-card border-skin-accent-1 pt-6 w-auto m-8 h-auto absolute rounded-lg 
         border-4 top-[15%] bg-skin-backgroundMuted shadow-2xl"
@@ -25,10 +21,6 @@ export default function Login({}) {
           <div className="text-skin-textMuted font-bold my-4 ">
             An app to help you track your habits.
           </div>
-        <div className="text-skin-accent-2 text-4xl font-bold my-4">Hello!</div>
-        <div className="text-lg text-skin-textBase">Welcome to Multiwatch!</div>
-        <div className="text-skin-textMuted font-bold my-4 ">
-          An app to help you track your habits.
         </div>
         <div className="ds-form">
           <InputForm type={"login"} />
@@ -46,7 +38,6 @@ export default function Login({}) {
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
