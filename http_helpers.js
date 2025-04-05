@@ -1,6 +1,7 @@
-// Define url address. Not from .env variables, because 
-// it's hosted on a different port on the same machine
-const url = `http://localhost:3306`
+import userSubmittedURL from './'
+
+// DEFINE BACKEND URL ADDRESS IN .ENV FILE
+const url = process.env.BACKEND_URL || userSubmittedURL ||`http://localhost:3306`
 
 const createNewUser = async (userInfo) => {
     // Input should already be validated
