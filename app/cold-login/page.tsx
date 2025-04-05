@@ -6,7 +6,8 @@ import Link from "next/link";
 export default function Login({}) {
 
   return (
-    <div className="absolute w-full h-screen flex justify-center items-center theme-light bg-skin-backgroundBase">
+    <div className="absolute w-full h-screen flex justify-center items-center 
+    theme-cliffs bg-skin-backgroundBase">
       <div
         className="flex ds-card border-skin-accent-1 pt-6 w-auto m-8 h-auto absolute rounded-lg 
         border-4 bg-skin-backgroundMuted shadow-2xl"

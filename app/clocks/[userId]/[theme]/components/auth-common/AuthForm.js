@@ -7,6 +7,7 @@ import {
 } from "../../../../../../http_helpers";
 import ErrorMessage from "./AuthErrorMessage";
 import * as yup from "yup";
+// import { UserSubmittedURLForm } from "./UserSubmittedURLForm";
 
 export default function InputForm({ type }) {
   let [userValues, setUserValues] = useState({ username: "", password: "" });
@@ -118,6 +119,7 @@ export default function InputForm({ type }) {
       {errorMessage && type === "login" && (
         <ErrorMessage message={errorMessage} />
       )}
+      {/* {type === "create user" && <UserSubmittedURLForm/>} */}
       <div className="flex justify-center mt-4">
         <button
           id="createUserButton"
