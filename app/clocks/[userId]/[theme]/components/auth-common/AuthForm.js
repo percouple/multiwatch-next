@@ -45,18 +45,26 @@ export default function InputForm({ type }) {
       const result = await createNewUser(userValues);
       console.log("RESULT: ", result);
       if (result.user) {
-        router.push(`/clocks/${result.user.id}/${result.user.theme_preference}`);
+        router.push(
+          `/clocks/${result.user.id}/${result.user.theme_preference}`
+        );
       } else {
         setErrorMessage(result.message);
       }
     } else if (type === "login") {
-      const user = await authenticateUser(userValues);
-      console.log(user);
-      if (!user.user) {
+      const result = await authenticateUser(userValues);
+      console.log(result);
+      // Handle for 500 errors
+      if (!result) {
+        router.push("/backend-prompt");
+      }
+
+      // Handle for 404 errors
+      if (!result.user) {
         setErrorMessage("Username or password incorrect");
         return;
       } else {
-        router.push(`/clocks/${user.user.id}/${user.user.theme_preference}`);
+        router.push(`/clocks/${result.user.id}/${result.user.theme_preference}`);
       }
     }
   };
