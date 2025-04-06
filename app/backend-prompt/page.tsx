@@ -23,15 +23,15 @@ export default function UserSubmittedURLForm() {
           id="authForm"
         >
           <h1 className="text-skin-accent-2 text-4xl font-bold mb-4">
-            Hi there -
+            Welcome! 
           </h1>
           {/* <LoginForm type={"create user"} /> */}
           <div
             className="flex flex-col justify-center items-center text-sm cursor-pointer 
-          mx-4 text-skin-textMuted"
+          mx-4 text-skin-textBase"
           >
-            Unfortunately, this instance of Multiwatch is not pointed to an
-            appropriate backend server. Please submit a valid backend below.
+            Unfortunately, this instance of Multiwatch is having issues connecting to 
+            the backend server. Please enter the expected backend IP or URL below. 
             {/* <Link
               className="underline text-sm cursor-pointer mx-4 text-skin-textMuted 
             hover:text-skin-textBase "
