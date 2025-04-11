@@ -9,6 +9,10 @@ export default function UserSubmittedURLForm() {
   const changeHandler = (e) => {
     setDBValue(e.target.value);
   }
+
+  const submitHandler = (e) => {
+    console.log(dbValue)
+  }
   return (
     <>
       <div className="absolute w-full h-screen theme-cliffs">
@@ -41,7 +45,8 @@ export default function UserSubmittedURLForm() {
               take me to login
             </Link> */}
           </div>
-          <form className="flex flex-col items-center m-4">
+          <form className="flex flex-col items-center m-4"
+          onSubmit={submitHandler}>
             <input
               placeholder="Database IP or URL"
               className="h-10 w-full px-2 mb-2 rounded bg-skin-backgroundBase
@@ -49,10 +54,11 @@ export default function UserSubmittedURLForm() {
               placeholder:text-skin-textMuted"
               value={dbValue}
               type="text"
-              name="username"
+              name="dbValue"
               onChange={changeHandler}
             />
-            <button type="submit" className="relative rounded-md w-48 h-10 bg-skin-backgroundBase
+            <button type="submit" title="Submit backend database information" 
+            className="relative rounded-md w-48 h-10 bg-skin-backgroundBase
               font-bold z-0 duration-300 transition-all text-skin-textBase hover:bg-skin-accent-2 
               hover:transition-transform hover:scale-105 border-none">
               Submit
