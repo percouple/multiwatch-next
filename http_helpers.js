@@ -1,9 +1,14 @@
 
 // DEFINE BACKEND URL ADDRESS IN .ENV FILE
-const url =
-  process.env.BACKEND_URL || `http://localhost:3306`;
+// Gets backend URL from localstorage
+const getBackendUrl = () => {
+  const storedUrl = localStorage.getItem("backendUrl");
+  return storedUrl || process.env.BACKEND_URL || "http://localhost:3306";
+}
 
 const createNewUser = async (userInfo) => {
+  // Grab url from localstorage
+  const url = getBackendUrl();
   // Input should already be validated
   return await fetch(`${url}/create-user`, {
     method: "POST",
@@ -18,6 +23,8 @@ const createNewUser = async (userInfo) => {
 };
 
 const findUser = async (userId) => {
+  // Grab url from localstorage
+  const url = getBackendUrl();
   // Input should already be validated
   return await fetch(`${url}/find-user`, {
     method: "POST",
@@ -32,6 +39,8 @@ const findUser = async (userId) => {
 };
 
 const authenticateUser = async (userInfo) => {
+  // Grab url from localstorage
+  const url = getBackendUrl();
   // Input should already be validated
   return await fetch(`${url}/auth-user`, {
     method: "POST",
@@ -48,6 +57,8 @@ const authenticateUser = async (userInfo) => {
 // Packages http post request to get user clocks based on ID input
 // User has already been validated by virtue of up front login screen
 const getUserClocks = async (userId) => {
+  // Grab url from localstorage
+  const url = getBackendUrl();
   // Input should already be validated
   return await fetch(`${url}/get-user-clocks`, {
     method: "POST",
@@ -63,6 +74,8 @@ const getUserClocks = async (userId) => {
 
 // Add clock to a user
 const addClock = async (userId) => {
+  // Grab url from localstorage
+  const url = getBackendUrl();
   return await fetch(`${url}/create-clock`, {
     method: "POST",
     headers: {
@@ -76,7 +89,8 @@ const addClock = async (userId) => {
 };
 
 const deleteClock = async (clockId) => {
-  console.log("ROUTING THRU HELPERS");
+  // Grab url from localstorage
+  const url = getBackendUrl();
   return await fetch(`${url}/delete-clock`, {
     method: "DELETE",
     headers: {
@@ -90,6 +104,8 @@ const deleteClock = async (clockId) => {
 };
 
 const updateClock = async (clockId, changeObj) => {
+  // Grab url from localstorage
+  const url = getBackendUrl();
   return await fetch(`${url}/update-clock`, {
     method: "PUT",
     headers: {
@@ -103,6 +119,8 @@ const updateClock = async (clockId, changeObj) => {
 };
 
 const editUser = async (userId, changeObj) => {
+  // Grab url from localstorage
+  const url = getBackendUrl();
   return await fetch(`${url}/edit-user`, {
     method: "PUT",
     headers: {
