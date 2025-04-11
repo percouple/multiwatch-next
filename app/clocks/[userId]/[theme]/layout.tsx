@@ -8,7 +8,6 @@ import "dotenv/config";
 import { useParams } from "next/navigation";
 
 export default function Layout({ children }) {
-
   let [clockData, setClockData] = useState([]);
   const params = useParams();
 
@@ -37,14 +36,15 @@ export default function Layout({ children }) {
         overflow-y-scroll scroll-auto`}
       >
         {children}
-        <div className="rounded-xl m-8 border-skin-accent-1 border-4">
-          <Header
-            clockData={clockData}
-            setClockData={setClockData}
-            userId={params.userId}
-          />
-        </div>
-        <div className="bg-skin-backgroundMuted rounded-xl p-4 mx-8">
+        <Header
+          clockData={clockData}
+          setClockData={setClockData}
+          userId={params.userId}
+        />
+        <div
+          className="bg-skin-backgroundMuted rounded-xl p-4 mx-8
+        mb-6"
+        >
           <ClocksContainer
             clockData={clockData}
             setClockData={setClockData}

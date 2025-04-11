@@ -6,9 +6,10 @@ import CreateNewTimerButton from "./sub-components/CreateNewTimerButton";
 
 export default function Header({ userId, clockData, setClockData }) {
   return (
-    <div className="flex justify-between items-center px-12 w-full 
-    bg-skin-backgroundMuted pb-4 rounded-xl">
-      <CurrentTimeDisplay  />
+    <div className="flex justify-between items-center px-12
+    bg-skin-backgroundMuted pb-4 rounded-xl m-8 border-skin-accent-1 
+    border-4">
+      <CurrentTimeDisplay/>
       <div>
         <div className="flex md:hidden items-center ">
           <CollapsedMenu userId={userId} />
