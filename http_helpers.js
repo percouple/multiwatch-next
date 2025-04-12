@@ -133,6 +133,18 @@ const editUser = async (userId, changeObj) => {
     .catch((err) => console.error("Error: ", err));
 };
 
+const pingServer = async (backendUrlOrIp) => {
+  return await fetch(`${backendUrlOrIp}/test-server`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json", // Set Content-Type to application/json
+    },
+  })
+  .then((res) => res)
+  .then((data) => data)
+  .catch((err) => err)
+}
+
 export {
   createNewUser,
   getUserClocks,
@@ -142,4 +154,5 @@ export {
   updateClock,
   editUser,
   findUser,
+  pingServer,
 };
