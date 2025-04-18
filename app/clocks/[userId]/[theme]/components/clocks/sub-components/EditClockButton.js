@@ -1,6 +1,6 @@
 export default function EditClockButton({
   clock,
-  clockColor,
+  // clockColor,
   clockData,
   setClockData,
 }) {

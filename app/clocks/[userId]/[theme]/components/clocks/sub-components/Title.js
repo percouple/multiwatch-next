@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { updateClock } from "../../../../../../../http_helpers";
-import "../../../../../../../globals.css";
+// import "../../../../../../../globals.css";
 
 export default function Title({ clock, clockColor }) {
   let [titleValue, setTitleValues] = useState(clock.name || "");

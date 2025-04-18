@@ -5,7 +5,7 @@ import EditStats from "./edit-clock-components/EditStats";
 import EditTitle from "./edit-clock-components/EditTitle";
 import CurrentSessionClock from "./CurrentSessionClock";
 import CancelEditClockButton from "./edit-clock-components/CancelEditClockButton";
-import { updateClockFromEdit } from "../../../../../../../http_helpers";
+import { updateClock } from "../../../../../../../http_helpers";
 
 export default function EditClockContainer({
   clock,
@@ -18,8 +18,9 @@ export default function EditClockContainer({
 
   const clockUpdater = async (e) => {
     e.preventDefault();
+    console.log(currentClock.id, currentClock)
     // Saves edit to the db
-    await updateClockFromEdit(currentClock);
+    await updateClock(currentClock.id, currentClock);
 
     const pusherClock = { ...currentClock, editing: false };
 
@@ -49,7 +50,6 @@ export default function EditClockContainer({
             currentClock={currentClock}
             oldClock={clock}
             setCurrentClock={setCurrentClock}
-            // color={color}
           />
           <CancelEditClockButton
             clock={clock}

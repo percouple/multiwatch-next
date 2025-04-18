@@ -2,7 +2,7 @@ export default function SingleEditStat({
   label,
   setCurrentClock,
   setErrMessage,
-  currentClock,
+  // currentClock,
   value,
   placeholder,
   name
