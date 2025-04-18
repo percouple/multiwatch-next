@@ -5,19 +5,16 @@ import EditStats from "./edit-clock-components/EditStats";
 import EditTitle from "./edit-clock-components/EditTitle";
 import CurrentSessionClock from "./CurrentSessionClock";
 import CancelEditClockButton from "./edit-clock-components/CancelEditClockButton";
-import { nonTailwindColors } from "../../../../../helpers";
-import { updateClockFromEdit } from "../../../../../../http_helpers";
+import { updateClockFromEdit } from "../../../../../../../http_helpers";
 
 export default function EditClockContainer({
   clock,
   theme,
-  clientClocks,
-  setClientClocks,
+  clockData,
+  setClockData,
 }) {
   const [currentClock, setCurrentClock] = useState(clock);
   const [errMessage, setErrMessage] = useState("");
-
-  const color = nonTailwindColors[theme].editing;
 
   const clockUpdater = async (e) => {
     e.preventDefault();
@@ -27,12 +24,12 @@ export default function EditClockContainer({
     const pusherClock = { ...currentClock, editing: false };
 
     // Sets client clock to non-editing
-    setClientClocks(
-      clientClocks.map((clientClock) => {
-        if (clientClock.id === clock.id) {
+    setClockData(
+      clockData.map((clock) => {
+        if (clock.id === clock.id) {
           return pusherClock;
         }
-        return clientClock;
+        return clock;
       })
     );
   };
@@ -52,12 +49,12 @@ export default function EditClockContainer({
             currentClock={currentClock}
             oldClock={clock}
             setCurrentClock={setCurrentClock}
-            color={color}
+            // color={color}
           />
           <CancelEditClockButton
             clock={clock}
-            setClientClocks={setClientClocks}
-            clientClocks={clientClocks}
+            setClockData={setClockData}
+            clockData={clockData}
           />
         </div>
         <div className="flex w-full justify-between items-center mt-4">

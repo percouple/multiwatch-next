@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { secondsToTime } from "../../../../../../helpers";
+import { secondsToTime } from "../../../../../../../helpers";
 import SingleEditStat from "./SingleEditStat";
 
 export default function EditStats({

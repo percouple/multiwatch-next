@@ -3,11 +3,10 @@
 import { useState } from "react";
 import { pingServer } from "../../http_helpers";
 import { useRouter } from "next/navigation";
-import { error } from "console";
 
 export default function UserSubmittedURLForm() {
   let [dbValue, setDBValue] = useState("");
-  // let [errorMessage, setErrorMessage] = useState('')
+  let [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
 
   const changeHandler = (e) => {
@@ -21,21 +20,25 @@ export default function UserSubmittedURLForm() {
     // Ping storage db
     await pingServer(dbValue)
       .then((result) => {
-        console.log(result);
+        console.log(result.status);
         // result.status: 404, result.statusText: "Not Found"
-        if (result.ok === false) {
-          throw Error(`Server responded with status ${result.status}: ${result.statusText}`);
+        if (result.status === undefined) {
+          throw Error(
+            `Server responded with status ${result.status}: ${result.statusText}`
+          );
         }
 
         // Store dbValue in localStorage
         localStorage.setItem("dbValue", JSON.stringify(dbValue));
 
         // Redirect user to appropriate server
-        router.push('./cold-login')
+        router.push("./cold-login");
       })
       .catch((err) => {
         // if ping returns negative, print error message
         console.log(err.message || err);
+
+        setErrorMessage("Server not found");
       });
   };
 
@@ -78,7 +81,7 @@ export default function UserSubmittedURLForm() {
           >
             <input
               placeholder="Database IP or URL"
-              className="h-10 w-full px-2 mb-2 rounded bg-skin-backgroundBase
+              className="h-10 w-full px-2 my-2 rounded bg-skin-backgroundBase
               border-2 outline-none border-skin-accent-1 text-skin-accent-2
               placeholder:text-skin-textMuted"
               value={dbValue}
@@ -91,11 +94,12 @@ export default function UserSubmittedURLForm() {
               title="Submit backend database information"
               className="relative rounded-md w-48 h-10 bg-skin-backgroundBase
               font-bold z-0 duration-300 transition-all text-skin-textBase hover:bg-skin-accent-2 
-              hover:transition-transform hover:scale-105 border-none"
+              hover:transition-transform hover:scale-105 border-none mt-4"
             >
               Submit
             </button>
           </form>
+          {errorMessage && <div className="text-skin-accent-2">{errorMessage}</div>}
         </div>
       </div>
     </>

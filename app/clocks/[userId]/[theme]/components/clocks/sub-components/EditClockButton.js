@@ -1,16 +1,16 @@
 export default function EditClockButton({
   clock,
   clockColor,
-  clientClocks,
-  setClientClocks,
+  clockData,
+  setClockData,
 }) {
   const clickHandler = async (e) => {
-    setClientClocks(
-      clientClocks.map((clientClock) => {
-        if (clientClock.id === clock.id) {
-          clientClock.editing = true;
+    setClockData(
+      clockData.map((singleClock) => {
+        if (singleClock.id === clock.id) {
+          singleClock.editing = true;
         }
-        return clientClock;
+        return singleClock;
       })
     );
   };

@@ -134,14 +134,22 @@ const editUser = async (userId, changeObj) => {
 };
 
 const pingServer = async (backendUrlOrIp) => {
-  return await fetch(`${backendUrlOrIp}/test-server`, {
+  // Add protocol if it's missing
+  if (!/^https?:\/\//i.test(backendUrlOrIp)) {
+    backendUrlOrIp = 'http://' + backendUrlOrIp;
+  }
+  backendUrlOrIp += "/ping-server"
+
+  const url = new URL(backendUrlOrIp)
+  console.log(`Pinging: ${url}`);
+
+  return await fetch(`http://localhost:3306/ping-server`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json", // Set Content-Type to application/json
     },
   })
   .then((res) => res)
-  .then((data) => data)
   .catch((err) => err)
 }
 
