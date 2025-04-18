@@ -19,15 +19,17 @@ export default function EditClockContainer({
   const clockUpdater = async (e) => {
     e.preventDefault();
     console.log(currentClock.id, currentClock)
+
     // Saves edit to the db
     await updateClock(currentClock.id, currentClock);
 
     const pusherClock = { ...currentClock, editing: false };
+    console.log(pusherClock)
 
     // Sets client clock to non-editing
     setClockData(
       clockData.map((clock) => {
-        if (clock.id === clock.id) {
+        if (currentClock.id === clock.id) {
           return pusherClock;
         }
         return clock;

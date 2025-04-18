@@ -3,6 +3,7 @@ import ClockContainer from './sub-components/ClockContainer';
 import EditClockContainer from './sub-components/EditClockContainer'
 
 export default function ClocksContainer({ userId, clockData, setClockData }) {
+  console.log(clockData)
 
   return (
     <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 m-2">
