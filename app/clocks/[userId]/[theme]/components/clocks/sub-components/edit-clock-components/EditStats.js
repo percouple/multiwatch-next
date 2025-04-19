@@ -41,12 +41,6 @@ export default function EditStats({
       placeholder: secondsToTime(oldClock.todaySessionTime),
       value: currentClock.todaySessionTime,
     },
-    {
-      label: "Today",
-      name: "todaySessionTime",
-      placeholder: secondsToTime(oldClock.allTime),
-      value: currentClock.allTime,
-    },
   ];
 
   return (

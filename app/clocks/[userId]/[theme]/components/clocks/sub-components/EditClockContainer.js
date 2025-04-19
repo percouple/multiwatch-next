@@ -24,7 +24,6 @@ export default function EditClockContainer({
     await updateClock(currentClock.id, currentClock);
 
     const pusherClock = { ...currentClock, editing: false };
-    console.log(pusherClock)
 
     // Sets client clock to non-editing
     setClockData(
@@ -39,9 +38,9 @@ export default function EditClockContainer({
 
   return (
     <div
-      className="flex flex-col justify-between items-center bg-bkg shadow-md 
+      className="flex flex-col justify-between items-center bg-skin-backgroundBase shadow-md 
         shadow-neutral-900 border-solid border-4 rounded-lg mt-4 mx-2 px-4
-        border-editClockColor"
+        border-skin-accent-2"
     >
       <form
         onSubmit={clockUpdater}
@@ -74,9 +73,9 @@ export default function EditClockContainer({
           />
         <button
           type="submit"
-          className="flex w-44 justify-center items-center font-extrabold italic text-lg text-txt
-          bg-cmp_bkg cursor-pointer border-4 rounded-md p-2 mx-4 border-editClockColor
-          my-4 hover:bg-bkg transition-colors duration-300 ease-in-out"
+          className="flex w-44 justify-center items-center font-extrabold italic text-lg text-skin-textBase
+          bg-skin-backgroundMuted cursor-pointer border-4 rounded-md p-2 mx-4 border-skin-accent-2
+          my-4 hover:bg-skin-backgroundBase transition-colors duration-300 ease-in-out"
         >
           Save
         </button>
