@@ -1,9 +1,12 @@
 import React from "react";
 import CancelEditClockButtonIcon from "../../../icons/CancelEditClockButtonIcon";
+import { updateClock } from "../../../../../../../../http_helpers";
 
 export default function CancelEditClockButton({ clock, setClockData, clockData }) {
 
   const clickHandler = async (e) => {
+    await updateClock(clock.id, {editing: false} );
+
     setClockData(
       clockData.map((clientClock) => {
         if (clientClock.id === clock.id) {
