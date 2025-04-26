@@ -21,12 +21,12 @@ export default function SingleEditStat({
   };
   return (
     <div className="flex justify-center items-center w-64">
-      <span className="w-1/2 p-1 my-2 border-r-2 border-skin-textBase">{label}</span>
+      <span className="w-1/2 p-1 my-2">{label}</span>
       <input
         type="text"
         name={name}
-        className="w-1/2 py-1 px-2 border-2 text-center rounded-md border-skin-backgroundBase m-1 
-        bg-transparent focus:border-editClockColor"
+        className="w-1/2 py-1 px-2 border-2 text-center
+        bg-transparent"
         onChange={changeHandler}
         value={value}
         placeholder={placeholder}
