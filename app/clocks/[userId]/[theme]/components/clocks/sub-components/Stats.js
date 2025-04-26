@@ -17,7 +17,7 @@ export default function Stats({
   if (punchedIn) {
     todayDisplayTime = clock.todaySessionTime + secondsPassed;
     thisWeekDisplayTime = clock.thisWeekTime + secondsPassed;
-    // Handle for showing reduced time. Kick back to -84000 or whatever
+    // Limit input time allowable. Kick back to -84000 or whatever
     // To loop back around
     if (todayDisplayTime >= 86400) {
       todayDisplayTime -= 86400;

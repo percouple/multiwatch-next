@@ -46,8 +46,9 @@ export default function ClockContainer({
       });
 
       // Back End updating
+      console.log(currentClock)
       const result = await updateClock(currentClock.id, currentClock);
-      console.log(result);
+      console.log(currentClock.updatedAt);
       setSecondsPassed(0);
     }
   };

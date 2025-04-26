@@ -7,6 +7,7 @@ export default function EditStats({
   oldClock,
   setCurrentClock,
   setErrMessage,
+  errMessage
 }) {
   
   useEffect(() => {
@@ -22,24 +23,28 @@ export default function EditStats({
       name: "lastSessionTime",
       placeholder: secondsToTime(oldClock.lastSessionTime),
       value: currentClock.lastSessionTime,
+      maxLength: 5,
     },
     {
       label: "Today",
       name: "todaySessionTime",
       placeholder: secondsToTime(oldClock.todaySessionTime),
       value: currentClock.todaySessionTime,
+      maxLength: 5,
     },
     {
       label: "This Week",
       name: "thisWeekTime",
       placeholder: secondsToTime(oldClock.thisWeekTime),
       value: currentClock.thisWeekTime,
+      maxLength: 6,
     },
     {
       label: "All Time",
       name: "allTime",
       placeholder: secondsToTime(oldClock.allTime),
       value: currentClock.allTime,
+      maxLength: 9,
     },
   ];
 
@@ -57,6 +62,7 @@ export default function EditStats({
             currentClock={currentClock}
             placeholder={stat.placeholder}
             value={stat.value}
+            maxLength={stat.maxLength}
             setErrMessage={setErrMessage}
             setCurrentClock={setCurrentClock}
           />

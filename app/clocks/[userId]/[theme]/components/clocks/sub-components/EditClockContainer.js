@@ -70,6 +70,7 @@ export default function EditClockContainer({
           oldClock={clock}
           setCurrentClock={setCurrentClock}
           setErrMessage={setErrMessage}
+          errMessage={errMessage}
           />
         <button
           type="submit"

@@ -5,20 +5,19 @@ export default function SingleEditStat({
   currentClock,
   value,
   placeholder,
-  name
+  name,
+  maxLength
 }) {
   // Validates user inputs - digits only
   // Once submitted, alters the current client user clock
   const changeHandler = (e) => {
     const { value, name } = e.target;
-    console.log(value)
-    console.log(name)
-    // if (isNaN(value)) {
-    //   setErrMessage("Only digits accepted as input");
-    // } else {
+    if (isNaN(value)) {
+      setErrMessage("Only digits accepted as input");
+    } else {
       setCurrentClock((oldStats) => ({ ...oldStats, [name]: Number(value) }));
       setErrMessage("");
-    // }
+    }
   };
   return (
     <div className="flex justify-center items-center w-64">
@@ -31,6 +30,7 @@ export default function SingleEditStat({
         onChange={changeHandler}
         value={value}
         placeholder={placeholder}
+        maxLength={maxLength}
       />
     </div>
   );
