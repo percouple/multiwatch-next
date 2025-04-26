@@ -6,13 +6,13 @@ import { routingDataArray } from "./routing-data.js";
 import { useParams } from "next/navigation";
 import { addClock } from "../../../../../http_helpers.js";
 
-export default function Login({}) {
+export default function Login() {
   const params = useParams();
   const routingData = routingDataArray(params.userId, params.theme);
 
   const createClockButton = async () => {
-    console.log(params)
-    await addClock(params.userId);
+    const res = await addClock(params.userId);
+    console.log(res)
   }
 
   return (

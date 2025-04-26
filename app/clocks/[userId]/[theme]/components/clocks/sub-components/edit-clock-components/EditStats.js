@@ -37,9 +37,9 @@ export default function EditStats({
     },
     {
       label: "All Time",
-      name: "all",
-      placeholder: secondsToTime(oldClock.todaySessionTime),
-      value: currentClock.todaySessionTime,
+      name: "allTime",
+      placeholder: secondsToTime(oldClock.allTime),
+      value: currentClock.allTime,
     },
   ];
 
