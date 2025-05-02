@@ -90,7 +90,7 @@ export default function ClockContainer({
         <div
           onClick={() => setExpanded(!expanded)}
           className={`cursor-pointer ml-2 h-fit p-1 rounded-full 
-          bg-${clockColor}`}
+          bg-skin-backgroundMuted`}
         >
           <ShowStatisticsIcon />
         </div>
