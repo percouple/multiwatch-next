@@ -73,8 +73,11 @@ export const secondsToTime = (secs) => {
   return `${years} ${weeks} ${days} ${hours}:${minutes}:${secs} `;
 };
 
+// Converts date object passed to readable format
 export const dateObjectConverter = (dateString) => {
+  // Create new date object
   const date = new Date(dateString)
-  return date.toLocaleTimeString() + ", " + date.toLocaleDateString()
+  // Combine time string and date string, omit seconds
+  const result = date.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'}) + ", " + date.toLocaleDateString();
+  return result;
 }
-
