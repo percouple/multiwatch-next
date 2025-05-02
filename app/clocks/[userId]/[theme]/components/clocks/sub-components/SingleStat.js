@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function SingleStat({ label, time, punchedIn, theme }) {
+export default function SingleStat({ label, time, punchedIn }) {
   let [statColor, setStatColor] = useState("text-skin-textBase");
 
   useEffect(() => {
@@ -16,9 +16,12 @@ export default function SingleStat({ label, time, punchedIn, theme }) {
   }, [punchedIn]);
 
   return (
-    <div className="flex justify-center items-center border-2 border-skin-textMuted w-full">
-      <span className="w-1/2 p-1 text-start">{label}:</span>
-      <span className={`w-1/2 px-1 ${statColor} `}>
+    <div className="flex justify-between items-center bg-skin-backgroundMuted
+    w-full p-2 px-4 rounded-sm shadow-md hover:shadow-lg transition-shadow 
+    duration-300 ease-in-out">
+      <span className="w-1/2 text-left text-lg font-semibold 
+      text-skin-textBase p-2">{label}:</span>
+      <span className={`w-1/2 p-2 ${statColor} `}>
         {time}
       </span>
     </div>

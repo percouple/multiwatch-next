@@ -98,7 +98,7 @@ export default function ClockContainer({
         </div>
       </div>
       {expanded && (
-        <div>
+        <div className="flex flex-col justify-center items-center">
           <Stats
             punchedIn={punchedIn}
             secondsPassed={secondsPassed}

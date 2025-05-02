@@ -44,9 +44,8 @@ export default function Stats({
 
   return (
     <div
-      className="grid grid-cols-1 md:grid-cols-2
-      text-center cursor-default max-w-[80%] mx-auto mt-6 
-      bg-skin-backgroundMuted p-4 rounded-lg font-normal"
+      className="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-2
+      text-center cursor-default max-w-[90%] mt-6 font-light"
     >
       {statArray.map((stat, idx) => {
         return (
