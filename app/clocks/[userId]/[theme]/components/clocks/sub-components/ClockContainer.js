@@ -35,6 +35,7 @@ export default function ClockContainer({
   const handlePunchOut = async (e) => {
     if (punchedIn) {
       setPunchedIn(false);
+      currentClock.updatedAt = new Date();
 
       // Front-end updating
       setCurrentClock({

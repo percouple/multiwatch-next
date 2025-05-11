@@ -52,7 +52,7 @@ export default function Stats({
       editable: true,
     },
     {
-      label: "Last Started",
+      label: "Last Updated",
       time: dateObjectConverter(lastTouchedTime),
       editable: false,
     },
