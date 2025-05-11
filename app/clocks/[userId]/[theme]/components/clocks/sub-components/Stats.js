@@ -35,11 +35,27 @@ export default function Stats({
   const lastTouchedTime = clock.updatedAt.toLocaleString();
 
   const statArray = [
-    { label: "Last Session", time: secondsToTime(clock.lastSessionTime), editable: false},
+    {
+      label: "Last Session",
+      time: secondsToTime(clock.lastSessionTime),
+      editable: false,
+    },
     { label: "Today", time: secondsToTime(todayDisplayTime), editable: true },
-    { label: "This Week", time: secondsToTime(thisWeekDisplayTime), editable: true },
-    { label: "All Time", time: secondsToTime(allTimeDisplayTime), editable: true },
-    { label: "Last Started", time: dateObjectConverter(lastTouchedTime), editable: false },
+    {
+      label: "This Week",
+      time: secondsToTime(thisWeekDisplayTime),
+      editable: true,
+    },
+    {
+      label: "All Time",
+      time: secondsToTime(allTimeDisplayTime),
+      editable: true,
+    },
+    {
+      label: "Last Started",
+      time: dateObjectConverter(lastTouchedTime),
+      editable: false,
+    },
   ];
 
   return (
@@ -57,7 +73,6 @@ export default function Stats({
             clock={clock}
             theme={theme}
             punchedIn={punchedIn}
-            editable={stat.editable}
           />
         );
       })}

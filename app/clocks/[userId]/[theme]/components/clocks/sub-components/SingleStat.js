@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
-export default function SingleStat({ label, time, punchedIn, editable }) {
+export default function SingleStat({ label, time, punchedIn }) {
   let [statColor, setStatColor] = useState("text-skin-textBase");
-  let [statValue, setStatValue] = useState(time);
 
   useEffect(() => {
     if (label !== "Last Started" && label !== "Last Session") {
@@ -11,17 +10,6 @@ export default function SingleStat({ label, time, punchedIn, editable }) {
       setStatColor("text-skin-textBase");
     }
   }, [punchedIn]);
-
-  const changeHandler = (e) => {
-    e.preventDefault();
-    setStatValue(e.target.value)
-    console.log(e.target.value)
-  }
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    console.log("SUBMITTING")
-  }
 
   return (
     <div
@@ -34,20 +22,8 @@ export default function SingleStat({ label, time, punchedIn, editable }) {
       text-skin-textBase p-2"
       >
         {label}:
-      </span> {
-        editable ? 
-        <input
-        placeholder={time}
-        className={`w-1/2 p-2 placeholder:${statColor}
-        bg-skin-backgroundBase`}
-        onChange={changeHandler}
-        onBlur={submitHandler}
-        onSubmit={submitHandler}
-        name={label}
-        value={statValue}
-        ></input> :
-        <span className={`w-1/2 p-2 bg-skin-transparent ${statColor} `}>{time}</span>
-      }
+      </span>
+      <span className={`w-1/2 p-2 ${statColor} `}>{time}</span>
     </div>
   );
 }
