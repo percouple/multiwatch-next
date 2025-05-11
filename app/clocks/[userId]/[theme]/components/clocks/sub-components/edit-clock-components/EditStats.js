@@ -1,15 +1,19 @@
 import React, { useEffect } from "react";
-import { secondsToTime } from "../../../../../../../helpers";
+import {
+  dateObjectConverter,
+  secondsToTime,
+} from "../../../../../../../helpers";
 import SingleEditStat from "./SingleEditStat";
+import SingleStat from "../SingleStat";
 
 export default function EditStats({
   currentClock,
   oldClock,
   setCurrentClock,
   setErrMessage,
-  errMessage
+  errMessage,
 }) {
-  
+
   useEffect(() => {
     setErrMessage(
       "Input total seconds desired. For example, 1 yr = 31,536,000s"
@@ -18,13 +22,6 @@ export default function EditStats({
 
   // Array of statistics information for mapping in the component
   const editStatArray = [
-    {
-      label: "Last Session",
-      name: "lastSessionTime",
-      placeholder: secondsToTime(oldClock.lastSessionTime),
-      value: currentClock.lastSessionTime,
-      maxLength: 5,
-    },
     {
       label: "Today",
       name: "todaySessionTime",
@@ -50,9 +47,13 @@ export default function EditStats({
 
   return (
     <div
-      className="font-normal flex justify-center flex-wrap text-center cursor-default 
-    max-w-18rem mx-auto mt-6 bg-cmp_bkg p-4 rounded-lg max-w-[80%]"
+      className="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-2
+      text-center cursor-default max-w-[90%] mt-6 font-light"
     >
+      <SingleStat
+        label="Last Session"
+        time={secondsToTime(oldClock.lastSessionTime)}
+      />
       {editStatArray.map((stat, idx) => {
         return (
           <SingleEditStat
@@ -68,6 +69,10 @@ export default function EditStats({
           />
         );
       })}
+      <SingleStat
+        label="Last Started"
+        time={dateObjectConverter(oldClock.updatedAt)}
+      />
     </div>
   );
 }

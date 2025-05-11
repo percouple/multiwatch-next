@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 export default function SingleStat({ label, time, punchedIn }) {
   let [statColor, setStatColor] = useState("text-skin-textBase");
 
+  // Handle for changing values to change text color based on punchedIn var
   useEffect(() => {
     if (label !== "Last Started" && label !== "Last Session") {
       setStatColor(punchedIn ? "text-skin-accent-2" : "text-skin-textBase");
