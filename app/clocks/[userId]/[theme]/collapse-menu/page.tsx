@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { routingDataArray } from "./routing-data.js";
-import { useParams } from "next/navigation";
+import { useParams, redirect } from "next/navigation";
 import { addClock } from "../../../../../http_helpers.js";
 
 export default function Login() {
@@ -12,7 +12,8 @@ export default function Login() {
 
   const createClockButton = async () => {
     const res = await addClock(params.userId);
-    console.log(res)
+    console.log(params)
+    redirect(`../../../clocks/${params.userId}/${params.theme}`)
   }
 
   return (
