@@ -19,7 +19,7 @@ export default function CancelEditClockButton({ clock, setClockData, clockData }
 
   return (
     <div
-      className="flex justify-center p-1 rounded-full cursor-pointer bg-editClockColor 
+      className="flex justify-center p-1 rounded-full cursor-pointer bg-skin-backgroundMuted
         font-light transform transition-transform duration-300 ease-in-out 
         hover:-translate-y-0.5 hover:shadow-black shadow-md"
       onClick={clickHandler}
