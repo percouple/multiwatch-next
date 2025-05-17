@@ -5,7 +5,7 @@ export default function SingleStat({ label, time, punchedIn }) {
 
   // Handle for changing values to change text color based on punchedIn var
   useEffect(() => {
-    if (label !== "Last Started" && label !== "Last Session") {
+    if (label !== "Last Session" && label !== "Last Updated") {
       setStatColor(punchedIn ? "text-skin-accent-2" : "text-skin-textBase");
     } else {
       setStatColor("text-skin-textBase");

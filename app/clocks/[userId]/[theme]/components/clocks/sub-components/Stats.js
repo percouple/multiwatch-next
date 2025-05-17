@@ -38,23 +38,19 @@ export default function Stats({
     {
       label: "Last Session",
       time: secondsToTime(clock.lastSessionTime),
-      editable: false,
     },
-    { label: "Today", time: secondsToTime(todayDisplayTime), editable: true },
+    { label: "Today", time: secondsToTime(todayDisplayTime)},
     {
       label: "This Week",
       time: secondsToTime(thisWeekDisplayTime),
-      editable: true,
     },
     {
       label: "All Time",
       time: secondsToTime(allTimeDisplayTime),
-      editable: true,
     },
     {
       label: "Last Updated",
       time: dateObjectConverter(lastTouchedTime),
-      editable: false,
     },
   ];
 
