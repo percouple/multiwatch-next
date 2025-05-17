@@ -90,11 +90,11 @@ export default function ClockContainer({
         <CurrentSessionClock secondsPassed={secondsPassed || 0} />
         <div
           onClick={() => setExpanded(!expanded)}
-          className={`cursor-pointer ml-2 h-fit p-1 rounded-full 
-          bg-skin-backgroundMuted`}
+          className={`cursor-pointer bg-skin-backgroundMuted ml-2 h-fit p-1 rounded-full 
+          text-${clockColor}`}
         >
-          <ShowStatisticsIcon />
-        </div>
+        <ShowStatisticsIcon />
+      </div>
       </div>
       {expanded && (
         <div className="flex flex-col justify-center items-center">
