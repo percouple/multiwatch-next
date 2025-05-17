@@ -112,6 +112,7 @@ export default function ClockContainer({
               userId={userId}
               clockData={clockData}
               setClockData={setClockData}
+              handlePunchOut={handlePunchOut}
             />
             <DeleteClockButton
               clock={currentClock}

@@ -2,8 +2,13 @@ export default function EditClockButton({
   clock,
   clockData,
   setClockData,
+  handlePunchOut,
 }) {
   const clickHandler = async (e) => {
+
+    // Punch out if the user is punched in 
+    handlePunchOut();
+    
     setClockData(
       clockData.map((singleClock) => {
         if (singleClock.id === clock.id) {
