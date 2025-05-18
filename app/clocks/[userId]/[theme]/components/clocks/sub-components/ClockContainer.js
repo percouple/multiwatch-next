@@ -90,7 +90,9 @@ export default function ClockContainer({
         <CurrentSessionClock secondsPassed={secondsPassed || 0} />
         <div
           onClick={() => setExpanded(!expanded)}
-          className={`cursor-pointer bg-skin-backgroundMuted ml-2 h-fit p-1 rounded-full 
+          className={`cursor-pointer hover:filter 
+        hover:brightness-150 transition-all duration-300 ease-in-out 
+        bg-skin-backgroundMuted ml-2 h-fit p-1 rounded-full 
           text-${clockColor}`}
         >
         <ShowStatisticsIcon />
