@@ -91,15 +91,15 @@ export default function ClockContainer({
         <div
           onClick={() => setExpanded(!expanded)}
           className={`cursor-pointer hover:filter 
-        hover:brightness-150 transition-all duration-300 ease-in-out 
-        bg-skin-backgroundMuted ml-2 h-fit p-1 rounded-full 
+          hover:brightness-150 transition-all duration-300 ease-in-out 
+          bg-skin-backgroundMuted ml-2 h-fit p-1 rounded-full 
           text-${clockColor}`}
         >
         <ShowStatisticsIcon />
       </div>
       </div>
       {expanded && (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center md:text-2xl">
           <Stats
             punchedIn={punchedIn}
             secondsPassed={secondsPassed}
