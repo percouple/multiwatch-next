@@ -21,10 +21,10 @@ export default function EditClockButton({
 
   return (
     <div
-      className="flex w-44 justify-center items-center font-extrabold italic text-lg 
-      text-skin-textInverted cursor-pointer bg-skin-accent-1 
-      rounded-md p-2 mx-4 mt-4 hover:bg-skin-accent-2 transition-colors 
-      duration-200 ease-in-out"
+      className="flex w-40 justify-center items-center font-extrabold italic
+      text-skin-textInverted cursor-pointer bg-skin-backgroundMuted border-4 border-skin-accent-1
+      rounded-sm p-1 mx-2 mt-4 hover:border-skin-accent-2 transition-colors 
+      duration-300"
       onClick={clickHandler}
     >
       Edit Stats
