@@ -5,10 +5,9 @@ export default function StartClockIcon() {
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        height="40px"
+        className="h-8 w-8 md:h-10 md:w-10"
         viewBox="0 -960 960 960"
-        width="40px"
-        fill="#e8eaed"
+        fill="currentColor"
       >
         <path d="M320-202v-560l440 280-440 280Zm66.67-280Zm0 158.67L636-482 386.67-640.67v317.34Z" />
       </svg>

@@ -19,11 +19,11 @@ export default function CurrentTimeCounter({ theme }) {
   }, []);
 
   return (
-    <div className="relative flex mt-4 justify-between border-2 border-blue-600 min-w-[140px]
+    <div className="relative flex mt-4 justify-between min-w-[140px]
     w-fit md:min-w-[300px]
     ">
-      <div className="text-4xl w-full max-w-56 text-left border-2 border-red-600 font-thin 
-      md:text-6xl mb-8 current-time-header-box-shadow">
+      <div className="text-4xl w-full max-w-56 text-left font-thin 
+      md:text-5xl mb-8 current-time-header-box-shadow">
           {currentTime}
       </div>
       <div className="absolute top-11 md:top-16 text-2xl align-sub text-skin-accent-1">

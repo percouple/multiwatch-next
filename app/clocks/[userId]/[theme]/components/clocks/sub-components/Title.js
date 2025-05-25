@@ -19,7 +19,7 @@ export default function Title({ clock, clockColor }) {
     <form onSubmit={submitHandler}>
       <input
         className={`flex bg-transparent border-none 
-          cursor-default pt-2 pb-1 w-2/3 outline-none text-3xl font-thin 
+          cursor-default pt-2 pb-1 w-2/3 outline-none text-2xl md:text-3xl font-thin 
           clock-title-box-shadow-${
             clockColor === "skin-accent-1" ? "off" : "on"
           } 

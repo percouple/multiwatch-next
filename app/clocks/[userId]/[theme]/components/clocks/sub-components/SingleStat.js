@@ -19,12 +19,12 @@ export default function SingleStat({ label, time, punchedIn }) {
     duration-300 ease-in-out"
     >
       <span
-        className="w-1/2 text-left text-lg font-semibold 
-      text-skin-textBase p-2"
+        className="w-1/2 text-left font-semibold 
+      text-skin-textBase"
       >
         {label}:
       </span>
-      <span className={`w-1/2 p-2 ${statColor} `}>{time}</span>
+      <span className={`w-1/2 ${statColor} `}>{time}</span>
     </div>
   );
 }

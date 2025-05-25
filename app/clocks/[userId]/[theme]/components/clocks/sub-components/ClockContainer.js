@@ -78,7 +78,7 @@ export default function ClockContainer({
       shadow-md shadow-neutral-900 border-solid border-4 rounded-lg m-2 px-4 
       border-${clockColor}`}
     >
-      <div className="flex justify-between w-full mt-4">
+      <div className="flex justify-between items-end w-full mt-4">
         <Title clock={currentClock} clockColor={clockColor} />
         <ButtonContainer
           punchedIn={punchedIn}
@@ -86,7 +86,7 @@ export default function ClockContainer({
           onPunchOut={handlePunchOut}
         />
       </div>
-      <div className="flex w-full justify-between items-center m-4">
+      <div className="flex w-full justify-between items-start m-4">
         <CurrentSessionClock secondsPassed={secondsPassed || 0} />
         <div
           onClick={() => setExpanded(!expanded)}
@@ -99,7 +99,8 @@ export default function ClockContainer({
       </div>
       </div>
       {expanded && (
-        <div className="flex flex-col justify-center items-center md:text-2xl">
+        <div className="flex flex-col justify-center items-center text-sm
+        sm:text-base">
           <Stats
             punchedIn={punchedIn}
             secondsPassed={secondsPassed}
